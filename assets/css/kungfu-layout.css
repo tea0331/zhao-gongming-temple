@@ -2,27 +2,19 @@
    功夫熊猫风格 - 重新排版
    ============================================ */
 
-/* 山水背景图层 - 黑虎踏财路主题 */
+/* 山水背景图层 - 已禁用 */
 .landscape-bg {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    background: url('../img/bg-tiger-wealth.jpg?v=5') center center no-repeat;
-    background-size: cover;
+    display: none;
 }
 
-/* 确保body背景透明以显示山水背景 */
+/* 恢复body正常背景 */
 body {
-    background: transparent !important;
+    background: linear-gradient(180deg, #f5f0e8 0%, #e8e0d5 50%, #d4c4a8 100%) !important;
 }
 
-/* 水墨山峰SVG装饰 - 黑虎踏财路 */
+/* 水墨山峰SVG装饰 - 已禁用 */
 .mountain-layer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50vh;
+    display: none;
     pointer-events: none;
     z-index: 0;
     opacity: 0.35;
@@ -30,40 +22,14 @@ body {
     background-size: cover;
 }
 
-/* 黑虎剪影装饰 */
+/* 黑虎剪影装饰 - 已禁用 */
 .tiger-silhouette {
-    position: fixed;
-    bottom: 10%;
-    right: 5%;
-    width: 200px;
-    height: 150px;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.15;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'%3E%3Cpath d='M40,120 Q30,100 40,80 Q35,60 50,50 Q45,30 60,25 Q70,10 90,15 Q110,5 130,20 Q150,15 160,35 Q175,40 170,60 Q180,80 160,100 Q150,120 130,115 Q110,130 90,125 Q70,135 50,125 Q35,130 40,120 Z' fill='%231a1a1a'/%3E%3Cpath d='M160,100 Q180,90 190,70 Q195,50 180,40' stroke='%231a1a1a' stroke-width='8' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='70' cy='55' r='5' fill='%23d4a84a'/%3E%3Ccircle cx='100' cy='50' r='5' fill='%23d4a84a'/%3E%3Cpath d='M55,45 L50,30 L65,40' fill='%231a1a1a'/%3E%3Cpath d='M115,40 L120,25 L130,38' fill='%231a1a1a'/%3E%3Ctext x='85' y='35' font-size='12' fill='%23d4a84a' font-weight='bold'%3E王%3C/text%3E%3C/svg%3E") no-repeat center;
-    background-size: contain;
+    display: none;
 }
 
-/* 财路金元宝装饰 */
+/* 财路金元宝装饰 - 已禁用 */
 .wealth-path {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 30vh;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.1;
-    background: 
-        radial-gradient(ellipse 30px 20px at 10% 90%, #d4a84a 0%, transparent 70%),
-        radial-gradient(ellipse 25px 15px at 20% 85%, #d4a84a 0%, transparent 70%),
-        radial-gradient(ellipse 35px 25px at 30% 95%, #d4a84a 0%, transparent 70%),
-        radial-gradient(ellipse 20px 12px at 40% 88%, #d4a84a 0%, transparent 70%),
-        radial-gradient(ellipse 30px 20px at 50% 92%, #d4a84a 0%, transparent 70%),
-        radial-gradient(ellipse 25px 15px at 60% 86%, #d4a84a 0%, transparent 70%),
-        radial-gradient(ellipse 35px 25px at 70% 94%, #d4a84a 0%, transparent 70%),
-        radial-gradient(ellipse 20px 12px at 80% 89%, #d4a84a 0%, transparent 70%),
-        radial-gradient(ellipse 30px 20px at 90% 91%, #d4a84a 0%, transparent 70%);
+    display: none;
 }
 
 /* 主布局 - 神像居中大气 */
