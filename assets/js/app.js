@@ -211,6 +211,27 @@
                 navLinks.style.borderBottom = '1px solid rgba(212,168,67,0.2)';
             });
         }
+
+        // Share buttons
+        document.querySelectorAll('.share-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = encodeURIComponent(window.location.href);
+                const text = encodeURIComponent(State.lang === 'zh' ? '我在正一龙虎玄坛真君财神赵公明庙祈福，快来一起上香！' : 'I\'m praying at the Temple of Zhao Gongming - God of Wealth! Join me!');
+                const id = btn.id;
+                if (id === 'share-wechat') {
+                    alert(State.lang === 'zh' ? '请截图分享到微信朋友圈 🙏' : 'Please screenshot and share on WeChat 🙏');
+                } else if (id === 'share-twitter') {
+                    window.open('https://twitter.com/intent/tweet?text=' + text + '&url=' + url, '_blank');
+                } else if (id === 'share-facebook') {
+                    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, '_blank');
+                } else if (id === 'share-copy') {
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        alert(State.lang === 'zh' ? '链接已复制！' : 'Link copied!');
+                    });
+                }
+            });
+        });
     }
 
     // ============ 上香功能 ============

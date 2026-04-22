@@ -434,6 +434,22 @@ body {
     position: relative;
 }
 
+/* SVG Deity Portrait */
+#deity-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: drop-shadow(0 0 20px rgba(212, 168, 67, 0.2));
+}
+
+/* Hide old CSS deity elements since SVG replaces them */
+.deity-portrait .deity-aura,
+.deity-portrait .deity-body,
+.deity-portrait .deity-tiger,
+.deity-portrait .treasure-basin {
+    display: none;
+}
+
 .deity-portrait {
     width: 100%;
     height: 100%;
@@ -482,15 +498,9 @@ body {
 }
 
 .deity-face::before {
-    content: '怒';
+    content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--gold);
-    font-size: 1.8rem;
-    font-weight: 900;
-    text-shadow: 0 0 10px rgba(212, 168, 67, 0.6);
+    display: none;
 }
 
 .deity-beard {
@@ -1430,3 +1440,16 @@ footer {
     .incense-types { grid-template-columns: repeat(2, 1fr); }
     .gate-roof { width: 140px; }
 }
+
+/* Share Section */
+.share-section { padding: 3rem 1.5rem; text-align: center; background: linear-gradient(180deg, var(--temple-bg), var(--black-light)); }
+.share-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; max-width: 500px; margin: 1.5rem auto 0; }
+.share-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.5rem; border-radius: 8px; border: none; cursor: pointer; font-family: var(--font-cn); font-size: 0.9rem; color: #fff; text-decoration: none; transition: var(--transition); }
+.share-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+.share-wechat { background: #07c160; }
+.share-twitter { background: #1da1f2; }
+.share-facebook { background: #1877f2; }
+.share-copy { background: rgba(212, 168, 67, 0.3); border: 1px solid var(--gold-dark); }
+
+/* Lemon Squeezy override */
+.lemon-squeezy-button { background: linear-gradient(135deg, #ffd700, #ff8c00) !important; color: #1a1a2e !important; font-weight: 700 !important; border-radius: 8px !important; }
