@@ -6,9 +6,14 @@
 .landscape-bg {
     position: fixed;
     inset: 0;
-    z-index: -1;
-    background: url('assets/img/bg-tiger-wealth.jpg') center center no-repeat;
+    z-index: 0;
+    background: url('../img/bg-tiger-wealth.jpg?v=3') center center no-repeat;
     background-size: cover;
+}
+
+/* 确保body背景透明以显示山水背景 */
+body {
+    background: transparent !important;
 }
 
 /* 水墨山峰SVG装饰 - 黑虎踏财路 */
@@ -68,14 +73,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 100px 20px 40px;
+    padding: 80px 20px 30px;
     position: relative;
 }
 
 /* 顶部标题区 */
 .hero-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     position: relative;
 }
 
@@ -84,39 +89,39 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
 }
 
 .title-main {
     font-family: var(--font-display) !important;
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     color: var(--ink-black);
-    letter-spacing: 0.3em;
+    letter-spacing: 0.15em;
     text-shadow: 
-        3px 3px 0 rgba(212, 168, 74, 0.4),
+        2px 2px 0 rgba(212, 168, 74, 0.4),
         -1px -1px 0 rgba(255,255,255,0.8);
     font-weight: 700;
 }
 
 .title-deity {
     font-family: var(--font-display) !important;
-    font-size: 3.5rem;
+    font-size: 2.4rem;
     color: var(--kungfu-red-dark);
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     text-shadow: 
-        4px 4px 0 rgba(212, 168, 74, 0.5),
-        -2px -2px 0 rgba(255,255,255,0.6);
+        3px 3px 0 rgba(212, 168, 74, 0.5),
+        -1px -1px 0 rgba(255,255,255,0.6);
     font-weight: 900;
 }
 
 /* 庙宇宗旨 */
 .temple-motto {
     font-family: var(--font-display) !important;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     color: var(--kungfu-gold);
-    letter-spacing: 0.8em;
-    margin: 20px 0;
-    padding: 10px 30px;
+    letter-spacing: 0.4em;
+    margin: 12px 0;
+    padding: 8px 20px;
     border-top: 2px solid var(--kungfu-gold);
     border-bottom: 2px solid var(--kungfu-gold);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
@@ -134,8 +139,8 @@
 /* 神像庙宇介绍风格 - 简洁大气 */
 .deity-temple-header {
     text-align: center;
-    margin-bottom: 25px;
-    padding: 20px 0;
+    margin-bottom: 15px;
+    padding: 10px 0;
 }
 
 .temple-intro {
@@ -144,11 +149,11 @@
 
 .temple-name {
     font-family: 'Ma Shan Zheng', 'Noto Serif SC', serif !important;
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: #c9a050;
-    letter-spacing: 0.3em;
-    margin: 0 0 10px 0;
+    letter-spacing: 0.15em;
+    margin: 0 0 8px 0;
     text-shadow: 
         1px 1px 2px rgba(0,0,0,0.3),
         0 0 20px rgba(201, 160, 80, 0.2);
@@ -156,12 +161,13 @@
 
 .temple-desc {
     font-family: 'Noto Serif SC', serif !important;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: #d4a84a !important;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     margin: 0;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
     font-weight: 500;
+    line-height: 1.6;
 }
 
 .deity-shrine {
@@ -173,18 +179,19 @@
 /* 神像画框 - 卷轴风格 */
 .deity-image-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 320px;
     aspect-ratio: 3/4;
     position: relative;
-    border: 15px solid var(--kungfu-gold);
+    border: 12px solid var(--kungfu-gold);
     border-radius: 4px;
     box-shadow: 
-        0 0 0 4px var(--kungfu-gold-light),
-        0 0 0 8px var(--kungfu-gold-dark),
-        0 20px 60px rgba(0,0,0,0.3),
-        inset 0 0 100px rgba(212, 168, 74, 0.15);
+        0 0 0 3px var(--kungfu-gold-light),
+        0 0 0 6px var(--kungfu-gold-dark),
+        0 15px 40px rgba(0,0,0,0.3),
+        inset 0 0 80px rgba(212, 168, 74, 0.15);
     background: linear-gradient(135deg, #f8f0e0 0%, #e8dcc0 100%);
     overflow: hidden;
+    margin: 0 auto;
 }
 
 /* 卷轴轴头 */
@@ -231,21 +238,24 @@
 
 .deity-title {
     font-family: var(--font-display) !important;
-    font-size: 2rem;
+    font-size: 1.3rem;
     color: var(--kungfu-red-dark);
-    letter-spacing: 0.15em;
-    margin-bottom: 10px;
+    letter-spacing: 0.08em;
+    margin: 15px 0 8px 0;
     text-shadow: 
         2px 2px 0 rgba(212, 168, 74, 0.3),
         -1px -1px 0 rgba(255,255,255,0.5);
+    text-align: center;
 }
 
 .deity-subtitle {
     font-family: var(--font-display) !important;
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: var(--ink-gray);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     opacity: 0.8;
+    text-align: center;
+    margin: 0;
 }
 
 /* 功能按钮区 */
@@ -312,15 +322,18 @@
 
 /* 响应式 */
 @media (max-width: 768px) {
-    .title-main { font-size: 1.5rem; letter-spacing: 0.2em; }
-    .title-deity { font-size: 2.2rem; letter-spacing: 0.1em; }
-    .temple-motto { font-size: 1.2rem; letter-spacing: 0.4em; }
-    .deity-image-container { max-width: 300px; }
-    .deity-title { font-size: 1.5rem; }
+    .title-main { font-size: 1.3rem; letter-spacing: 0.15em; }
+    .title-deity { font-size: 1.8rem; letter-spacing: 0.08em; }
+    .temple-motto { font-size: 1rem; letter-spacing: 0.3em; }
+    .deity-image-container { max-width: 260px; border-width: 10px; }
+    .deity-title { font-size: 1.1rem; letter-spacing: 0.05em; }
+    .deity-subtitle { font-size: 0.75rem; }
+    .temple-name { font-size: 1.8rem; letter-spacing: 0.1em; }
+    .temple-desc { font-size: 0.85rem; letter-spacing: 0.08em; }
     .btn-kungfu { padding: 12px 30px; font-size: 1.1rem; }
-    .hero-stats { gap: 20px; }
+    .hero-stats { gap: 15px; }
     
     .deity-main-title { padding: 10px 20px; }
-    .deity-name-cn { font-size: 2.8rem; letter-spacing: 0.2em; }
-    .deity-name-en { font-size: 1.2rem; }
+    .deity-name-cn { font-size: 2.2rem; letter-spacing: 0.15em; }
+    .deity-name-en { font-size: 1rem; }
 }
