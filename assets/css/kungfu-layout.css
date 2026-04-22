@@ -2,49 +2,93 @@
    功夫熊猫风格 - 重新排版
    ============================================ */
 
-/* 山水背景图层 */
+/* 山水背景图层 - 黑虎踏财路主题 */
 .landscape-bg {
     position: fixed;
     inset: 0;
     z-index: -1;
     background: 
-        /* 远山层叠 */
-        radial-gradient(ellipse 120% 60% at 50% 100%, 
-            rgba(100, 90, 80, 0.4) 0%, 
+        /* 远山层叠 - 水墨渲染 */
+        radial-gradient(ellipse 150% 80% at 50% 100%, 
+            rgba(60, 50, 40, 0.5) 0%, 
+            transparent 60%),
+        radial-gradient(ellipse 120% 60% at 15% 95%, 
+            rgba(80, 70, 60, 0.4) 0%, 
             transparent 50%),
-        radial-gradient(ellipse 100% 50% at 20% 90%, 
-            rgba(120, 110, 100, 0.3) 0%, 
-            transparent 40%),
-        radial-gradient(ellipse 80% 40% at 80% 85%, 
-            rgba(110, 100, 90, 0.35) 0%, 
-            transparent 45%),
-        /* 云雾 */
-        radial-gradient(ellipse 60% 30% at 30% 70%, 
-            rgba(255, 250, 240, 0.6) 0%, 
+        radial-gradient(ellipse 100% 50% at 85% 90%, 
+            rgba(70, 60, 50, 0.45) 0%, 
+            transparent 55%),
+        /* 祥云环绕 */
+        radial-gradient(ellipse 80% 40% at 25% 75%, 
+            rgba(255, 248, 235, 0.7) 0%, 
             transparent 50%),
-        radial-gradient(ellipse 50% 25% at 70% 60%, 
+        radial-gradient(ellipse 70% 35% at 75% 70%, 
+            rgba(255, 248, 235, 0.6) 0%, 
+            transparent 50%),
+        radial-gradient(ellipse 60% 30% at 50% 65%, 
             rgba(255, 250, 240, 0.5) 0%, 
-            transparent 50%),
+            transparent 45%),
+        /* 财路金光 */
+        radial-gradient(ellipse 40% 20% at 50% 85%, 
+            rgba(212, 168, 74, 0.2) 0%, 
+            transparent 60%),
         /* 宣纸底色 */
         linear-gradient(180deg, 
-            #f8f0e0 0%, 
-            #f0e6d0 30%,
-            #e8dcc0 60%,
-            #e0d0b0 100%);
+            #faf6f0 0%, 
+            #f5efe6 25%,
+            #ebe4d6 50%,
+            #e0d6c8 75%,
+            #d4c8b8 100%);
 }
 
-/* 水墨山峰SVG装饰 */
+/* 水墨山峰SVG装饰 - 黑虎踏财路 */
 .mountain-layer {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 40vh;
+    height: 50vh;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.25;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400'%3E%3Cpath d='M0,400 L0,300 Q150,150 300,280 Q450,100 600,250 Q750,80 900,220 Q1050,120 1200,280 L1200,400 Z' fill='%236a5a4a'/%3E%3Cpath d='M0,400 L0,350 Q200,250 400,320 Q600,200 800,300 Q1000,220 1200,340 L1200,400 Z' fill='%238a7a6a' opacity='0.7'/%3E%3C/svg%3E") bottom center no-repeat;
+    opacity: 0.35;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 500'%3E%3Cdefs%3E%3ClinearGradient id='mountGrad' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234a4035'/%3E%3Cstop offset='100%25' stop-color='%232a2015'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- 远山 --%3E%3Cpath d='M0,500 L0,350 Q100,200 250,320 Q400,150 550,280 Q700,100 850,250 Q1000,120 1150,280 Q1300,180 1400,320 L1400,500 Z' fill='url(%23mountGrad)' opacity='0.6'/%3E%3C!-- 中山 --%3E%3Cpath d='M0,500 L0,400 Q150,300 300,380 Q450,250 600,360 Q750,280 900,380 Q1050,300 1200,400 Q1300,350 1400,420 L1400,500 Z' fill='%235a5045' opacity='0.7'/%3E%3C!-- 近山 --%3E%3Cpath d='M0,500 L0,450 Q200,380 400,450 Q600,380 800,460 Q1000,400 1200,470 Q1300,440 1400,480 L1400,500 Z' fill='%236a6055' opacity='0.8'/%3E%3C/svg%3E") bottom center no-repeat;
     background-size: cover;
+}
+
+/* 黑虎剪影装饰 */
+.tiger-silhouette {
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    width: 200px;
+    height: 150px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.15;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'%3E%3Cpath d='M40,120 Q30,100 40,80 Q35,60 50,50 Q45,30 60,25 Q70,10 90,15 Q110,5 130,20 Q150,15 160,35 Q175,40 170,60 Q180,80 160,100 Q150,120 130,115 Q110,130 90,125 Q70,135 50,125 Q35,130 40,120 Z' fill='%231a1a1a'/%3E%3Cpath d='M160,100 Q180,90 190,70 Q195,50 180,40' stroke='%231a1a1a' stroke-width='8' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='70' cy='55' r='5' fill='%23d4a84a'/%3E%3Ccircle cx='100' cy='50' r='5' fill='%23d4a84a'/%3E%3Cpath d='M55,45 L50,30 L65,40' fill='%231a1a1a'/%3E%3Cpath d='M115,40 L120,25 L130,38' fill='%231a1a1a'/%3E%3Ctext x='85' y='35' font-size='12' fill='%23d4a84a' font-weight='bold'%3E王%3C/text%3E%3C/svg%3E") no-repeat center;
+    background-size: contain;
+}
+
+/* 财路金元宝装饰 */
+.wealth-path {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30vh;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.1;
+    background: 
+        radial-gradient(ellipse 30px 20px at 10% 90%, #d4a84a 0%, transparent 70%),
+        radial-gradient(ellipse 25px 15px at 20% 85%, #d4a84a 0%, transparent 70%),
+        radial-gradient(ellipse 35px 25px at 30% 95%, #d4a84a 0%, transparent 70%),
+        radial-gradient(ellipse 20px 12px at 40% 88%, #d4a84a 0%, transparent 70%),
+        radial-gradient(ellipse 30px 20px at 50% 92%, #d4a84a 0%, transparent 70%),
+        radial-gradient(ellipse 25px 15px at 60% 86%, #d4a84a 0%, transparent 70%),
+        radial-gradient(ellipse 35px 25px at 70% 94%, #d4a84a 0%, transparent 70%),
+        radial-gradient(ellipse 20px 12px at 80% 89%, #d4a84a 0%, transparent 70%),
+        radial-gradient(ellipse 30px 20px at 90% 91%, #d4a84a 0%, transparent 70%);
 }
 
 /* 主布局 - 神像居中大气 */
@@ -117,85 +161,71 @@
     z-index: 1;
 }
 
-/* 神像主标题 - 功夫熊猫金色立体风格 */
-.deity-main-title {
+/* 神像庙宇牌匾风格 */
+.deity-temple-header {
     text-align: center;
-    margin-bottom: 25px;
-    padding: 15px 30px;
+    margin-bottom: 30px;
+}
+
+.temple-plaque {
+    display: inline-block;
+    padding: 20px 50px;
     background: linear-gradient(180deg, 
-        rgba(139, 0, 0, 0.9) 0%, 
-        rgba(100, 0, 0, 0.95) 50%,
-        rgba(80, 0, 0, 0.9) 100%);
-    border-radius: 10px;
-    border: 3px solid #d4a84a;
+        #8B0000 0%, 
+        #6B0000 50%,
+        #4B0000 100%);
+    border: 4px solid #DAA520;
+    border-radius: 8px;
     box-shadow: 
-        0 5px 20px rgba(0,0,0,0.4),
-        inset 0 1px 0 rgba(255,255,255,0.2);
+        0 0 0 2px #8B0000,
+        0 0 0 4px #DAA520,
+        0 10px 30px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.1);
     position: relative;
 }
 
-.deity-main-title::before,
-.deity-main-title::after {
-    content: '◆';
+/* 牌匾装饰角 */
+.temple-plaque::before,
+.temple-plaque::after {
+    content: '';
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #d4a84a;
-    font-size: 1.2rem;
-    opacity: 0.7;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #DAA520;
 }
-.deity-main-title::before { left: 15px; }
-.deity-main-title::after { right: 15px; }
+.temple-plaque::before {
+    top: 8px;
+    left: 8px;
+    border-right: none;
+    border-bottom: none;
+}
+.temple-plaque::after {
+    bottom: 8px;
+    right: 8px;
+    border-left: none;
+    border-top: none;
+}
 
 .deity-name-cn {
-    font-family: var(--font-display) !important;
-    font-size: 4rem;
-    font-weight: 900;
-    color: #f0d890;
-    letter-spacing: 0.3em;
+    font-family: 'Ma Shan Zheng', 'Noto Serif SC', serif !important;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #FFD700;
+    letter-spacing: 0.4em;
     margin: 0;
     text-shadow: 
-        /* 金色立体效果 */
-        0 1px 0 #c9a050,
-        0 2px 0 #b89040,
-        0 3px 0 #a08030,
-        0 4px 0 #907020,
-        0 5px 0 #806010,
-        0 6px 10px rgba(0,0,0,0.4),
-        /* 金色描边 */
-        -2px -2px 0 #b8860b,
-        2px -2px 0 #b8860b,
-        -2px 2px 0 #b8860b,
-        2px 2px 0 #b8860b,
-        /* 外发光 */
-        0 0 30px rgba(240, 216, 144, 0.5);
-    background: linear-gradient(180deg, 
-        #fff8dc 0%, 
-        #f0d890 30%,
-        #d4a84a 50%,
-        #c9a050 70%,
-        #b8860b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+        2px 2px 0 #8B4513,
+        4px 4px 8px rgba(0,0,0,0.5);
 }
 
 .deity-name-en {
-    font-family: var(--font-display) !important;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #f0d890;
-    letter-spacing: 0.15em;
-    margin: 10px 0 0 0;
-    text-shadow: 
-        0 1px 0 #c9a050,
-        0 2px 0 #b89040,
-        0 3px 0 #a08030,
-        0 4px 5px rgba(0,0,0,0.3),
-        -1px -1px 0 #b8860b,
-        1px -1px 0 #b8860b,
-        -1px 1px 0 #b8860b,
-        1px 1px 0 #b8860b;
+    font-family: 'Cinzel', serif !important;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #F0E68C;
+    letter-spacing: 0.2em;
+    margin: 8px 0 0 0;
+    text-transform: uppercase;
 }
 
 .deity-shrine {
