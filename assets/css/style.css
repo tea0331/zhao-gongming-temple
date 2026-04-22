@@ -265,7 +265,7 @@ body {
     justify-content: center;
     position: relative;
     padding: 6rem 1.5rem 3rem;
-    background: linear-gradient(180deg, #f5f0e8 0%, #e8e0d5 50%, #d4c4a8 100%);
+    background: transparent !important;
     overflow: hidden;
 }
 
@@ -720,7 +720,7 @@ section {
 
 /* Incense Section */
 .incense-section {
-    background: linear-gradient(180deg, var(--temple-bg), var(--black-light), var(--temple-bg));
+    background: rgba(245, 240, 232, 0.85);
 }
 
 .incense-panel {
@@ -1466,14 +1466,15 @@ footer {
 /* ============ 偏殿通用样式 ============ */
 .side-hall-section {
     padding: 5rem 1.5rem;
+    background: rgba(245, 240, 232, 0.85) !important;
 }
 
 .side-hall-section:nth-of-type(odd) {
-    background: linear-gradient(180deg, var(--black-light), var(--temple-bg));
+    background: rgba(240, 235, 225, 0.85) !important;
 }
 
 .side-hall-section:nth-of-type(even) {
-    background: linear-gradient(180deg, var(--temple-bg), var(--black-light));
+    background: rgba(245, 240, 232, 0.85) !important;
 }
 
 .mazu-section {
