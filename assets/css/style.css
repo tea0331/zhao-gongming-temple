@@ -1,0 +1,1432 @@
+/* ============================================
+   正一龙虎玄坛真君财神赵公明 - 财神庙样式
+   ============================================ */
+
+/* CSS Variables */
+:root {
+    --gold: #d4a843;
+    --gold-light: #f0d68a;
+    --gold-dark: #b8860b;
+    --red: #c41e3a;
+    --red-dark: #8b0000;
+    --red-glow: rgba(196, 30, 58, 0.4);
+    --black: #1a1a2e;
+    --black-light: #16213e;
+    --black-lighter: #0f3460;
+    --cream: #faf3e0;
+    --cream-dark: #e8d5b7;
+    --incense-smoke: rgba(200, 200, 200, 0.3);
+    --temple-bg: #0d0d1a;
+    --card-bg: rgba(26, 26, 46, 0.9);
+    --text-primary: #f0d68a;
+    --text-secondary: #c4a35a;
+    --text-light: #e8d5b7;
+    --shadow-gold: 0 0 20px rgba(212, 168, 67, 0.3);
+    --shadow-red: 0 0 20px rgba(196, 30, 58, 0.3);
+    --font-cn: 'Noto Serif SC', serif;
+    --font-en: 'Cinzel', serif;
+    --transition: all 0.3s ease;
+}
+
+/* Reset & Base */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-cn);
+    background: var(--temple-bg);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#loading-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.tai-chi {
+    font-size: 4rem;
+    animation: spin 3s linear infinite;
+    color: var(--gold);
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-top: 1rem;
+    letter-spacing: 0.3em;
+}
+
+.loading-sub {
+    font-family: var(--font-en);
+    font-size: 0.9rem;
+    color: var(--gold-dark);
+    margin-top: 0.5rem;
+    letter-spacing: 0.15em;
+}
+
+/* Navbar */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(13, 13, 26, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212, 168, 67, 0.2);
+    transition: var(--transition);
+}
+
+#navbar.scrolled {
+    background: rgba(13, 13, 26, 0.98);
+    box-shadow: var(--shadow-gold);
+}
+
+.nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.brand-icon { font-size: 1.5rem; }
+.brand-text {
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--gold);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    color: var(--cream);
+    border: 1px solid var(--gold-dark);
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-family: var(--font-cn);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--red-dark), var(--red));
+    box-shadow: var(--shadow-red);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold-dark);
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-family: var(--font-cn);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    background: rgba(212, 168, 67, 0.1);
+    box-shadow: var(--shadow-gold);
+}
+
+.btn-icon {
+    background: transparent;
+    border: 1px solid rgba(212, 168, 67, 0.3);
+    color: var(--gold);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.btn-icon:hover {
+    background: rgba(212, 168, 67, 0.15);
+    border-color: var(--gold);
+}
+
+.btn-sm { padding: 0.4rem 1rem; font-size: 0.8rem; }
+.btn-lg { padding: 0.8rem 2rem; font-size: 1.1rem; }
+
+.btn-hero {
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: var(--black);
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    font-family: var(--font-cn);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--transition);
+    letter-spacing: 0.1em;
+}
+
+.btn-hero:hover {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-2px);
+}
+
+.mobile-only { display: none; }
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 6rem 1.5rem 3rem;
+    background: radial-gradient(ellipse at center bottom, var(--black-lighter) 0%, var(--black-light) 40%, var(--temple-bg) 80%);
+    overflow: hidden;
+}
+
+.smoke-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 80%, rgba(212, 168, 67, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 70%, rgba(196, 30, 58, 0.03) 0%, transparent 40%),
+        radial-gradient(ellipse at 70% 70%, rgba(196, 30, 58, 0.03) 0%, transparent 40%);
+    animation: smokeDrift 10s ease-in-out infinite;
+}
+
+@keyframes smokeDrift {
+    0%, 100% { opacity: 0.6; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-10px); }
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Temple Gate */
+.temple-gate {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 2rem;
+    height: 80px;
+}
+
+.gate-pillar {
+    width: 16px;
+    height: 70px;
+    background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+    border-radius: 2px;
+}
+
+.gate-roof {
+    width: 200px;
+    height: 30px;
+    background: linear-gradient(180deg, var(--red-dark), var(--red));
+    clip-path: polygon(10% 100%, 0% 0%, 100% 0%, 90% 100%);
+    margin-bottom: -2px;
+}
+
+.hero-title {
+    margin-bottom: 1.5rem;
+}
+
+.title-main {
+    display: block;
+    font-size: 2rem;
+    color: var(--gold);
+    letter-spacing: 0.3em;
+    text-shadow: 0 0 30px rgba(212, 168, 67, 0.5);
+    font-weight: 900;
+}
+
+.title-deity {
+    display: block;
+    font-size: 3.5rem;
+    color: var(--gold-light);
+    letter-spacing: 0.5em;
+    text-shadow: 0 0 40px rgba(212, 168, 67, 0.6), 0 0 80px rgba(196, 30, 58, 0.3);
+    font-weight: 900;
+    margin-top: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.4em;
+    margin-bottom: 0.5rem;
+}
+
+.hero-desc {
+    font-family: var(--font-en);
+    font-size: 0.95rem;
+    color: var(--cream-dark);
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-num {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(212, 168, 67, 0.4);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Deity Section */
+.deity-section {
+    padding: 4rem 1.5rem;
+    background: radial-gradient(ellipse at center, var(--black-light) 0%, var(--temple-bg) 70%);
+    position: relative;
+}
+
+.deity-shrine {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.shrine-arch {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.arch-top {
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(180deg, var(--red-dark), var(--red));
+    clip-path: polygon(15% 100%, 0% 0%, 100% 0%, 85% 100%);
+}
+
+.arch-pillars {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.pillar-left, .pillar-right {
+    width: 20px;
+    height: 60px;
+    background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.couplet-text {
+    writing-mode: vertical-rl;
+    font-size: 0.75rem;
+    color: var(--black);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+/* Deity Portrait (CSS Art) */
+.deity-image-container {
+    width: 280px;
+    height: 350px;
+    margin: 0 auto 1.5rem;
+    position: relative;
+}
+
+.deity-portrait {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deity-aura {
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 168, 67, 0.15) 0%, transparent 70%);
+    animation: auraPulse 4s ease-in-out infinite;
+}
+
+@keyframes auraPulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+.deity-body {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deity-crown {
+    width: 60px;
+    height: 35px;
+    background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+    clip-path: polygon(20% 100%, 0% 0%, 35% 20%, 50% 0%, 65% 20%, 100% 0%, 80% 100%);
+    margin-bottom: 2px;
+}
+
+.deity-face {
+    width: 70px;
+    height: 85px;
+    background: linear-gradient(180deg, #5a3a1a, #3d2810);
+    border-radius: 35% 35% 30% 30%;
+    position: relative;
+    box-shadow: inset 0 -5px 10px rgba(0,0,0,0.3);
+}
+
+.deity-face::before {
+    content: '怒';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--gold);
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-shadow: 0 0 10px rgba(212, 168, 67, 0.6);
+}
+
+.deity-beard {
+    width: 55px;
+    height: 30px;
+    background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
+    clip-path: polygon(10% 0%, 90% 0%, 70% 100%, 30% 100%);
+}
+
+.deity-robes {
+    width: 120px;
+    height: 130px;
+    background: linear-gradient(180deg, var(--red-dark), #6b0000, var(--red-dark));
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deity-robes::before {
+    content: '財';
+    font-size: 2.5rem;
+    color: var(--gold);
+    font-weight: 900;
+    text-shadow: 0 0 15px rgba(212, 168, 67, 0.6);
+}
+
+.deity-weapon {
+    position: absolute;
+    right: -15px;
+    top: 30%;
+    font-size: 2rem;
+    filter: drop-shadow(0 0 5px rgba(212, 168, 67, 0.5));
+}
+
+.deity-ingot {
+    position: absolute;
+    left: -15px;
+    top: 35%;
+    font-size: 1.8rem;
+    filter: drop-shadow(0 0 5px rgba(212, 168, 67, 0.5));
+}
+
+.deity-tiger {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.5));
+}
+
+.treasure-basin {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    filter: drop-shadow(0 0 8px rgba(212, 168, 67, 0.4));
+}
+
+/* Incense Burner */
+.offering-table {
+    margin: 1.5rem 0;
+}
+
+.incense-burner {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.burner-base {
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(180deg, var(--gold-dark), #8b6914);
+    border-radius: 0 0 15px 15px;
+    position: absolute;
+    bottom: 0;
+}
+
+.burner-base::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 4px;
+}
+
+.incense-sticks {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.incense-stick {
+    width: 3px;
+    height: 35px;
+    background: linear-gradient(180deg, #ff6b35, #c41e3a);
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    animation: incenseFlicker 2s ease-in-out infinite alternate;
+}
+
+.incense-stick::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background: #ffaa00;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #ff6b35;
+}
+
+@keyframes incenseFlicker {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+.smoke-container {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 60px;
+    pointer-events: none;
+}
+
+.smoke-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(200, 200, 200, 0.3);
+    border-radius: 50%;
+    animation: smokeRise 3s ease-out infinite;
+}
+
+@keyframes smokeRise {
+    0% { opacity: 0.5; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-50px) scale(3); }
+}
+
+.deity-title {
+    font-size: 1.2rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-shadow: 0 0 10px rgba(212, 168, 67, 0.4);
+}
+
+.deity-subtitle {
+    font-family: var(--font-en);
+    font-size: 0.8rem;
+    color: var(--cream-dark);
+    margin-top: 0.3rem;
+    letter-spacing: 0.1em;
+}
+
+/* Section Common */
+section {
+    padding: 5rem 1.5rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(212, 168, 67, 0.3);
+}
+
+.section-header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Incense Section */
+.incense-section {
+    background: linear-gradient(180deg, var(--temple-bg), var(--black-light), var(--temple-bg));
+}
+
+.incense-panel {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border: 1px solid rgba(212, 168, 67, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.incense-counter {
+    font-size: 1.1rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.merit-display {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.merit-item {
+    text-align: center;
+}
+
+.merit-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.merit-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.incense-types {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.incense-btn {
+    background: rgba(212, 168, 67, 0.08);
+    border: 1px solid rgba(212, 168, 67, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--text-light);
+}
+
+.incense-btn:hover, .incense-btn.selected {
+    background: rgba(212, 168, 67, 0.2);
+    border-color: var(--gold);
+    box-shadow: var(--shadow-gold);
+}
+
+.incense-icon { font-size: 1.5rem; }
+.incense-name { font-size: 0.8rem; }
+
+.incense-note {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+}
+
+/* Incense Animation Overlay */
+.incense-anim-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.incense-anim-overlay.hidden { display: none; }
+
+.anim-smoke {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(212, 168, 67, 0.3) 0%, transparent 70%);
+    animation: smokeExpand 3s ease-out;
+}
+
+@keyframes smokeExpand {
+    0% { transform: scale(0.2); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+.anim-glow {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: glowPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.5; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.anim-blessing {
+    font-size: 1.5rem;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(212, 168, 67, 0.6);
+    letter-spacing: 0.3em;
+}
+
+/* Divination Section */
+.divination-section {
+    background: linear-gradient(180deg, var(--temple-bg), rgba(13, 13, 26, 0.95));
+}
+
+.divination-panel {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border: 1px solid rgba(212, 168, 67, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Stick Cylinder */
+.stick-cylinder {
+    margin: 0 auto 1.5rem;
+    width: 140px;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+}
+
+.stick-cylinder:hover {
+    transform: scale(1.05);
+}
+
+.stick-cylinder.shaking {
+    animation: cylinderShake 0.15s ease-in-out 8;
+}
+
+@keyframes cylinderShake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+}
+
+.cylinder-body {
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(180deg, var(--gold-dark), #7a5a1a);
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+.cylinder-sticks {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+    transform-origin: bottom center;
+}
+
+.mini-stick {
+    width: 2px;
+    height: 50px;
+    background: linear-gradient(180deg, #ff6b35, #c41e3a, var(--gold-dark));
+    border-radius: 1px 1px 0 0;
+}
+
+.cylinder-base {
+    width: 110%;
+    height: 20px;
+    background: linear-gradient(180deg, #7a5a1a, #5a4010);
+    border-radius: 0 0 8px 8px;
+    margin: 0 auto;
+}
+
+.shake-hint {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+.divination-form {
+    margin-bottom: 1.5rem;
+}
+
+.divination-form label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.divination-form select {
+    width: 100%;
+    padding: 0.6rem;
+    background: rgba(26, 26, 46, 0.8);
+    color: var(--gold);
+    border: 1px solid rgba(212, 168, 67, 0.3);
+    border-radius: 6px;
+    font-family: var(--font-cn);
+    font-size: 0.9rem;
+}
+
+.divination-note {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+}
+
+/* Stick Result */
+.stick-result {
+    max-width: 600px;
+    margin: 2rem auto 0;
+}
+
+.stick-result.hidden, .hexagram-result.hidden { display: none; }
+
+.result-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(212, 168, 67, 0.3);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-gold);
+    animation: resultFadeIn 0.5s ease-out;
+}
+
+@keyframes resultFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.result-header {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stick-number, .hex-number {
+    font-size: 1.3rem;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.stick-level {
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.stick-level.upper { background: rgba(212, 168, 67, 0.2); color: var(--gold); border: 1px solid var(--gold); }
+.stick-level.middle { background: rgba(100, 149, 237, 0.2); color: #6495ed; border: 1px solid #6495ed; }
+.stick-level.lower { background: rgba(196, 30, 58, 0.2); color: var(--red); border: 1px solid var(--red); }
+
+.result-poem {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: rgba(212, 168, 67, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(212, 168, 67, 0.1);
+}
+
+.poem-line {
+    font-size: 1.1rem;
+    color: var(--cream);
+    margin: 0.5rem 0;
+    letter-spacing: 0.1em;
+}
+
+.result-interpretation, .result-advice,
+.hex-judgment, .hex-image-text, .hex-interpretation, .hex-advice {
+    text-align: left;
+    margin: 1rem 0;
+}
+
+.result-interpretation h4, .result-advice h4,
+.hex-judgment h4, .hex-image-text h4, .hex-interpretation h4, .hex-advice h4 {
+    color: var(--gold);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.result-interpretation p, .result-advice p,
+.hex-judgment p, .hex-image-text p, .hex-interpretation p, .hex-advice p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* I Ching Section */
+.iching-section {
+    background: linear-gradient(180deg, rgba(13, 13, 26, 0.95), var(--temple-bg));
+}
+
+.iching-panel {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border: 1px solid rgba(212, 168, 67, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.trigram-display {
+    margin-bottom: 1.5rem;
+}
+
+.hexagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 0.5rem;
+}
+
+.yao-line {
+    width: 80px;
+    height: 10px;
+    background: var(--gold-dark);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.yao-line.yang {
+    background: var(--gold);
+    box-shadow: 0 0 8px rgba(212, 168, 67, 0.4);
+}
+
+.yao-line.yin {
+    background: transparent;
+    border: none;
+    position: relative;
+}
+
+.yao-line.yin::before, .yao-line.yin::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 32px;
+    height: 10px;
+    background: var(--gold-dark);
+    border-radius: 2px;
+}
+
+.yao-line.yin::before { left: 0; }
+.yao-line.yin::after { right: 0; }
+
+.yao-line.changing {
+    background: var(--red);
+    box-shadow: 0 0 8px rgba(196, 30, 58, 0.5);
+}
+
+.hexagram-name {
+    font-size: 1.5rem;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.iching-form {
+    margin-bottom: 1.5rem;
+}
+
+.iching-form label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.iching-form input {
+    width: 100%;
+    padding: 0.6rem;
+    background: rgba(26, 26, 46, 0.8);
+    color: var(--gold);
+    border: 1px solid rgba(212, 168, 67, 0.3);
+    border-radius: 6px;
+    font-family: var(--font-cn);
+    font-size: 0.9rem;
+}
+
+.iching-form input::placeholder {
+    color: rgba(212, 168, 67, 0.3);
+}
+
+.iching-note {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+}
+
+/* Hexagram Result */
+.hexagram-result {
+    max-width: 600px;
+    margin: 2rem auto 0;
+}
+
+.hex-symbol {
+    font-size: 2rem;
+}
+
+/* Membership Section */
+.membership-section {
+    background: linear-gradient(180deg, var(--temple-bg), var(--black-light), var(--temple-bg));
+    padding-bottom: 4rem;
+}
+
+.membership-plans {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+}
+
+.plan-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(212, 168, 67, 0.2);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+}
+
+.plan-card:hover {
+    border-color: var(--gold);
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-5px);
+}
+
+.plan-card.popular {
+    border-color: var(--gold);
+    box-shadow: var(--shadow-gold);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--black);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.plan-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+
+.plan-card h3 {
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.plan-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--cream);
+}
+
+.plan-price span {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.plan-price-usd {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.plan-features {
+    list-style: none;
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.plan-features li {
+    padding: 0.3rem 0;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.annual-plan {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.annual-card {
+    background: linear-gradient(135deg, rgba(212, 168, 67, 0.1), rgba(196, 30, 58, 0.1));
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.annual-badge {
+    display: inline-block;
+    background: var(--red);
+    color: var(--cream);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.annual-card h3 {
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.annual-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+}
+
+.annual-usd {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.annual-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden { display: none; }
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid rgba(212, 168, 67, 0.3);
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    z-index: 1;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.modal-content p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.login-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    font-family: var(--font-cn);
+    font-size: 0.9rem;
+    transition: var(--transition);
+    color: #fff;
+}
+
+.btn-social:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-wechat { background: #07c160; }
+.btn-xiaohongshu { background: #ff2442; }
+.btn-facebook { background: #1877f2; }
+.btn-twitter { background: #1da1f2; }
+.btn-google { background: #4285f4; }
+.btn-apple { background: #000; }
+
+.social-icon { font-size: 1.2rem; }
+
+.login-terms {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid rgba(212, 168, 67, 0.1);
+    text-align: center;
+}
+
+.footer-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--gold);
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: var(--transition);
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-copy {
+    font-size: 0.75rem;
+    color: rgba(200, 200, 200, 0.3);
+    margin-bottom: 0.3rem;
+}
+
+.footer-disclaimer {
+    font-size: 0.7rem;
+    color: rgba(200, 200, 200, 0.2);
+}
+
+/* Particle effects */
+.particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    animation: particleFade 1.5s ease-out forwards;
+}
+
+@keyframes particleFade {
+    0% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(-100px) scale(0.5); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-only { display: block; }
+    .title-main { font-size: 1.3rem; letter-spacing: 0.15em; }
+    .title-deity { font-size: 2.2rem; letter-spacing: 0.2em; }
+    .hero-subtitle { font-size: 0.9rem; letter-spacing: 0.2em; }
+    .hero-stats { gap: 1.5rem; }
+    .stat-num { font-size: 1.3rem; }
+    .membership-plans { grid-template-columns: 1fr; }
+    .incense-types { grid-template-columns: repeat(3, 1fr); }
+    .deity-image-container { width: 220px; height: 280px; }
+    .result-actions { flex-direction: column; }
+    .result-actions .btn-secondary { width: 100%; }
+}
+
+@media (max-width: 480px) {
+    .hero-stats { flex-direction: column; gap: 0.5rem; }
+    .incense-types { grid-template-columns: repeat(2, 1fr); }
+    .gate-roof { width: 140px; }
+}

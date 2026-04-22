@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正一龙虎玄坛真君财神赵公明 | God of Wealth Temple</title>
+    <meta name="description" content="Virtual Temple of Zhao Gongming - The Orthodox God of Wealth. Light incense, draw fortune sticks, and receive divine guidance.">
+    <meta name="keywords" content="赵公明,财神,God of Wealth,Zhao Gongming,fortune telling,Kau Cim,divination,temple">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛩️</text></svg>">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="tai-chi">☯</div>
+            <p class="loading-text">正一龙虎玄坛真君财神赵公明</p>
+            <p class="loading-sub">Temple of the God of Wealth</p>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <div class="nav-brand">
+                <span class="brand-icon">⛩️</span>
+                <span class="brand-text">财神庙</span>
+            </div>
+            <div class="nav-links">
+                <a href="#temple" data-i18n="nav.temple">庙宇</a>
+                <a href="#incense" data-i18n="nav.incense">上香</a>
+                <a href="#divination" data-i18n="nav.divination">求签</a>
+                <a href="#iching" data-i18n="nav.iching">算卦</a>
+                <a href="#membership" data-i18n="nav.membership">功德</a>
+            </div>
+            <div class="nav-actions">
+                <button id="lang-toggle" class="btn-icon" title="中文/English">🌐</button>
+                <button id="login-btn" class="btn-primary btn-sm" data-i18n="nav.login">登录</button>
+            </div>
+            <button id="mobile-menu" class="btn-icon mobile-only">☰</button>
+        </div>
+    </nav>
+
+    <!-- 英雄区 - 庙宇主殿 -->
+    <section id="temple" class="hero-section">
+        <div class="smoke-bg"></div>
+        <div class="hero-content">
+            <div class="temple-gate">
+                <div class="gate-pillar left"></div>
+                <div class="gate-roof"></div>
+                <div class="gate-pillar right"></div>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-main">正一龙虎玄坛真君</span>
+                <span class="title-deity">财神赵公明</span>
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">金龙如意 · 驱雷役电 · 呼风唤雨 · 买卖求财</p>
+            <p class="hero-desc" data-i18n="hero.desc">Light virtual incense, draw fortune sticks, and receive blessings from the God of Wealth</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-num" id="total-incense">1,288,446</span>
+                    <span class="stat-label" data-i18n="hero.incenseLit">炷香已燃</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num" id="total-blessings">86,772</span>
+                    <span class="stat-label" data-i18n="hero.blessings">人受福佑</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num" id="online-count">326</span>
+                    <span class="stat-label" data-i18n="hero.online">人在线祈福</span>
+                </div>
+            </div>
+            <a href="#incense" class="btn-hero" data-i18n="hero.cta">进入庙宇 · 诚心祈福</a>
+        </div>
+    </section>
+
+    <!-- 神像供奉区 -->
+    <section id="deity" class="deity-section">
+        <div class="deity-shrine">
+            <div class="shrine-arch">
+                <div class="arch-top"></div>
+                <div class="arch-pillars">
+                    <div class="pillar-left">
+                        <span class="couplet-text">驱雷役电</span>
+                    </div>
+                    <div class="pillar-right">
+                        <span class="couplet-text">呼风唤雨</span>
+                    </div>
+                </div>
+            </div>
+            <div class="deity-image-container">
+                <!-- CSS绘制的赵公明神像 -->
+                <div class="deity-portrait" id="deity-portrait">
+                    <div class="deity-aura"></div>
+                    <div class="deity-body">
+                        <div class="deity-crown"></div>
+                        <div class="deity-face"></div>
+                        <div class="deity-beard"></div>
+                        <div class="deity-robes"></div>
+                        <div class="deity-weapon">⚔️</div>
+                        <div class="deity-ingot">🪙</div>
+                    </div>
+                    <div class="deity-tiger">🐯</div>
+                    <div class="treasure-basin">🏺</div>
+                </div>
+            </div>
+            <div class="offering-table">
+                <div class="incense-burner" id="main-burner">
+                    <div class="burner-base"></div>
+                    <div class="incense-sticks" id="incense-display"></div>
+                    <div class="smoke-container" id="smoke-container"></div>
+                </div>
+            </div>
+            <p class="deity-title">正一龙虎玄坛真君财神赵公明</p>
+            <p class="deity-subtitle">Marshal Zhao · True Lord of the Golden Dragon · God of Wealth</p>
+        </div>
+    </section>
+
+    <!-- 上香区 -->
+    <section id="incense" class="incense-section">
+        <div class="section-header">
+            <h2 data-i18n="incense.title">🙏 诚心上香</h2>
+            <p data-i18n="incense.subtitle">心诚则灵 · 每日可免费上三炷香</p>
+        </div>
+        <div class="incense-panel">
+            <div class="incense-counter">
+                <span data-i18n="incense.today">今日已上香：</span>
+                <span id="incense-count">0</span> / <span id="incense-limit">3</span> <span data-i18n="incense.sticks">炷</span>
+            </div>
+            <div class="merit-display">
+                <div class="merit-item">
+                    <span class="merit-label" data-i18n="incense.merit">功德</span>
+                    <span class="merit-value" id="merit-points">0</span>
+                </div>
+                <div class="merit-item">
+                    <span class="merit-label" data-i18n="incense.fortune">财运</span>
+                    <span class="merit-value" id="fortune-points">0</span>
+                </div>
+            </div>
+            <div class="incense-types">
+                <button class="incense-btn" data-type="peace" data-i18n="incense.peace">
+                    <span class="incense-icon">🕯️</span>
+                    <span class="incense-name">平安香</span>
+                </button>
+                <button class="incense-btn" data-type="wealth" data-i18n="incense.wealth">
+                    <span class="incense-icon">💰</span>
+                    <span class="incense-name">招财香</span>
+                </button>
+                <button class="incense-btn" data-type="career" data-i18n="incense.career">
+                    <span class="incense-icon">📈</span>
+                    <span class="incense-name">事业香</span>
+                </button>
+                <button class="incense-btn" data-type="love" data-i18n="incense.love">
+                    <span class="incense-icon">💕</span>
+                    <span class="incense-name">姻缘香</span>
+                </button>
+                <button class="incense-btn" data-type="health" data-i18n="incense.health">
+                    <span class="incense-icon">🌿</span>
+                    <span class="incense-name">健康香</span>
+                </button>
+                <button class="incense-btn" data-type="wisdom" data-i18n="incense.wisdom">
+                    <span class="incense-icon">📖</span>
+                    <span class="incense-name">学业香</span>
+                </button>
+            </div>
+            <button id="light-incense-btn" class="btn-primary btn-lg" data-i18n="incense.light">
+                🙏 诚心上香
+            </button>
+            <p class="incense-note" data-i18n="incense.note">* 每日免费3炷香 · 信众5炷 · 福信10炷 · 虔信无限</p>
+        </div>
+        <!-- 上香动画覆盖层 -->
+        <div id="incense-animation" class="incense-anim-overlay hidden">
+            <div class="anim-smoke"></div>
+            <div class="anim-glow"></div>
+            <p class="anim-blessing" id="blessing-text"></p>
+        </div>
+    </section>
+
+    <!-- 求签区 -->
+    <section id="divination" class="divination-section">
+        <div class="section-header">
+            <h2 data-i18n="divination.title">🏮 财神求签</h2>
+            <p data-i18n="divination.subtitle">摇签筒 · 求神指引 · 一签问一事</p>
+        </div>
+        <div class="divination-panel">
+            <div class="stick-cylinder" id="stick-cylinder">
+                <div class="cylinder-body">
+                    <div class="cylinder-sticks" id="cylinder-sticks"></div>
+                </div>
+                <div class="cylinder-base"></div>
+                <p class="shake-hint" data-i18n="divination.shake">点击摇签</p>
+            </div>
+            <div class="divination-form">
+                <label data-i18n="divination.question">所求之事：</label>
+                <select id="div-category">
+                    <option value="wealth" data-i18n="divination.cat.wealth">财运</option>
+                    <option value="career" data-i18n="divination.cat.career">事业</option>
+                    <option value="love" data-i18n="divination.cat.love">姻缘</option>
+                    <option value="health" data-i18n="divination.cat.health">健康</option>
+                    <option value="study" data-i18n="divination.cat.study">学业</option>
+                    <option value="travel" data-i18n="divination.cat.travel">出行</option>
+                    <option value="general" data-i18n="divination.cat.general">综合</option>
+                </select>
+            </div>
+            <button id="draw-stick-btn" class="btn-primary btn-lg" data-i18n="divination.draw">
+                🏮 摇签求签
+            </button>
+            <p class="divination-note" data-i18n="divination.note">* 信众每日1次免费 · 付费¥6/$0.99</p>
+        </div>
+        <!-- 签诗结果 -->
+        <div id="stick-result" class="stick-result hidden">
+            <div class="result-card">
+                <div class="result-header">
+                    <span class="stick-number" id="stick-num"></span>
+                    <span class="stick-level" id="stick-level"></span>
+                </div>
+                <div class="result-poem">
+                    <p class="poem-line" id="poem-line1"></p>
+                    <p class="poem-line" id="poem-line2"></p>
+                    <p class="poem-line" id="poem-line3"></p>
+                    <p class="poem-line" id="poem-line4"></p>
+                </div>
+                <div class="result-interpretation">
+                    <h4 data-i18n="divination.interpretation">解签</h4>
+                    <p id="stick-interpretation"></p>
+                </div>
+                <div class="result-advice">
+                    <h4 data-i18n="divination.advice">行动建议</h4>
+                    <p id="stick-advice"></p>
+                </div>
+                <div class="result-actions">
+                    <button class="btn-secondary" id="deep-interpret-btn" data-i18n="divination.deep">
+                        🔮 深度解签 ¥28/$4.99
+                    </button>
+                    <button class="btn-secondary" id="new-stick-btn" data-i18n="divination.redraw">
+                        再求一签
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 算卦区 -->
+    <section id="iching" class="iching-section">
+        <div class="section-header">
+            <h2 data-i18n="iching.title">☯ 六爻算卦</h2>
+            <p data-i18n="iching.subtitle">梅花易数 · 诚心起卦 · 财神指引</p>
+        </div>
+        <div class="iching-panel">
+            <div class="trigram-display">
+                <div class="hexagram" id="hexagram-display">
+                    <div class="yao-line" data-pos="6"></div>
+                    <div class="yao-line" data-pos="5"></div>
+                    <div class="yao-line" data-pos="4"></div>
+                    <div class="yao-line" data-pos="3"></div>
+                    <div class="yao-line" data-pos="2"></div>
+                    <div class="yao-line" data-pos="1"></div>
+                </div>
+                <div class="hexagram-name" id="hexagram-name">—</div>
+            </div>
+            <div class="iching-form">
+                <label data-i18n="iching.question">心中所问：</label>
+                <input type="text" id="iching-question" placeholder="请在心中默念您的问题..." data-i18n-placeholder="iching.placeholder">
+            </div>
+            <button id="cast-hexagram-btn" class="btn-primary btn-lg" data-i18n="iching.cast">
+                ☯ 诚心起卦
+            </button>
+            <p class="iching-note" data-i18n="iching.note">* 付费¥12/$1.99 · 福信每日2次 · 虔信无限</p>
+        </div>
+        <!-- 卦象结果 -->
+        <div id="hexagram-result" class="hexagram-result hidden">
+            <div class="result-card">
+                <div class="result-header">
+                    <span class="hex-number" id="hex-num"></span>
+                    <span class="hex-symbol" id="hex-symbol"></span>
+                </div>
+                <div class="hex-judgment">
+                    <h4 data-i18n="iching.judgment">卦辞</h4>
+                    <p id="hex-judgment-text"></p>
+                </div>
+                <div class="hex-image-text">
+                    <h4 data-i18n="iching.image">象辞</h4>
+                    <p id="hex-image-text"></p>
+                </div>
+                <div class="hex-interpretation">
+                    <h4 data-i18n="iching.interpretation">财神解卦</h4>
+                    <p id="hex-interpretation"></p>
+                </div>
+                <div class="hex-advice">
+                    <h4 data-i18n="iching.advice">财运建议</h4>
+                    <p id="hex-advice"></p>
+                </div>
+                <div class="result-actions">
+                    <button class="btn-secondary" id="new-hex-btn" data-i18n="iching.recast">再起一卦</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 会员/功德区 -->
+    <section id="membership" class="membership-section">
+        <div class="section-header">
+            <h2 data-i18n="membership.title">🏅 功德会员</h2>
+            <p data-i18n="membership.subtitle">广积功德 · 福报自来</p>
+        </div>
+        <div class="membership-plans">
+            <div class="plan-card plan-free">
+                <div class="plan-icon">🙏</div>
+                <h3 data-i18n="membership.free.name">信众</h3>
+                <p class="plan-price" data-i18n="membership.free.price">免费</p>
+                <ul class="plan-features">
+                    <li data-i18n="membership.free.f1">✅ 每日5炷免费香</li>
+                    <li data-i18n="membership.free.f2">✅ 每日1次免费求签</li>
+                    <li data-i18n="membership.free.f3">✅ 基础解签</li>
+                </ul>
+                <button class="btn-secondary" data-i18n="membership.free.btn">注册成为信众</button>
+            </div>
+            <div class="plan-card plan-monthly popular">
+                <div class="popular-badge" data-i18n="membership.popular">最受欢迎</div>
+                <div class="plan-icon">💰</div>
+                <h3 data-i18n="membership.monthly.name">福信</h3>
+                <p class="plan-price">¥28<span data-i18n="membership.permonth">/月</span></p>
+                <p class="plan-price-usd">$4.99/mo</p>
+                <ul class="plan-features">
+                    <li data-i18n="membership.monthly.f1">✅ 每日10炷香</li>
+                    <li data-i18n="membership.monthly.f2">✅ 每日3次求签</li>
+                    <li data-i18n="membership.monthly.f3">✅ 每日2次算卦</li>
+                    <li data-i18n="membership.monthly.f4">✅ 深度解签</li>
+                    <li data-i18n="membership.monthly.f5">✅ 财运加持特效</li>
+                </ul>
+                <button class="btn-primary" data-i18n="membership.monthly.btn">开通福信</button>
+            </div>
+            <div class="plan-card plan-vip">
+                <div class="plan-icon">🐉</div>
+                <h3 data-i18n="membership.vip.name">虔信 VIP</h3>
+                <p class="plan-price">¥68<span data-i18n="membership.permonth">/月</span></p>
+                <p class="plan-price-usd">$12.99/mo</p>
+                <ul class="plan-features">
+                    <li data-i18n="membership.vip.f1">✅ 无限上香</li>
+                    <li data-i18n="membership.vip.f2">✅ 无限求签算卦</li>
+                    <li data-i18n="membership.vip.f3">✅ 专属签诗解读</li>
+                    <li data-i18n="membership.vip.f4">✅ 财运加持特效</li>
+                    <li data-i18n="membership.vip.f5">✅ 生日专属祈福</li>
+                </ul>
+                <button class="btn-primary" data-i18n="membership.vip.btn">开通虔信</button>
+            </div>
+        </div>
+        <div class="annual-plan">
+            <div class="annual-card">
+                <span class="annual-badge" data-i18n="membership.annual.save">省¥228</span>
+                <h3 data-i18n="membership.annual.name">🐉 大功德主（年费）</h3>
+                <p class="annual-price">¥588/年 <span class="annual-usd">$99/year</span></p>
+                <p data-i18n="membership.annual.desc">全部虔信权益 + 生日专属祈福 + 签诗历史回溯 + 专属道长祝祷</p>
+                <button class="btn-primary btn-lg" data-i18n="membership.annual.btn">成为大功德主</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 登录弹窗 -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">✕</button>
+            <h3 data-i18n="login.title">🙏 诚心登录</h3>
+            <p data-i18n="login.subtitle">登录后可上香、求签、积功德</p>
+            <div class="login-buttons">
+                <button class="btn-social btn-wechat" id="login-wechat">
+                    <span class="social-icon">💬</span>
+                    <span>微信登录</span>
+                </button>
+                <button class="btn-social btn-xiaohongshu" id="login-xhs">
+                    <span class="social-icon">📕</span>
+                    <span>小红书登录</span>
+                </button>
+                <button class="btn-social btn-facebook" id="login-facebook">
+                    <span class="social-icon">📘</span>
+                    <span>Facebook</span>
+                </button>
+                <button class="btn-social btn-twitter" id="login-twitter">
+                    <span class="social-icon">🐦</span>
+                    <span>Twitter / X</span>
+                </button>
+                <button class="btn-social btn-google" id="login-google">
+                    <span class="social-icon">🌐</span>
+                    <span>Google</span>
+                </button>
+                <button class="btn-social btn-apple" id="login-apple">
+                    <span class="social-icon">🍎</span>
+                    <span>Apple</span>
+                </button>
+            </div>
+            <p class="login-terms" data-i18n="login.terms">登录即同意《用户协议》和《隐私政策》</p>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span>⛩️</span>
+                <span>正一龙虎玄坛真君财神赵公明</span>
+            </div>
+            <div class="footer-links">
+                <a href="#" data-i18n="footer.about">关于</a>
+                <a href="#" data-i18n="footer.terms">用户协议</a>
+                <a href="#" data-i18n="footer.privacy">隐私政策</a>
+                <a href="#" data-i18n="footer.contact">联系我们</a>
+            </div>
+            <p class="footer-copy">© 2026 Temple of Zhao Gongming. All rights reserved.</p>
+            <p class="footer-disclaimer" data-i18n="footer.disclaimer">本站为文化体验平台，签诗卦象仅供娱乐参考</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/sticks-data.js"></script>
+    <script src="assets/js/iching-data.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
