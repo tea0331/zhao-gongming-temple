@@ -157,63 +157,65 @@
     <circle cx="-35" cy="-35" r="5" fill="#FFD700"/>
     <circle cx="35" cy="-35" r="5" fill="#FFD700"/>
 
-    <!-- 官帽 -->
+    <!-- 金冠（财神金帽） -->
     <!-- 帽翅 -->
-    <ellipse cx="-55" cy="-10" rx="20" ry="10" fill="#FFD700" stroke="#B8860B">
+    <ellipse cx="-55" cy="-10" rx="22" ry="10" fill="#FFD700" stroke="#B8860B" stroke-width="2">
       <animateTransform attributeName="transform" type="rotate" values="-5 -55 -10;5 -55 -10;-5 -55 -10" dur="3s" repeatCount="indefinite"/>
     </ellipse>
-    <ellipse cx="55" cy="-10" rx="20" ry="10" fill="#FFD700" stroke="#B8860B">
+    <ellipse cx="55" cy="-10" rx="22" ry="10" fill="#FFD700" stroke="#B8860B" stroke-width="2">
       <animateTransform attributeName="transform" type="rotate" values="5 55 -10;-5 55 -10;5 55 -10" dur="3s" repeatCount="indefinite"/>
     </ellipse>
-    <!-- 帽身 -->
-    <path d="M-50,-25 Q0,-45 50,-25 L55,-5 Q0,-25 -55,-5Z" fill="#DC143C" stroke="#FFD700"/>
-    <path d="M-55,-5 Q0,5 55,-5 L55,5 Q0,15 -55,5Z" fill="#DC143C" stroke="#FFD700"/>
-    <!-- 帽前装饰 -->
-    <rect x="-30" y="-22" width="60" height="20" fill="url(#goldGrad)" rx="3"/>
-    <circle cx="0" cy="-12" r="10" fill="#FFD700" stroke="#B8860B"/>
-    <text x="-6" y="-8" font-size="12" fill="#8B0000" font-weight="bold">財</text>
+    <!-- 帽身（金色主体） -->
+    <path d="M-52,-28 Q0,-50 52,-28 L58,-8 Q0,-28 -58,-8Z" fill="url(#goldGrad)" stroke="#B8860B" stroke-width="2"/>
+    <path d="M-58,-8 Q0,8 58,-8 L58,2 Q0,18 -58,2Z" fill="url(#goldGrad)" stroke="#B8860B" stroke-width="2"/>
+    <!-- 帽前玉牌 -->
+    <rect x="-32" y="-24" width="64" height="22" fill="#FFF8DC" stroke="#DAA520" stroke-width="2" rx="3"/>
+    <circle cx="0" cy="-13" r="11" fill="#DC143C" stroke="#FFD700" stroke-width="2"/>
+    <text x="-7" y="-9" font-size="14" fill="#FFD700" font-weight="bold">財</text>
     <!-- 帽顶宝珠 -->
-    <circle cx="0" cy="-55" r="8" fill="#DC143C" stroke="#FFD700" stroke-width="2"/>
-    <circle cx="0" cy="-58" r="3" fill="#FF6B6B"/>
+    <circle cx="0" cy="-58" r="10" fill="#DC143C" stroke="#FFD700" stroke-width="3"/>
+    <circle cx="0" cy="-61" r="4" fill="#FF6B6B"/>
+    <!-- 帽沿龙纹装饰 -->
+    <path d="M-40,-35 Q-20,-40 0,-35 Q20,-40 40,-35" stroke="#B8860B" stroke-width="2" fill="none"/>
 
-    <!-- 面部（黑脸） -->
-    <ellipse cx="0" cy="15" rx="50" ry="60" fill="#3D2810"/>
+    <!-- 面部（方正黑脸） -->
+    <path d="M-48,-10 L48,-10 L45,45 L35,70 L0,78 L-35,70 L-45,45 Z" fill="#3D2810"/>
     <!-- 额头宝玉 -->
-    <circle cx="0" cy="-10" r="6" fill="#FFD700" stroke="#B8860B"/>
-    <circle cx="0" cy="-12" r="2" fill="#FFF"/>
+    <circle cx="0" cy="5" r="7" fill="#FFD700" stroke="#B8860B" stroke-width="2"/>
+    <circle cx="0" cy="2" r="3" fill="#FFF"/>
 
-    <!-- 浓眉 -->
-    <path d="M-35,-5 Q-20,-15 -5,-5" stroke="#1A1A1A" stroke-width="8" fill="none" stroke-linecap="round"/>
-    <path d="M5,-5 Q20,-15 35,-5" stroke="#1A1A1A" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <!-- 浓眉（方正） -->
+    <path d="M-38,15 L-5,18" stroke="#1A1A1A" stroke-width="10" stroke-linecap="round"/>
+    <path d="M5,18 L38,15" stroke="#1A1A1A" stroke-width="10" stroke-linecap="round"/>
 
-    <!-- 怒目 -->
-    <ellipse cx="-20" cy="10" rx="14" ry="10" fill="#FFD700">
-      <animate attributeName="rx" values="14;15;14" dur="4s" repeatCount="indefinite"/>
+    <!-- 怒目（方正威严） -->
+    <ellipse cx="-22" cy="32" rx="15" ry="11" fill="#FFD700">
+      <animate attributeName="rx" values="15;16;15" dur="4s" repeatCount="indefinite"/>
     </ellipse>
-    <ellipse cx="20" cy="10" rx="14" ry="10" fill="#FFD700">
-      <animate attributeName="rx" values="14;15;14" dur="4s" repeatCount="indefinite"/>
+    <ellipse cx="22" cy="32" rx="15" ry="11" fill="#FFD700">
+      <animate attributeName="rx" values="15;16;15" dur="4s" repeatCount="indefinite"/>
     </ellipse>
-    <circle cx="-18" cy="10" r="6" fill="#000"/>
-    <circle cx="22" cy="10" r="6" fill="#000"/>
-    <circle cx="-16" cy="8" r="2" fill="#FFF"/>
-    <circle cx="24" cy="8" r="2" fill="#FFF"/>
+    <circle cx="-20" cy="32" r="7" fill="#000"/>
+    <circle cx="24" cy="32" r="7" fill="#000"/>
+    <circle cx="-17" cy="29" r="3" fill="#FFF"/>
+    <circle cx="27" cy="29" r="3" fill="#FFF"/>
 
-    <!-- 狮鼻 -->
-    <path d="M-8,25 Q0,20 8,25 L5,35 Q0,38 -5,35Z" fill="#2A1A0A"/>
-    <ellipse cx="-3" cy="30" rx="3" ry="2" fill="#1A1A1A"/>
-    <ellipse cx="3" cy="30" rx="3" ry="2" fill="#1A1A1A"/>
+    <!-- 狮鼻（方正） -->
+    <path d="M-10,48 L10,48 L7,58 L-7,58 Z" fill="#2A1A0A"/>
+    <ellipse cx="-4" cy="54" rx="4" ry="3" fill="#1A1A1A"/>
+    <ellipse cx="4" cy="54" rx="4" ry="3" fill="#1A1A1A"/>
 
-    <!-- 胡须 -->
-    <path d="M-40,40 Q-30,70 0,85 Q30,70 40,40" stroke="#1A1A1A" stroke-width="4" fill="none"/>
-    <path d="M-35,50 Q-25,75 0,88 Q25,75 35,50" stroke="#1A1A1A" stroke-width="3" fill="none"/>
-    <path d="M-30,60 Q-20,80 0,90 Q20,80 30,60" stroke="#1A1A1A" stroke-width="2" fill="none"/>
+    <!-- 胡须（浓密方正） -->
+    <path d="M-42,60 L-38,75 L-20,82 L0,85 L20,82 L38,75 L42,60" stroke="#1A1A1A" stroke-width="5" fill="none"/>
+    <path d="M-40,70 L-35,80 L-18,87 L0,90 L18,87 L35,80 L40,70" stroke="#1A1A1A" stroke-width="4" fill="none"/>
+    <path d="M-35,78 L-30,85 L-15,92 L0,95 L15,92 L30,85 L35,78" stroke="#1A1A1A" stroke-width="3" fill="none"/>
     <!-- 络腮胡 -->
-    <ellipse cx="-40" cy="45" rx="8" ry="15" fill="#1A1A1A" opacity="0.5"/>
-    <ellipse cx="40" cy="45" rx="8" ry="15" fill="#1A1A1A" opacity="0.5"/>
+    <rect x="-48" y="55" width="12" height="25" rx="6" fill="#1A1A1A" opacity="0.6"/>
+    <rect x="36" y="55" width="12" height="25" rx="6" fill="#1A1A1A" opacity="0.6"/>
 
-    <!-- 嘴 -->
-    <path d="M-12,55 Q0,52 12,55" stroke="#1A1A1A" stroke-width="3" fill="none"/>
-    <path d="M-8,62 Q0,65 8,62" stroke="#8B0000" stroke-width="2" fill="none"/>
+    <!-- 嘴（威严） -->
+    <path d="M-15,68 L15,68" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/>
+    <path d="M-10,75 L10,75" stroke="#8B0000" stroke-width="3" stroke-linecap="round"/>
   </g>
 
   <!-- 飘带 -->
