@@ -43,6 +43,8 @@
                 <a href="#incense" data-i18n="nav.incense">上香</a>
                 <a href="#divination" data-i18n="nav.divination">求签</a>
                 <a href="#iching" data-i18n="nav.iching">算卦</a>
+                <a href="#tudi" data-i18n="nav.tudi">土地殿</a>
+                <a href="#mazu" data-i18n="nav.mazu">天后宫</a>
                 <a href="#membership" data-i18n="nav.membership">功德</a>
             </div>
             <div class="nav-actions">
@@ -401,6 +403,146 @@
                 <div class="result-actions">
                     <button class="btn-secondary" id="new-hex-btn" data-i18n="iching.recast">再起一卦</button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 偏殿一：土地公土地母 -->
+    <section id="tudi" class="side-hall-section">
+        <div class="section-header">
+            <h2>🏠 福德正神殿</h2>
+            <p>土地公 · 土地母 · 保一方平安 · 佑五谷丰登</p>
+        </div>
+        <div class="side-hall-container">
+            <div class="hall-shrine">
+                <svg viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg" class="deity-svg">
+                    <defs>
+                        <radialGradient id="tudi-aura" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#7cb342" stop-opacity="0.2"/>
+                            <stop offset="100%" stop-color="#7cb342" stop-opacity="0"/>
+                        </radialGradient>
+                        <linearGradient id="tudi-robe" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#4a7c3f"/>
+                            <stop offset="100%" stop-color="#2d5a27"/>
+                        </linearGradient>
+                        <linearGradient id="tumiu-robe" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#c62828"/>
+                            <stop offset="100%" stop-color="#8e0000"/>
+                        </linearGradient>
+                    </defs>
+                    <ellipse cx="150" cy="140" rx="140" ry="130" fill="url(#tudi-aura)">
+                        <animate attributeName="rx" values="140;145;140" dur="5s" repeatCount="indefinite"/>
+                    </ellipse>
+                    <g transform="translate(30, 30)">
+                        <path d="M30,95 L20,250 L110,250 L100,95 Q65,85 30,95Z" fill="url(#tudi-robe)" stroke="#7cb342" stroke-width="0.5"/>
+                        <text x="65" y="180" font-size="22" fill="#ffd54f" text-anchor="middle" font-weight="900" font-family="'Noto Serif SC',serif">福</text>
+                        <circle cx="65" cy="68" r="28" fill="#e8c88a" stroke="#d4a843" stroke-width="0.5"/>
+                        <path d="M40,48 Q65,30 90,48 L85,55 Q65,45 45,55Z" fill="#2d5a27" stroke="#7cb342" stroke-width="1"/>
+                        <rect x="50" y="42" width="30" height="5" fill="#7cb342" rx="1"/>
+                        <ellipse cx="54" cy="62" rx="4" ry="3" fill="#3e2723"/>
+                        <ellipse cx="76" cy="62" rx="4" ry="3" fill="#3e2723"/>
+                        <path d="M55,76 Q65,84 75,76" stroke="#5d4037" stroke-width="1.5" fill="none"/>
+                        <path d="M50,78 Q55,90 60,78" fill="#f5f5f5" stroke="none"/>
+                        <path d="M70,78 Q75,90 80,78" fill="#f5f5f5" stroke="none"/>
+                        <ellipse cx="105" cy="230" rx="12" ry="8" fill="#ffd54f" stroke="#d4a843" stroke-width="0.5"/>
+                    </g>
+                    <g transform="translate(155, 30)">
+                        <path d="M30,95 L20,250 L110,250 L100,95 Q65,85 30,95Z" fill="url(#tumiu-robe)" stroke="#ef5350" stroke-width="0.5"/>
+                        <text x="65" y="180" font-size="22" fill="#ffd54f" text-anchor="middle" font-weight="900" font-family="'Noto Serif SC',serif">德</text>
+                        <circle cx="65" cy="68" r="28" fill="#f5d5b5" stroke="#ef5350" stroke-width="0.5"/>
+                        <path d="M40,48 Q50,35 65,40 Q80,35 90,48 L85,52 Q65,42 45,52Z" fill="#c62828" stroke="#ffd54f" stroke-width="0.8"/>
+                        <circle cx="65" cy="38" r="4" fill="#ffd54f"/>
+                        <ellipse cx="65" cy="48" rx="25" ry="8" fill="#3e2723"/>
+                        <ellipse cx="54" cy="62" rx="4" ry="3" fill="#3e2723"/>
+                        <ellipse cx="76" cy="62" rx="4" ry="3" fill="#3e2723"/>
+                        <path d="M55,76 Q65,84 75,76" stroke="#5d4037" stroke-width="1.5" fill="none"/>
+                        <path d="M95,160 Q110,140 105,130 Q100,125 95,130 Q100,140 90,150Z" fill="#ffd54f" stroke="#d4a843" stroke-width="0.5"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="hall-info">
+                <h3>福德正神 · 土地公土地母</h3>
+                <p class="hall-desc">土地公又称福德正神，掌管一方土地，保佑五谷丰登、家宅平安、生意兴隆。土地母辅佐左右，赐福纳祥。诚心供奉，保一方风调雨顺。</p>
+                <p class="hall-desc-en">Lord of the Land and Lady of the Land — Guardians of the Earth, protectors of harvest, home, and prosperity.</p>
+                <div class="hall-offerings">
+                    <button class="offering-btn" data-deity="tudi" data-type="fruit">🍎 供果</button>
+                    <button class="offering-btn" data-deity="tudi" data-type="tea">🍵 敬茶</button>
+                    <button class="offering-btn" data-deity="tudi" data-type="rice">🍚 供饭</button>
+                    <button class="offering-btn" data-deity="tudi" data-type="incense">🕯️ 上香</button>
+                </div>
+                <p class="hall-note">* 供奉免费 · 广积福田 · 福德自来</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 偏殿二：妈祖 -->
+    <section id="mazu" class="side-hall-section mazu-section">
+        <div class="section-header">
+            <h2>🌊 天后宫</h2>
+            <p>天上圣母 · 护海女神 · 保佑平安 · 普度众生</p>
+        </div>
+        <div class="side-hall-container">
+            <div class="hall-shrine">
+                <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg" class="deity-svg">
+                    <defs>
+                        <radialGradient id="mazu-aura" cx="50%" cy="45%" r="50%">
+                            <stop offset="0%" stop-color="#42a5f5" stop-opacity="0.2"/>
+                            <stop offset="100%" stop-color="#42a5f5" stop-opacity="0"/>
+                        </radialGradient>
+                        <linearGradient id="mazu-robe" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#1565c0"/>
+                            <stop offset="50%" stop-color="#0d47a1"/>
+                            <stop offset="100%" stop-color="#0a3d91"/>
+                        </linearGradient>
+                        <linearGradient id="mazu-sash" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#ffd54f"/>
+                            <stop offset="100%" stop-color="#ffb300"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M0,260 Q30,250 60,260 Q90,270 120,260 Q150,250 180,260 Q210,270 260,260 L260,300 L0,300Z" fill="#1565c0" fill-opacity="0.3">
+                        <animate attributeName="d" values="M0,260 Q30,250 60,260 Q90,270 120,260 Q150,250 180,260 Q210,270 260,260 L260,300 L0,300Z;M0,260 Q30,270 60,260 Q90,250 120,260 Q150,270 180,260 Q210,250 260,260 L260,300 L0,300Z;M0,260 Q30,250 60,260 Q90,270 120,260 Q150,250 180,260 Q210,270 260,260 L260,300 L0,300Z" dur="4s" repeatCount="indefinite"/>
+                    </path>
+                    <ellipse cx="130" cy="130" rx="120" ry="140" fill="url(#mazu-aura)">
+                        <animate attributeName="ry" values="140;145;140" dur="5s" repeatCount="indefinite"/>
+                    </ellipse>
+                    <path d="M80,115 L65,260 L195,260 L180,115 Q130,105 80,115Z" fill="url(#mazu-robe)" stroke="#42a5f5" stroke-width="1"/>
+                    <text x="130" y="200" font-size="32" fill="#ffd54f" text-anchor="middle" font-weight="900" font-family="'Noto Serif SC',serif">聖</text>
+                    <rect x="78" y="135" width="104" height="6" fill="url(#mazu-sash)" rx="1"/>
+                    <path d="M95,150 Q105,142 115,152 Q110,157 105,155 Q100,157 95,150Z" fill="#ffd54f" fill-opacity="0.15"/>
+                    <path d="M145,160 Q155,152 165,162 Q160,167 155,165 Q150,167 145,160Z" fill="#ffd54f" fill-opacity="0.15"/>
+                    <ellipse cx="130" cy="75" rx="30" ry="35" fill="#f5d5b5" stroke="#d4a843" stroke-width="0.5"/>
+                    <path d="M95,55 Q110,35 130,40 Q150,35 165,55 L160,60 Q130,48 100,60Z" fill="#ffd54f" stroke="#d4a843" stroke-width="1"/>
+                    <rect x="105" y="50" width="50" height="6" fill="#ffb300" rx="1"/>
+                    <circle cx="130" cy="38" r="5" fill="#ef5350" stroke="#ffd54f" stroke-width="0.8">
+                        <animate attributeName="r" values="5;5.5;5" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <ellipse cx="130" cy="52" rx="28" ry="8" fill="#3e2723"/>
+                    <ellipse cx="118" cy="70" rx="5" ry="3.5" fill="#3e2723"/>
+                    <ellipse cx="142" cy="70" rx="5" ry="3.5" fill="#3e2723"/>
+                    <path d="M120,84 Q130,90 140,84" stroke="#5d4037" stroke-width="1.2" fill="none"/>
+                    <g transform="translate(170, 140)">
+                        <rect x="5" y="0" width="8" height="50" fill="#e8e8e8" stroke="#d4a843" stroke-width="0.5" rx="2"/>
+                        <rect x="3" y="0" width="12" height="8" fill="#ffd54f" stroke="#d4a843" stroke-width="0.5" rx="1"/>
+                    </g>
+                    <g transform="translate(40, 155)">
+                        <path d="M10,0 L15,0 L18,30 L7,30Z" fill="#42a5f5" stroke="#1e88e5" stroke-width="0.5"/>
+                        <ellipse cx="12.5" cy="30" rx="8" ry="3" fill="#1e88e5"/>
+                        <path d="M12,0 Q8,-15 2,-10" stroke="#4caf50" stroke-width="1" fill="none"/>
+                        <path d="M12,0 Q15,-18 22,-12" stroke="#4caf50" stroke-width="1" fill="none"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="hall-info">
+                <h3>天上圣母 · 妈祖</h3>
+                <p class="hall-desc">妈祖原名林默娘，被尊为天上圣母、护海女神。庇佑出海平安、风调雨顺、消灾解难。千年来护佑无数苍生，慈航普度。</p>
+                <p class="hall-desc-en">Mazu — Goddess of the Sea, Protector of Sailors. She watches over all who travel upon the waters and brings peace to the world.</p>
+                <div class="hall-offerings">
+                    <button class="offering-btn" data-deity="mazu" data-type="flower">🌸 献花</button>
+                    <button class="offering-btn" data-deity="mazu" data-type="lamp">🏮 点灯</button>
+                    <button class="offering-btn" data-deity="mazu" data-type="tea">🍵 敬茶</button>
+                    <button class="offering-btn" data-deity="mazu" data-type="incense">🕯️ 上香</button>
+                </div>
+                <p class="hall-note">* 供奉免费 · 护佑平安 · 慈航普度</p>
             </div>
         </div>
     </section>

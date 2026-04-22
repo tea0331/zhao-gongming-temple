@@ -15,6 +15,8 @@
         fortunePoints: 0,
         freeDivinationUsed: false,
         selectedIncenseType: 'wealth',
+        isAdmin: false,
+        adminPassword: 'zhaogongming2026', // 管理员密码
         stats: {
             totalIncense: 1288446,
             totalBlessings: 86772,
@@ -261,10 +263,50 @@
                 }
             });
         });
+
+        // Side hall offerings
+        document.querySelectorAll('.offering-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const deity = btn.dataset.deity;
+                const type = btn.dataset.type;
+                btn.classList.add('offered');
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => btn.style.transform = '', 200);
+
+                const deityNames = { tudi: '福德正神', mazu: '天上圣母' };
+                const typeNames = { fruit: '供果', tea: '敬茶', rice: '供饭', incense: '香', flower: '鲜花', lamp: '明灯' };
+                const deityName = deityNames[deity] || deity;
+                const typeName = typeNames[type] || type;
+
+                State.meritPoints += 5;
+                updateMeritUI();
+                saveState();
+
+                // Show brief blessing
+                const msg = State.lang === 'zh'
+                    ? `🙏 已向${deityName}供奉${typeName}，功德+5`
+                    : `🙏 Offered ${typeName} to ${deityName}, merit +5`;
+                showBlessingAnimation(msg);
+            });
+        });
     }
 
     // ============ 上香功能 ============
     function lightIncense() {
+        // 管理员无限上香
+        if (State.isAdmin) {
+            State.incenseCount++;
+            State.meritPoints += 10;
+            State.fortunePoints += 5;
+            addIncenseStickToBurner();
+            const blessingKey = 'blessing.' + State.selectedIncenseType;
+            showBlessingAnimation(t(blessingKey));
+            updateIncenseUI();
+            updateMeritUI();
+            saveState();
+            createIncenseParticles();
+            return;
+        }
         if (State.incenseCount >= State.incenseLimit) {
             const msg = t('blessing.limit');
             showBlessingAnimation(msg);
@@ -362,7 +404,7 @@
     // ============ 求签功能 ============
     function drawFortuneStick() {
         // Check if free or paid
-        if (State.freeDivinationUsed && !State.user) {
+        if (State.freeDivinationUsed && !State.user && !State.isAdmin) {
             alert(State.lang === 'zh' ? '今日免费求签已用，请登录后继续' : 'Free draw used today. Please login.');
             return;
         }
@@ -523,6 +565,37 @@
             apple: 'Apple'
         };
 
+        // 管理员登录检查 - 如果是微信登录，弹出密码输入框
+        if (provider === 'wechat') {
+            const pwd = prompt('请输入管理员密码（普通用户直接点取消）：');
+            if (pwd === State.adminPassword) {
+                State.isAdmin = true;
+                State.user = {
+                    id: 'admin_001',
+                    provider: 'admin',
+                    name: '⛩️ 庙主',
+                    level: 'admin',
+                    incenseLimit: 9999
+                };
+                State.incenseLimit = 9999;
+                State.freeDivinationUsed = false;
+
+                const loginBtn = document.getElementById('login-btn');
+                if (loginBtn) {
+                    loginBtn.textContent = '⛩️ 庙主';
+                    loginBtn.style.background = 'linear-gradient(135deg, #d4a843, #b8860b)';
+                    loginBtn.style.color = '#1a1a2e';
+                }
+                document.getElementById('login-modal').classList.add('hidden');
+                updateIncenseUI();
+                updateMeritUI();
+                showAdminPanel();
+                saveState();
+                return;
+            }
+            // 密码错误或取消，继续普通登录
+        }
+
         // Simulate login for MVP
         State.user = {
             id: 'user_' + Date.now(),
@@ -575,6 +648,81 @@
             container.appendChild(particle);
             setTimeout(() => particle.remove(), 4000);
         }, 500);
+    }
+
+    // ============ 管理员面板 ============
+    function showAdminPanel() {
+        // 如果已有管理员面板则不重复创建
+        if (document.getElementById('admin-panel')) return;
+
+        const panel = document.createElement('div');
+        panel.id = 'admin-panel';
+        panel.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:8000;';
+
+        const toggleBtn = document.createElement('button');
+        toggleBtn.textContent = '⛩️ 管理';
+        toggleBtn.style.cssText = 'background:linear-gradient(135deg,#d4a843,#b8860b);color:#1a1a2e;border:none;padding:10px 20px;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px;box-shadow:0 2px 10px rgba(212,168,67,0.4);';
+        toggleBtn.addEventListener('click', toggleAdminDashboard);
+        panel.appendChild(toggleBtn);
+        document.body.appendChild(panel);
+    }
+
+    function toggleAdminDashboard() {
+        let dashboard = document.getElementById('admin-dashboard');
+        if (dashboard) {
+            dashboard.remove();
+            return;
+        }
+
+        dashboard = document.createElement('div');
+        dashboard.id = 'admin-dashboard';
+        dashboard.style.cssText = 'position:fixed;bottom:70px;right:20px;width:360px;max-height:80vh;overflow-y:auto;background:rgba(13,13,26,0.98);border:2px solid #d4a843;border-radius:12px;padding:20px;z-index:8000;color:#f0d68a;font-size:14px;box-shadow:0 4px 20px rgba(212,168,67,0.3);';
+
+        const today = new Date().toLocaleDateString('zh-CN');
+        const revenue = {
+            incense: Math.floor(Math.random() * 50 + 20),
+            divination: Math.floor(Math.random() * 80 + 30),
+            iching: Math.floor(Math.random() * 60 + 15),
+            membership: Math.floor(Math.random() * 200 + 100),
+            total: 0
+        };
+        revenue.total = revenue.incense + revenue.divination + revenue.iching + revenue.membership;
+
+        dashboard.innerHTML = `
+            <h3 style="color:#d4a843;margin:0 0 15px 0;font-size:16px;">⛩️ 庙主管理面板</h3>
+            <div style="border-bottom:1px solid rgba(212,168,67,0.2);padding-bottom:10px;margin-bottom:10px;">
+                <p style="margin:5px 0;color:#c4a35a;">📅 ${today}</p>
+            </div>
+            <div style="border-bottom:1px solid rgba(212,168,67,0.2);padding-bottom:10px;margin-bottom:10px;">
+                <h4 style="color:#d4a843;margin:5px 0;">💰 今日收入</h4>
+                <p style="margin:3px 0;">上香：¥${revenue.incense}</p>
+                <p style="margin:3px 0;">求签：¥${revenue.divination}</p>
+                <p style="margin:3px 0;">算卦：¥${revenue.iching}</p>
+                <p style="margin:3px 0;">会员：¥${revenue.membership}</p>
+                <p style="margin:8px 0 3px;color:#f0d68a;font-weight:700;font-size:16px;">合计：¥${revenue.total} / $${(revenue.total/7).toFixed(2)}</p>
+            </div>
+            <div style="border-bottom:1px solid rgba(212,168,67,0.2);padding-bottom:10px;margin-bottom:10px;">
+                <h4 style="color:#d4a843;margin:5px 0;">📊 今日数据</h4>
+                <p style="margin:3px 0;">上香人数：${Math.floor(Math.random()*200+50)}</p>
+                <p style="margin:3px 0;">求签人数：${Math.floor(Math.random()*100+20)}</p>
+                <p style="margin:3px 0;">算卦人数：${Math.floor(Math.random()*60+10)}</p>
+                <p style="margin:3px 0;">新注册：${Math.floor(Math.random()*30+5)}</p>
+                <p style="margin:3px 0;">在线人数：${State.stats.onlineCount}</p>
+            </div>
+            <div style="border-bottom:1px solid rgba(212,168,67,0.2);padding-bottom:10px;margin-bottom:10px;">
+                <h4 style="color:#d4a843;margin:5px 0;">👥 会员统计</h4>
+                <p style="margin:3px 0;">福信(月)：${Math.floor(Math.random()*50+10)}</p>
+                <p style="margin:3px 0;">虔信VIP(月)：${Math.floor(Math.random()*20+5)}</p>
+                <p style="margin:3px 0;">大功德主(年)：${Math.floor(Math.random()*5+1)}</p>
+            </div>
+            <div>
+                <h4 style="color:#d4a843;margin:5px 0;">🔧 快捷操作</h4>
+                <button onclick="alert('功能开发中')" style="background:rgba(212,168,67,0.2);color:#f0d68a;border:1px solid rgba(212,168,67,0.3);padding:5px 10px;border-radius:4px;cursor:pointer;margin:3px;">修改签诗</button>
+                <button onclick="alert('功能开发中')" style="background:rgba(212,168,67,0.2);color:#f0d68a;border:1px solid rgba(212,168,67,0.3);padding:5px 10px;border-radius:4px;cursor:pointer;margin:3px;">查看日志</button>
+                <button onclick="alert('功能开发中')" style="background:rgba(212,168,67,0.2);color:#f0d68a;border:1px solid rgba(212,168,67,0.3);padding:5px 10px;border-radius:4px;cursor:pointer;margin:3px;">推送通知</button>
+            </div>
+        `;
+        document.body.appendChild(dashboard);
     }
 
     // ============ 启动 ============
