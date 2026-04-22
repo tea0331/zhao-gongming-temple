@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- 金色渐变 -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="50%" stop-color="#DAA520"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+    <!-- 红色官袍渐变 -->
+    <linearGradient id="robeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DC143C"/>
+      <stop offset="50%" stop-color="#8B0000"/>
+      <stop offset="100%" stop-color="#5C0011"/>
+    </linearGradient>
+    <!-- 黑虎皮毛 -->
+    <linearGradient id="tigerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2C2C2C"/>
+      <stop offset="50%" stop-color="#1A1A1A"/>
+      <stop offset="100%" stop-color="#0D0D0D"/>
+    </linearGradient>
+    <!-- 金元宝 -->
+    <radialGradient id="ingotGrad" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFEC8B"/>
+      <stop offset="50%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#DAA520"/>
+    </radialGradient>
+    <!-- 神光 -->
+    <radialGradient id="auraGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFD700" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#FFA500" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+    </radialGradient>
+    <!-- 阴影滤镜 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 神光背景 -->
+  <ellipse cx="200" cy="180" rx="180" ry="220" fill="url(#auraGrad)">
+    <animate attributeName="rx" values="180;190;180" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="ry" values="220;230;220" dur="4s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- 祥云底座 -->
+  <g opacity="0.6">
+    <ellipse cx="200" cy="480" rx="120" ry="25" fill="#4A0080"/>
+    <ellipse cx="150" cy="475" rx="40" ry="15" fill="#5A0090"/>
+    <ellipse cx="250" cy="475" rx="40" ry="15" fill="#5A0090"/>
+    <ellipse cx="200" cy="470" rx="30" ry="10" fill="#6A00A0"/>
+  </g>
+
+  <!-- 黑虎坐骑 -->
+  <g transform="translate(50, 320)">
+    <!-- 虎身 -->
+    <ellipse cx="150" cy="80" rx="100" ry="60" fill="url(#tigerGrad)"/>
+    <!-- 虎腿 -->
+    <rect x="60" y="120" width="25" height="50" rx="12" fill="#1A1A1A"/>
+    <rect x="95" y="125" width="25" height="45" rx="12" fill="#1A1A1A"/>
+    <rect x="180" y="125" width="25" height="45" rx="12" fill="#1A1A1A"/>
+    <rect x="215" y="120" width="25" height="50" rx="12" fill="#1A1A1A"/>
+    <!-- 虎爪 -->
+    <ellipse cx="72" cy="172" rx="15" ry="8" fill="#0D0D0D"/>
+    <ellipse cx="107" cy="172" rx="15" ry="8" fill="#0D0D0D"/>
+    <ellipse cx="192" cy="172" rx="15" ry="8" fill="#0D0D0D"/>
+    <ellipse cx="227" cy="172" rx="15" ry="8" fill="#0D0D0D"/>
+    <!-- 虎头 -->
+    <g transform="translate(20, 20)">
+      <circle cx="40" cy="50" r="45" fill="#222"/>
+      <!-- 虎耳 -->
+      <path d="M10,20 L5,5 L20,15Z" fill="#222"/>
+      <path d="M70,15 L75,0 L85,15Z" fill="#222"/>
+      <!-- 王字 -->
+      <text x="35" y="35" font-size="20" fill="#DAA520" font-weight="bold">王</text>
+      <!-- 虎眼 -->
+      <ellipse cx="25" cy="50" rx="10" ry="8" fill="#FFD700"/>
+      <ellipse cx="55" cy="50" rx="10" ry="8" fill="#FFD700"/>
+      <circle cx="27" cy="50" r="4" fill="#000"/>
+      <circle cx="57" cy="50" r="4" fill="#000"/>
+      <!-- 虎鼻 -->
+      <ellipse cx="40" cy="65" rx="8" ry="6" fill="#333"/>
+      <!-- 虎牙 -->
+      <path d="M20,75 L23,85 L26,75" fill="#FFF"/>
+      <path d="M54,75 L57,85 L60,75" fill="#FFF"/>
+      <!-- 胡须 -->
+      <line x1="5" y1="60" x2="-10" y2="55" stroke="#FFD700" stroke-width="1"/>
+      <line x1="5" y1="65" x2="-10" y2="65" stroke="#FFD700" stroke-width="1"/>
+      <line x1="75" y1="60" x2="90" y2="55" stroke="#FFD700" stroke-width="1"/>
+      <line x1="75" y1="65" x2="90" y2="65" stroke="#FFD700" stroke-width="1"/>
+    </g>
+    <!-- 虎纹 -->
+    <path d="M100,40 Q110,30 120,40" stroke="#FFD700" stroke-width="2" fill="none"/>
+    <path d="M130,35 Q140,25 150,35" stroke="#FFD700" stroke-width="2" fill="none"/>
+    <path d="M160,40 Q170,30 180,40" stroke="#FFD700" stroke-width="2" fill="none"/>
+    <path d="M190,50 Q200,40 210,50" stroke="#FFD700" stroke-width="2" fill="none"/>
+    <!-- 虎尾 -->
+    <path d="M250,80 Q280,60 290,70 Q295,80 285,85" stroke="#1A1A1A" stroke-width="15" fill="none" stroke-linecap="round"/>
+    <path d="M250,80 Q280,60 290,70 Q295,80 285,85" stroke="#FFD700" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- 赵公明身体 -->
+  <g transform="translate(200, 240)">
+    <!-- 官袍下摆 -->
+    <path d="M-70,120 Q0,180 70,120 L60,200 Q0,220 -60,200Z" fill="url(#robeGrad)"/>
+    <!-- 身体 -->
+    <ellipse cx="0" cy="60" rx="75" ry="80" fill="url(#robeGrad)"/>
+    <!-- 龙纹 -->
+    <path d="M-40,40 Q-20,20 0,40 Q20,20 40,40" stroke="#FFD700" stroke-width="2" fill="none"/>
+    <circle cx="-20" cy="35" r="4" fill="#FFD700"/>
+    <circle cx="20" cy="35" r="4" fill="#FFD700"/>
+    <!-- 腰带 -->
+    <rect x="-60" y="90" width="120" height="20" fill="#FFD700"/>
+    <rect x="-50" y="92" width="100" height="16" fill="#DC143C"/>
+    <circle cx="0" cy="100" r="12" fill="#FFD700"/>
+    <circle cx="0" cy="100" r="8" fill="#DC143C"/>
+  </g>
+
+  <!-- 左手持聚宝盆 -->
+  <g transform="translate(110, 280)">
+    <!-- 手臂 -->
+    <ellipse cx="20" cy="30" rx="25" ry="35" fill="url(#robeGrad)"/>
+    <!-- 聚宝盆 -->
+    <ellipse cx="20" cy="50" rx="35" ry="25" fill="url(#goldGrad)" filter="url(#glow)"/>
+    <ellipse cx="20" cy="45" rx="30" ry="18" fill="#FFEC8B"/>
+    <!-- 盆中宝物 -->
+    <circle cx="10" cy="40" r="6" fill="#FFD700"/>
+    <circle cx="25" cy="38" r="5" fill="#FF6347"/>
+    <circle cx="30" cy="42" r="4" fill="#32CD32"/>
+  </g>
+
+  <!-- 右手持铁鞭 -->
+  <g transform="translate(270, 260)">
+    <!-- 手臂 -->
+    <ellipse cx="20" cy="40" rx="22" ry="40" fill="url(#robeGrad)"/>
+    <!-- 铁鞭 -->
+    <rect x="15" y="-60" width="10" height="120" fill="url(#goldGrad)" rx="2"/>
+    <!-- 鞭柄 -->
+    <rect x="12" y="-70" width="16" height="20" fill="#8B4513" rx="2"/>
+    <!-- 鞭的装饰 -->
+    <rect x="13" y="-40" width="14" height="3" fill="#DC143C"/>
+    <rect x="13" y="-20" width="14" height="3" fill="#DC143C"/>
+    <rect x="13" y="0" width="14" height="3" fill="#DC143C"/>
+  </g>
+
+  <!-- 头部 -->
+  <g transform="translate(200, 140)">
+    <!-- 发髻 -->
+    <ellipse cx="0" cy="-30" rx="45" ry="25" fill="#1A1A1A"/>
+    <ellipse cx="0" cy="-45" rx="30" ry="15" fill="#1A1A1A"/>
+    <!-- 发簪 -->
+    <line x1="-40" y1="-35" x2="40" y2="-35" stroke="#FFD700" stroke-width="4"/>
+    <circle cx="-35" cy="-35" r="5" fill="#FFD700"/>
+    <circle cx="35" cy="-35" r="5" fill="#FFD700"/>
+
+    <!-- 官帽 -->
+    <!-- 帽翅 -->
+    <ellipse cx="-55" cy="-10" rx="20" ry="10" fill="#FFD700" stroke="#B8860B">
+      <animateTransform attributeName="transform" type="rotate" values="-5 -55 -10;5 -55 -10;-5 -55 -10" dur="3s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="55" cy="-10" rx="20" ry="10" fill="#FFD700" stroke="#B8860B">
+      <animateTransform attributeName="transform" type="rotate" values="5 55 -10;-5 55 -10;5 55 -10" dur="3s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- 帽身 -->
+    <path d="M-50,-25 Q0,-45 50,-25 L55,-5 Q0,-25 -55,-5Z" fill="#DC143C" stroke="#FFD700"/>
+    <path d="M-55,-5 Q0,5 55,-5 L55,5 Q0,15 -55,5Z" fill="#DC143C" stroke="#FFD700"/>
+    <!-- 帽前装饰 -->
+    <rect x="-30" y="-22" width="60" height="20" fill="url(#goldGrad)" rx="3"/>
+    <circle cx="0" cy="-12" r="10" fill="#FFD700" stroke="#B8860B"/>
+    <text x="-6" y="-8" font-size="12" fill="#8B0000" font-weight="bold">財</text>
+    <!-- 帽顶宝珠 -->
+    <circle cx="0" cy="-55" r="8" fill="#DC143C" stroke="#FFD700" stroke-width="2"/>
+    <circle cx="0" cy="-58" r="3" fill="#FF6B6B"/>
+
+    <!-- 面部（黑脸） -->
+    <ellipse cx="0" cy="15" rx="50" ry="60" fill="#3D2810"/>
+    <!-- 额头宝玉 -->
+    <circle cx="0" cy="-10" r="6" fill="#FFD700" stroke="#B8860B"/>
+    <circle cx="0" cy="-12" r="2" fill="#FFF"/>
+
+    <!-- 浓眉 -->
+    <path d="M-35,-5 Q-20,-15 -5,-5" stroke="#1A1A1A" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M5,-5 Q20,-15 35,-5" stroke="#1A1A1A" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+    <!-- 怒目 -->
+    <ellipse cx="-20" cy="10" rx="14" ry="10" fill="#FFD700">
+      <animate attributeName="rx" values="14;15;14" dur="4s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="20" cy="10" rx="14" ry="10" fill="#FFD700">
+      <animate attributeName="rx" values="14;15;14" dur="4s" repeatCount="indefinite"/>
+    </ellipse>
+    <circle cx="-18" cy="10" r="6" fill="#000"/>
+    <circle cx="22" cy="10" r="6" fill="#000"/>
+    <circle cx="-16" cy="8" r="2" fill="#FFF"/>
+    <circle cx="24" cy="8" r="2" fill="#FFF"/>
+
+    <!-- 狮鼻 -->
+    <path d="M-8,25 Q0,20 8,25 L5,35 Q0,38 -5,35Z" fill="#2A1A0A"/>
+    <ellipse cx="-3" cy="30" rx="3" ry="2" fill="#1A1A1A"/>
+    <ellipse cx="3" cy="30" rx="3" ry="2" fill="#1A1A1A"/>
+
+    <!-- 胡须 -->
+    <path d="M-40,40 Q-30,70 0,85 Q30,70 40,40" stroke="#1A1A1A" stroke-width="4" fill="none"/>
+    <path d="M-35,50 Q-25,75 0,88 Q25,75 35,50" stroke="#1A1A1A" stroke-width="3" fill="none"/>
+    <path d="M-30,60 Q-20,80 0,90 Q20,80 30,60" stroke="#1A1A1A" stroke-width="2" fill="none"/>
+    <!-- 络腮胡 -->
+    <ellipse cx="-40" cy="45" rx="8" ry="15" fill="#1A1A1A" opacity="0.5"/>
+    <ellipse cx="40" cy="45" rx="8" ry="15" fill="#1A1A1A" opacity="0.5"/>
+
+    <!-- 嘴 -->
+    <path d="M-12,55 Q0,52 12,55" stroke="#1A1A1A" stroke-width="3" fill="none"/>
+    <path d="M-8,62 Q0,65 8,62" stroke="#8B0000" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- 飘带 -->
+  <g opacity="0.8">
+    <path d="M80,200 Q60,250 70,300" stroke="#DC143C" stroke-width="6" fill="none"/>
+    <path d="M320,200 Q340,250 330,300" stroke="#DC143C" stroke-width="6" fill="none"/>
+    <path d="M90,220 Q75,260 85,290" stroke="#FFD700" stroke-width="2" fill="none"/>
+    <path d="M310,220 Q325,260 315,290" stroke="#FFD700" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- 散落金元宝 -->
+  <g>
+    <ellipse cx="100" cy="420" rx="15" ry="8" fill="url(#goldGrad)"/>
+    <ellipse cx="300" cy="410" rx="12" ry="6" fill="url(#goldGrad)"/>
+    <ellipse cx="130" cy="440" rx="10" ry="5" fill="url(#goldGrad)"/>
+  </g>
+</svg>
