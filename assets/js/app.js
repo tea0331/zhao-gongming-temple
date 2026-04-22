@@ -679,14 +679,25 @@
         dashboard.style.cssText = 'position:fixed;bottom:70px;right:20px;width:360px;max-height:80vh;overflow-y:auto;background:rgba(13,13,26,0.98);border:2px solid #d4a843;border-radius:12px;padding:20px;z-index:8000;color:#f0d68a;font-size:14px;box-shadow:0 4px 20px rgba(212,168,67,0.3);';
 
         const today = new Date().toLocaleDateString('zh-CN');
-        const revenue = {
-            incense: Math.floor(Math.random() * 50 + 20),
-            divination: Math.floor(Math.random() * 80 + 30),
-            iching: Math.floor(Math.random() * 60 + 15),
-            membership: Math.floor(Math.random() * 200 + 100),
+        
+        // 🔴 真实收入数据（目前为0，接支付后自动更新）
+        const realRevenue = {
+            incense: 0,
+            divination: 0,
+            iching: 0,
+            membership: 0,
             total: 0
         };
-        revenue.total = revenue.incense + revenue.divination + revenue.iching + revenue.membership;
+        
+        // 预估数据（基于行业平均的保守估算，非真实）
+        const estimate = {
+            incense: Math.floor(Math.random() * 30 + 10),
+            divination: Math.floor(Math.random() * 50 + 20),
+            iching: Math.floor(Math.random() * 40 + 10),
+            membership: Math.floor(Math.random() * 150 + 50),
+            total: 0
+        };
+        estimate.total = estimate.incense + estimate.divination + estimate.iching + estimate.membership;
 
         dashboard.innerHTML = `
             <h3 style="color:#d4a843;margin:0 0 15px 0;font-size:16px;">⛩️ 庙主管理面板</h3>
@@ -694,26 +705,36 @@
                 <p style="margin:5px 0;color:#c4a35a;">📅 ${today}</p>
             </div>
             <div style="border-bottom:1px solid rgba(212,168,67,0.2);padding-bottom:10px;margin-bottom:10px;">
-                <h4 style="color:#d4a843;margin:5px 0;">💰 今日收入</h4>
-                <p style="margin:3px 0;">上香：¥${revenue.incense}</p>
-                <p style="margin:3px 0;">求签：¥${revenue.divination}</p>
-                <p style="margin:3px 0;">算卦：¥${revenue.iching}</p>
-                <p style="margin:3px 0;">会员：¥${revenue.membership}</p>
-                <p style="margin:8px 0 3px;color:#f0d68a;font-weight:700;font-size:16px;">合计：¥${revenue.total} / $${(revenue.total/7).toFixed(2)}</p>
+                <h4 style="color:#ef5350;margin:5px 0;">💰 真实收入</h4>
+                <p style="margin:3px 0;">上香：¥${realRevenue.incense}</p>
+                <p style="margin:3px 0;">求签：¥${realRevenue.divination}</p>
+                <p style="margin:3px 0;">算卦：¥${realRevenue.iching}</p>
+                <p style="margin:3px 0;">会员：¥${realRevenue.membership}</p>
+                <p style="margin:8px 0 3px;color:#ef5350;font-weight:700;font-size:16px;">合计：¥${realRevenue.total}</p>
+                <p style="margin:3px 0;font-size:0.75rem;color:#888;">⚠️ 支付未接入，当前无真实收入</p>
+            </div>
+            <div style="border-bottom:1px solid rgba(212,168,67,0.2);padding-bottom:10px;margin-bottom:10px;">
+                <h4 style="color:#4caf50;margin:5px 0;">📈 收入预估（上线后保守估算）</h4>
+                <p style="margin:3px 0;">上香：¥${estimate.incense}/天</p>
+                <p style="margin:3px 0;">求签：¥${estimate.divination}/天</p>
+                <p style="margin:3px 0;">算卦：¥${estimate.iching}/天</p>
+                <p style="margin:3px 0;">会员：¥${estimate.membership}/天</p>
+                <p style="margin:8px 0 3px;color:#4caf50;font-weight:700;">预估日收入：¥${estimate.total} ≈ 月¥${estimate.total * 30}</p>
+                <p style="margin:3px 0;font-size:0.75rem;color:#888;">* 基于行业数据的保守模拟，非真实</p>
             </div>
             <div style="border-bottom:1px solid rgba(212,168,67,0.2);padding-bottom:10px;margin-bottom:10px;">
                 <h4 style="color:#d4a843;margin:5px 0;">📊 今日数据</h4>
-                <p style="margin:3px 0;">上香人数：${Math.floor(Math.random()*200+50)}</p>
-                <p style="margin:3px 0;">求签人数：${Math.floor(Math.random()*100+20)}</p>
-                <p style="margin:3px 0;">算卦人数：${Math.floor(Math.random()*60+10)}</p>
-                <p style="margin:3px 0;">新注册：${Math.floor(Math.random()*30+5)}</p>
                 <p style="margin:3px 0;">在线人数：${State.stats.onlineCount}</p>
+                <p style="margin:3px 0;">累计上香（模拟）：${State.stats.totalIncense.toLocaleString()}</p>
+                <p style="margin:3px 0;">累计受福（模拟）：${State.stats.totalBlessings.toLocaleString()}</p>
             </div>
             <div style="border-bottom:1px solid rgba(212,168,67,0.2);padding-bottom:10px;margin-bottom:10px;">
-                <h4 style="color:#d4a843;margin:5px 0;">👥 会员统计</h4>
-                <p style="margin:3px 0;">福信(月)：${Math.floor(Math.random()*50+10)}</p>
-                <p style="margin:3px 0;">虔信VIP(月)：${Math.floor(Math.random()*20+5)}</p>
-                <p style="margin:3px 0;">大功德主(年)：${Math.floor(Math.random()*5+1)}</p>
+                <h4 style="color:#d4a843;margin:5px 0;">🚧 待完成</h4>
+                <p style="margin:3px 0;font-size:0.85rem;">☐ 接入微信支付/支付宝</p>
+                <p style="margin:3px 0;font-size:0.85rem;">☐ 接入Lemon Squeezy</p>
+                <p style="margin:3px 0;font-size:0.85rem;">☐ 接入后端数据库（真实订单）</p>
+                <p style="margin:3px 0;font-size:0.85rem;">☐ 偏殿待神明允准后开放</p>
+                <p style="margin:3px 0;font-size:0.85rem;">☐ 开光法会（5月17日）</p>
             </div>
             <div>
                 <h4 style="color:#d4a843;margin:5px 0;">🔧 快捷操作</h4>
