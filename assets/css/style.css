@@ -1447,9 +1447,9 @@ footer {
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .mobile-only { display: block; }
-    .title-main { font-size: 1.2rem; letter-spacing: 0.15em; }
-    .title-deity { font-size: 1.8rem; letter-spacing: 0.15em; }
-    .temple-motto { font-size: 1.1rem; letter-spacing: 0.6em; }
+    .title-main { font-size: 1.1rem; letter-spacing: 0.1em; }
+    .title-deity { font-size: 1.5rem; letter-spacing: 0.08em; }
+    .temple-motto { font-size: 1rem; letter-spacing: 0.3em; }
     .hero-subtitle { font-size: 0.85rem; letter-spacing: 0.08em; }
     .hero-desc { font-size: 0.8rem; letter-spacing: 0.03em; }
     .hero-stats { gap: 1.5rem; }
