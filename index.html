@@ -105,112 +105,228 @@
             <div class="deity-image-container">
                 <!-- SVG赵公明神像 -->
                 <svg id="deity-svg" viewBox="0 0 280 350" xmlns="http://www.w3.org/2000/svg">
-                    <!-- 光环 -->
                     <defs>
                         <radialGradient id="aura-grad" cx="50%" cy="45%" r="50%">
-                            <stop offset="0%" stop-color="#d4a843" stop-opacity="0.25"/>
-                            <stop offset="70%" stop-color="#d4a843" stop-opacity="0.05"/>
+                            <stop offset="0%" stop-color="#d4a843" stop-opacity="0.3"/>
+                            <stop offset="50%" stop-color="#d4a843" stop-opacity="0.1"/>
                             <stop offset="100%" stop-color="#d4a843" stop-opacity="0"/>
                         </radialGradient>
                         <linearGradient id="crown-grad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#f0d68a"/>
-                            <stop offset="100%" stop-color="#b8860b"/>
+                            <stop offset="0%" stop-color="#f5e6a3"/>
+                            <stop offset="50%" stop-color="#d4a843"/>
+                            <stop offset="100%" stop-color="#8b6914"/>
                         </linearGradient>
                         <linearGradient id="robe-grad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#8b0000"/>
-                            <stop offset="40%" stop-color="#a01020"/>
-                            <stop offset="100%" stop-color="#6b0000"/>
+                            <stop offset="0%" stop-color="#a01020"/>
+                            <stop offset="30%" stop-color="#8b0000"/>
+                            <stop offset="70%" stop-color="#7a0015"/>
+                            <stop offset="100%" stop-color="#5a0010"/>
                         </linearGradient>
-                        <linearGradient id="face-grad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#3d2810"/>
+                        <linearGradient id="face-grad" x1="0.3" y1="0" x2="0.7" y2="1">
+                            <stop offset="0%" stop-color="#4a3015"/>
+                            <stop offset="50%" stop-color="#3d2810"/>
                             <stop offset="100%" stop-color="#2a1a0a"/>
                         </linearGradient>
+                        <linearGradient id="ingot-grad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffe082"/>
+                            <stop offset="50%" stop-color="#f0d68a"/>
+                            <stop offset="100%" stop-color="#c9a02e"/>
+                        </linearGradient>
+                        <linearGradient id="whip-grad" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#888"/>
+                            <stop offset="50%" stop-color="#aaa"/>
+                            <stop offset="100%" stop-color="#666"/>
+                        </linearGradient>
+                        <filter id="gold-glow">
+                            <feGaussianBlur stdDeviation="2" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
                     </defs>
-                    <!-- 神光 -->
-                    <ellipse cx="140" cy="150" rx="130" ry="160" fill="url(#aura-grad)">
-                        <animate attributeName="rx" values="130;135;130" dur="4s" repeatCount="indefinite"/>
-                        <animate attributeName="ry" values="160;165;160" dur="4s" repeatCount="indefinite"/>
+                    <!-- 神光 (双层) -->
+                    <ellipse cx="140" cy="140" rx="130" ry="155" fill="url(#aura-grad)">
+                        <animate attributeName="rx" values="130;136;130" dur="4s" repeatCount="indefinite"/>
+                        <animate attributeName="ry" values="155;162;155" dur="4s" repeatCount="indefinite"/>
                     </ellipse>
-                    <!-- 黑虎 (坐骑) -->
-                    <g transform="translate(85, 250)">
+                    <ellipse cx="140" cy="140" rx="80" ry="100" fill="rgba(212,168,67,0.05)">
+                        <animate attributeName="rx" values="80;84;80" dur="3s" repeatCount="indefinite"/>
+                    </ellipse>
+
+                    <!-- 黑虎坐骑 (升级版) -->
+                    <g transform="translate(75, 248)">
                         <!-- 虎身 -->
-                        <ellipse cx="55" cy="40" rx="50" ry="30" fill="#1a1a1a" stroke="#d4a843" stroke-width="1"/>
+                        <ellipse cx="60" cy="42" rx="55" ry="32" fill="#1a1a1a" stroke="#d4a843" stroke-width="1"/>
+                        <!-- 虎腹纹 -->
+                        <ellipse cx="60" cy="50" rx="35" ry="15" fill="#252525" stroke="none"/>
+                        <!-- 虎腿 -->
+                        <rect x="25" y="60" width="8" height="18" fill="#1a1a1a" stroke="#d4a843" stroke-width="0.5" rx="2"/>
+                        <rect x="45" y="62" width="8" height="16" fill="#1a1a1a" stroke="#d4a843" stroke-width="0.5" rx="2"/>
+                        <rect x="70" y="62" width="8" height="16" fill="#1a1a1a" stroke="#d4a843" stroke-width="0.5" rx="2"/>
+                        <rect x="90" y="60" width="8" height="18" fill="#1a1a1a" stroke="#d4a843" stroke-width="0.5" rx="2"/>
+                        <!-- 虎爪 -->
+                        <ellipse cx="29" cy="78" rx="5" ry="2" fill="#2a2a2a"/>
+                        <ellipse cx="49" cy="78" rx="5" ry="2" fill="#2a2a2a"/>
+                        <ellipse cx="74" cy="78" rx="5" ry="2" fill="#2a2a2a"/>
+                        <ellipse cx="94" cy="78" rx="5" ry="2" fill="#2a2a2a"/>
                         <!-- 虎头 -->
-                        <circle cx="20" cy="28" r="18" fill="#2a2a2a" stroke="#d4a843" stroke-width="1"/>
+                        <circle cx="18" cy="28" r="20" fill="#222" stroke="#d4a843" stroke-width="1"/>
                         <!-- 虎耳 -->
-                        <polygon points="10,14 5,4 18,12" fill="#2a2a2a" stroke="#d4a843" stroke-width="0.5"/>
-                        <polygon points="28,12 32,3 36,14" fill="#2a2a2a" stroke="#d4a843" stroke-width="0.5"/>
-                        <!-- 虎眼 -->
-                        <circle cx="14" cy="25" r="3" fill="#d4a843">
-                            <animate attributeName="opacity" values="1;0.6;1" dur="3s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="26" cy="25" r="3" fill="#d4a843">
-                            <animate attributeName="opacity" values="1;0.6;1" dur="3s" repeatCount="indefinite"/>
-                        </circle>
-                        <!-- 虎纹 -->
-                        <path d="M40,28 Q50,22 55,30" stroke="#d4a843" stroke-width="0.8" fill="none"/>
-                        <path d="M65,25 Q75,20 80,28" stroke="#d4a843" stroke-width="0.8" fill="none"/>
-                        <path d="M85,30 Q90,24 95,32" stroke="#d4a843" stroke-width="0.8" fill="none"/>
+                        <path d="M5,16 L0,2 L14,12Z" fill="#222" stroke="#d4a843" stroke-width="0.5"/>
+                        <path d="M26,12 L30,0 L35,14Z" fill="#222" stroke="#d4a843" stroke-width="0.5"/>
+                        <!-- 虎眼 (更大更凶) -->
+                        <ellipse cx="12" cy="24" rx="4" ry="3.5" fill="#d4a843">
+                            <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite"/>
+                        </ellipse>
+                        <ellipse cx="25" cy="24" rx="4" ry="3.5" fill="#d4a843">
+                            <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite"/>
+                        </ellipse>
+                        <circle cx="13" cy="24" r="1.5" fill="#1a1a2e"/>
+                        <circle cx="26" cy="24" r="1.5" fill="#1a1a2e"/>
+                        <!-- 虎鼻 -->
+                        <ellipse cx="18" cy="30" rx="3" ry="2" fill="#333"/>
+                        <!-- 虎牙 -->
+                        <path d="M10,34 L12,40 L14,34" fill="#eee" stroke="none"/>
+                        <path d="M22,34 L24,40 L26,34" fill="#eee" stroke="none"/>
+                        <!-- 虎纹 (更生动) -->
+                        <path d="M42,25 Q48,18 55,26" stroke="#d4a843" stroke-width="1" fill="none"/>
+                        <path d="M58,22 Q65,15 72,24" stroke="#d4a843" stroke-width="1" fill="none"/>
+                        <path d="M75,26 Q82,19 88,28" stroke="#d4a843" stroke-width="1" fill="none"/>
+                        <path d="M95,30 Q100,24 105,32" stroke="#d4a843" stroke-width="0.8" fill="none"/>
+                        <path d="M40,42 Q48,36 54,44" stroke="#d4a843" stroke-width="0.8" fill="none"/>
+                        <path d="M65,38 Q72,32 78,40" stroke="#d4a843" stroke-width="0.8" fill="none"/>
                         <!-- 王字 -->
-                        <text x="14" y="20" font-size="5" fill="#d4a843" font-weight="700">王</text>
+                        <text x="12" y="18" font-size="6" fill="#d4a843" font-weight="700">王</text>
+                        <!-- 虎尾 -->
+                        <path d="M115,38 Q125,30 130,35 Q132,40 128,42" stroke="#1a1a1a" stroke-width="4" fill="none" stroke-linecap="round"/>
+                        <path d="M115,38 Q125,30 130,35 Q132,40 128,42" stroke="#d4a843" stroke-width="0.5" fill="none"/>
                     </g>
-                    <!-- 聚宝盆 -->
-                    <g transform="translate(105, 290)">
-                        <path d="M0,15 Q5,0 35,0 Q65,0 70,15 L65,30 Q35,35 5,30 Z" fill="#b8860b" stroke="#d4a843" stroke-width="1"/>
-                        <ellipse cx="35" cy="15" rx="35" ry="8" fill="#d4a843" fill-opacity="0.3"/>
-                        <!-- 元宝 -->
-                        <path d="M25,8 Q35,2 45,8 Q40,12 35,14 Q30,12 25,8Z" fill="#f0d68a" stroke="#b8860b" stroke-width="0.5"/>
+
+                    <!-- 聚宝盆 (升级版) -->
+                    <g transform="translate(100, 286)">
+                        <!-- 盆身 -->
+                        <path d="M0,18 Q8,0 40,0 Q72,0 80,18 L73,34 Q40,40 7,34 Z" fill="#b8860b" stroke="#d4a843" stroke-width="1.2"/>
+                        <!-- 盆沿花纹 -->
+                        <ellipse cx="40" cy="18" rx="40" ry="9" fill="none" stroke="#f0d68a" stroke-width="1.5"/>
+                        <ellipse cx="40" cy="18" rx="40" ry="9" fill="#d4a843" fill-opacity="0.15"/>
+                        <!-- 盆中回纹 -->
+                        <path d="M15,24 Q20,20 25,24 Q30,28 35,24" stroke="#f0d68a" stroke-width="0.6" fill="none"/>
+                        <path d="M45,24 Q50,20 55,24 Q60,28 65,24" stroke="#f0d68a" stroke-width="0.6" fill="none"/>
+                        <!-- 元宝堆叠 -->
+                        <path d="M22,10 Q32,3 42,10 Q37,14 32,16 Q27,14 22,10Z" fill="url(#ingot-grad)" stroke="#b8860b" stroke-width="0.5" filter="url(#gold-glow)"/>
+                        <path d="M38,6 Q48,0 58,6 Q53,10 48,12 Q43,10 38,6Z" fill="url(#ingot-grad)" stroke="#b8860b" stroke-width="0.5" filter="url(#gold-glow)"/>
+                        <path d="M28,3 Q36,-2 44,3 Q40,6 36,8 Q32,6 28,3Z" fill="#ffe082" stroke="#b8860b" stroke-width="0.3"/>
+                        <!-- 铜钱 -->
+                        <circle cx="55" cy="14" r="4" fill="#f0d68a" stroke="#b8860b" stroke-width="0.5"/>
+                        <rect x="53" y="12.5" width="4" height="3" fill="#b8860b" rx="0.5"/>
                     </g>
-                    <!-- 红袍 -->
-                    <path d="M90,130 L80,280 L200,280 L190,130 Q140,120 90,130Z" fill="url(#robe-grad)" stroke="#d4a843" stroke-width="1"/>
+
+                    <!-- 红袍 (升级版) -->
+                    <path d="M88,128 L76,280 L204,280 L192,128 Q140,117 88,128Z" fill="url(#robe-grad)" stroke="#d4a843" stroke-width="1.2"/>
+                    <!-- 袍领 -->
+                    <path d="M112,128 L140,142 L168,128" fill="none" stroke="#d4a843" stroke-width="1.5"/>
+                    <!-- 袍上龙纹暗花 -->
+                    <path d="M100,155 Q110,145 125,150 Q120,155 115,153 Q108,158 100,155Z" fill="#d4a843" fill-opacity="0.12"/>
+                    <path d="M155,160 Q165,150 180,155 Q175,160 170,158 Q163,163 155,160Z" fill="#d4a843" fill-opacity="0.12"/>
+                    <path d="M120,190 Q132,182 140,188 Q135,194 128,192 Q122,195 120,190Z" fill="#d4a843" fill-opacity="0.12"/>
+                    <path d="M150,210 Q162,202 170,208 Q165,214 158,212 Q152,215 150,210Z" fill="#d4a843" fill-opacity="0.12"/>
+                    <!-- 龙纹(简化) -->
+                    <path d="M95,230 Q105,215 118,225 Q112,230 108,228 Q100,235 95,230" stroke="#d4a843" stroke-width="0.8" fill="none" opacity="0.2"/>
+                    <path d="M165,235 Q175,220 185,230 Q180,235 176,233 Q170,240 165,235" stroke="#d4a843" stroke-width="0.8" fill="none" opacity="0.2"/>
                     <!-- 袍上「財」字 -->
-                    <text x="140" y="210" font-size="36" fill="#d4a843" text-anchor="middle" font-weight="900" opacity="0.9" font-family="'Noto Serif SC',serif">財</text>
-                    <!-- 袍上云纹 -->
-                    <path d="M105,160 Q115,150 125,160 Q120,165 115,163 Q110,165 105,160Z" fill="#d4a843" fill-opacity="0.2"/>
-                    <path d="M155,170 Q165,160 175,170 Q170,175 165,173 Q160,175 155,170Z" fill="#d4a843" fill-opacity="0.2"/>
-                    <!-- 左手持元宝 -->
-                    <g transform="translate(55, 150)">
-                        <path d="M0,15 L30,10 L28,18 L-2,23Z" fill="#8b0000" stroke="#d4a843" stroke-width="0.5"/>
-                        <path d="M10,0 Q22,-5 28,5 Q23,10 18,12 Q13,10 10,0Z" fill="#f0d68a" stroke="#b8860b" stroke-width="0.8"/>
+                    <text x="140" y="208" font-size="38" fill="#d4a843" text-anchor="middle" font-weight="900" opacity="0.85" font-family="'Noto Serif SC',serif" filter="url(#gold-glow)">財</text>
+                    <!-- 袍袖褶皱 -->
+                    <path d="M88,145 Q75,160 70,180" stroke="#6b0000" stroke-width="0.8" fill="none" opacity="0.4"/>
+                    <path d="M192,145 Q205,160 210,180" stroke="#6b0000" stroke-width="0.8" fill="none" opacity="0.4"/>
+                    <path d="M82,200 L78,230" stroke="#6b0000" stroke-width="0.5" fill="none" opacity="0.3"/>
+                    <path d="M198,200 L202,230" stroke="#6b0000" stroke-width="0.5" fill="none" opacity="0.3"/>
+
+                    <!-- 璎珞/项链 -->
+                    <path d="M115,128 Q125,135 140,138 Q155,135 165,128" stroke="#f0d68a" stroke-width="1.2" fill="none"/>
+                    <circle cx="140" cy="138" r="3" fill="#c41e3a" stroke="#f0d68a" stroke-width="0.5"/>
+                    <circle cx="125" cy="133" r="2" fill="#f0d68a"/>
+                    <circle cx="155" cy="133" r="2" fill="#f0d68a"/>
+
+                    <!-- 左手持元宝 (升级版) -->
+                    <g transform="translate(48, 148)">
+                        <!-- 袖口 -->
+                        <path d="M0,12 Q5,5 35,8 Q32,16 30,20 Q5,22 0,12Z" fill="#8b0000" stroke="#d4a843" stroke-width="0.5"/>
+                        <!-- 元宝(更大更亮) -->
+                        <path d="M8,-2 Q22,-8 32,2 Q26,8 20,11 Q14,8 8,-2Z" fill="url(#ingot-grad)" stroke="#b8860b" stroke-width="0.8" filter="url(#gold-glow)">
+                            <animate attributeName="opacity" values="1;0.85;1" dur="2s" repeatCount="indefinite"/>
+                        </path>
                     </g>
-                    <!-- 右手持铁鞭 -->
-                    <g transform="translate(195, 130)">
-                        <rect x="5" y="0" width="3" height="90" fill="#666" stroke="#d4a843" stroke-width="0.5" rx="1"/>
-                        <rect x="0" y="0" width="13" height="12" fill="#b8860b" stroke="#d4a843" stroke-width="0.5" rx="2"/>
-                        <!-- 鞭上装饰 -->
-                        <rect x="3" y="20" width="7" height="3" fill="#d4a843" fill-opacity="0.5" rx="1"/>
-                        <rect x="3" y="40" width="7" height="3" fill="#d4a843" fill-opacity="0.5" rx="1"/>
-                        <rect x="3" y="60" width="7" height="3" fill="#d4a843" fill-opacity="0.5" rx="1"/>
+
+                    <!-- 右手持铁鞭 (升级版) -->
+                    <g transform="translate(192, 125)">
+                        <!-- 鞭身 -->
+                        <rect x="5" y="8" width="4" height="88" fill="url(#whip-grad)" stroke="#999" stroke-width="0.3" rx="1"/>
+                        <!-- 鞭节纹路 -->
+                        <line x1="3" y1="20" x2="11" y2="20" stroke="#d4a843" stroke-width="0.8"/>
+                        <line x1="3" y1="32" x2="11" y2="32" stroke="#d4a843" stroke-width="0.8"/>
+                        <line x1="3" y1="44" x2="11" y2="44" stroke="#d4a843" stroke-width="0.8"/>
+                        <line x1="3" y1="56" x2="11" y2="56" stroke="#d4a843" stroke-width="0.8"/>
+                        <line x1="3" y1="68" x2="11" y2="68" stroke="#d4a843" stroke-width="0.8"/>
+                        <line x1="3" y1="80" x2="11" y2="80" stroke="#d4a843" stroke-width="0.8"/>
+                        <!-- 鞭柄 -->
+                        <rect x="0" y="0" width="14" height="12" fill="#b8860b" stroke="#d4a843" stroke-width="0.8" rx="2"/>
+                        <rect x="4" y="1" width="6" height="4" fill="#d4a843" fill-opacity="0.4" rx="1"/>
+                        <!-- 鞭穗 -->
+                        <path d="M5,96 Q3,102 6,105" stroke="#c41e3a" stroke-width="1.5" fill="none"/>
+                        <path d="M7,96 Q9,102 6,105" stroke="#c41e3a" stroke-width="1.5" fill="none"/>
                     </g>
-                    <!-- 浓须 -->
-                    <path d="M115,108 Q120,115 118,130 Q125,125 130,130 Q130,118 135,108" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="0.5"/>
-                    <path d="M145,108 Q150,115 148,130 Q155,125 160,130 Q160,118 165,108" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="0.5"/>
-                    <!-- 面部 -->
-                    <ellipse cx="140" cy="88" rx="32" ry="38" fill="url(#face-grad)" stroke="#3d2810" stroke-width="0.5"/>
-                    <!-- 眉毛 (怒目) -->
-                    <path d="M118,75 Q125,70 132,73" stroke="#d4a843" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    <path d="M148,73 Q155,70 162,75" stroke="#d4a843" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+                    <!-- 浓须 (更丰满) -->
+                    <path d="M112,106 Q116,112 114,128 Q120,124 126,128 Q126,116 130,108" fill="#1a1a1a"/>
+                    <path d="M130,108 Q134,114 132,130 Q138,126 144,130 Q144,116 148,108" fill="#1a1a1a"/>
+                    <path d="M148,108 Q152,114 150,130 Q156,126 162,130 Q162,116 168,108" fill="#1a1a1a"/>
+                    <!-- 须尖 -->
+                    <path d="M114,128 Q118,135 115,140" stroke="#2a2a2a" stroke-width="0.8" fill="none"/>
+                    <path d="M126,128 Q128,135 125,140" stroke="#2a2a2a" stroke-width="0.8" fill="none"/>
+                    <path d="M150,128 Q152,135 149,140" stroke="#2a2a2a" stroke-width="0.8" fill="none"/>
+                    <path d="M162,128 Q166,135 163,140" stroke="#2a2a2a" stroke-width="0.8" fill="none"/>
+
+                    <!-- 面部 (升级版) -->
+                    <ellipse cx="140" cy="86" rx="33" ry="40" fill="url(#face-grad)" stroke="#3d2810" stroke-width="0.5"/>
+                    <!-- 颧骨阴影 -->
+                    <ellipse cx="124" cy="90" rx="8" ry="5" fill="#251508" opacity="0.3"/>
+                    <ellipse cx="156" cy="90" rx="8" ry="5" fill="#251508" opacity="0.3"/>
+                    <!-- 眉毛 (怒目,更粗) -->
+                    <path d="M115,72 Q122,66 133,70" stroke="#d4a843" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <path d="M147,70 Q158,66 165,72" stroke="#d4a843" stroke-width="2.5" fill="none" stroke-linecap="round"/>
                     <!-- 眼睛 -->
-                    <ellipse cx="126" cy="82" rx="5" ry="3" fill="#d4a843">
-                        <animate attributeName="ry" values="3;0.5;3" dur="5s" repeatCount="indefinite" begin="2s"/>
+                    <ellipse cx="125" cy="80" rx="6" ry="3.5" fill="#d4a843">
+                        <animate attributeName="ry" values="3.5;0.5;3.5" dur="5s" repeatCount="indefinite" begin="2s"/>
                     </ellipse>
-                    <ellipse cx="154" cy="82" rx="5" ry="3" fill="#d4a843">
-                        <animate attributeName="ry" values="3;0.5;3" dur="5s" repeatCount="indefinite" begin="2s"/>
+                    <ellipse cx="155" cy="80" rx="6" ry="3.5" fill="#d4a843">
+                        <animate attributeName="ry" values="3.5;0.5;3.5" dur="5s" repeatCount="indefinite" begin="2s"/>
                     </ellipse>
                     <!-- 瞳孔 -->
-                    <circle cx="127" cy="82" r="1.5" fill="#1a1a2e"/>
-                    <circle cx="155" cy="82" r="1.5" fill="#1a1a2e"/>
-                    <!-- 鼻子 -->
-                    <path d="M138,88 L140,95 L142,88" stroke="#5a3a1a" stroke-width="0.8" fill="none"/>
-                    <!-- 嘴 -->
-                    <path d="M130,100 Q140,103 150,100" stroke="#5a3a1a" stroke-width="1" fill="none"/>
-                    <!-- 铁冠 -->
-                    <path d="M112,55 L115,48 L125,52 L133,42 L140,50 L147,42 L155,52 L165,48 L168,55 Q140,48 112,55Z" fill="url(#crown-grad)" stroke="#d4a843" stroke-width="1"/>
-                    <rect x="115" y="55" width="50" height="5" fill="#b8860b" stroke="#d4a843" stroke-width="0.5" rx="1"/>
-                    <!-- 冠上宝珠 -->
-                    <circle cx="140" cy="42" r="4" fill="#c41e3a" stroke="#d4a843" stroke-width="0.8">
-                        <animate attributeName="r" values="4;4.5;4" dur="2s" repeatCount="indefinite"/>
+                    <circle cx="126" cy="80" r="2" fill="#1a1a2e"/>
+                    <circle cx="156" cy="80" r="2" fill="#1a1a2e"/>
+                    <!-- 眼白高光 -->
+                    <circle cx="124" cy="79" r="0.8" fill="#ffd54f" opacity="0.6"/>
+                    <circle cx="154" cy="79" r="0.8" fill="#ffd54f" opacity="0.6"/>
+                    <!-- 鼻子 (更立体) -->
+                    <path d="M137,86 L139,94 L141,86" stroke="#5a3a1a" stroke-width="1" fill="none"/>
+                    <ellipse cx="137" cy="94" rx="2" ry="1.5" fill="#2a1a0a" opacity="0.3"/>
+                    <ellipse cx="143" cy="94" rx="2" ry="1.5" fill="#2a1a0a" opacity="0.3"/>
+                    <!-- 嘴 (更厚) -->
+                    <path d="M128,100 Q134,105 140,104 Q146,105 152,100" stroke="#5a3a1a" stroke-width="1.2" fill="none"/>
+                    <path d="M130,101 Q140,106 150,101" fill="#3d1508" opacity="0.4"/>
+
+                    <!-- 铁冠 (升级版) -->
+                    <path d="M108,53 L112,44 L122,49 L130,38 L140,47 L150,38 L158,49 L168,44 L172,53 Q140,45 108,53Z" fill="url(#crown-grad)" stroke="#d4a843" stroke-width="1.2"/>
+                    <!-- 冠上龙纹 -->
+                    <path d="M120,50 Q125,47 128,49 Q126,51 124,50" stroke="#8b6914" stroke-width="0.6" fill="none"/>
+                    <path d="M152,50 Q157,47 160,49 Q158,51 156,50" stroke="#8b6914" stroke-width="0.6" fill="none"/>
+                    <rect x="112" y="53" width="56" height="5" fill="#b8860b" stroke="#d4a843" stroke-width="0.5" rx="1"/>
+                    <!-- 冠上宝珠 (更大更亮) -->
+                    <circle cx="140" cy="37" r="5" fill="#c41e3a" stroke="#f0d68a" stroke-width="1" filter="url(#gold-glow)">
+                        <animate attributeName="r" values="5;5.8;5" dur="2s" repeatCount="indefinite"/>
                     </circle>
+                    <circle cx="139" cy="36" r="1.5" fill="#ff8a80" opacity="0.6"/>
+                    <!-- 冠侧翼 -->
+                    <path d="M108,53 L102,48 L108,45" fill="#d4a843" stroke="#b8860b" stroke-width="0.5"/>
+                    <path d="M172,53 L178,48 L172,45" fill="#d4a843" stroke="#b8860b" stroke-width="0.5"/>
                 </svg>
             </div>
             <div class="offering-table">
@@ -415,48 +531,179 @@
         </div>
         <div class="side-hall-container">
             <div class="hall-shrine">
-                <svg viewBox="0 0 300 280" xmlns="http://www.w3.org/2000/svg" class="deity-svg">
+                <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" class="deity-svg">
                     <defs>
-                        <radialGradient id="tudi-aura" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#7cb342" stop-opacity="0.2"/>
+                        <radialGradient id="tudi-aura" cx="50%" cy="45%" r="50%">
+                            <stop offset="0%" stop-color="#7cb342" stop-opacity="0.25"/>
+                            <stop offset="60%" stop-color="#7cb342" stop-opacity="0.08"/>
                             <stop offset="100%" stop-color="#7cb342" stop-opacity="0"/>
                         </radialGradient>
                         <linearGradient id="tudi-robe" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#4a7c3f"/>
+                            <stop offset="0%" stop-color="#558b2f"/>
+                            <stop offset="50%" stop-color="#4a7c3f"/>
                             <stop offset="100%" stop-color="#2d5a27"/>
                         </linearGradient>
                         <linearGradient id="tumiu-robe" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#c62828"/>
+                            <stop offset="0%" stop-color="#d32f2f"/>
+                            <stop offset="50%" stop-color="#c62828"/>
                             <stop offset="100%" stop-color="#8e0000"/>
                         </linearGradient>
+                        <linearGradient id="tudi-face" x1="0.3" y1="0" x2="0.7" y2="1">
+                            <stop offset="0%" stop-color="#f0d5a8"/>
+                            <stop offset="100%" stop-color="#dbb888"/>
+                        </linearGradient>
+                        <linearGradient id="tumiu-face" x1="0.3" y1="0" x2="0.7" y2="1">
+                            <stop offset="0%" stop-color="#fce4c8"/>
+                            <stop offset="100%" stop-color="#e8c8a0"/>
+                        </linearGradient>
+                        <filter id="tudi-glow">
+                            <feGaussianBlur stdDeviation="1.5" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
                     </defs>
-                    <ellipse cx="150" cy="140" rx="140" ry="130" fill="url(#tudi-aura)">
-                        <animate attributeName="rx" values="140;145;140" dur="5s" repeatCount="indefinite"/>
+                    <!-- 神光 -->
+                    <ellipse cx="150" cy="135" rx="140" ry="130" fill="url(#tudi-aura)">
+                        <animate attributeName="rx" values="140;146;140" dur="5s" repeatCount="indefinite"/>
                     </ellipse>
-                    <g transform="translate(30, 30)">
-                        <path d="M30,95 L20,250 L110,250 L100,95 Q65,85 30,95Z" fill="url(#tudi-robe)" stroke="#7cb342" stroke-width="0.5"/>
-                        <text x="65" y="180" font-size="22" fill="#ffd54f" text-anchor="middle" font-weight="900" font-family="'Noto Serif SC',serif">福</text>
-                        <circle cx="65" cy="68" r="28" fill="#e8c88a" stroke="#d4a843" stroke-width="0.5"/>
-                        <path d="M40,48 Q65,30 90,48 L85,55 Q65,45 45,55Z" fill="#2d5a27" stroke="#7cb342" stroke-width="1"/>
-                        <rect x="50" y="42" width="30" height="5" fill="#7cb342" rx="1"/>
-                        <ellipse cx="54" cy="62" rx="4" ry="3" fill="#3e2723"/>
-                        <ellipse cx="76" cy="62" rx="4" ry="3" fill="#3e2723"/>
-                        <path d="M55,76 Q65,84 75,76" stroke="#5d4037" stroke-width="1.5" fill="none"/>
-                        <path d="M50,78 Q55,90 60,78" fill="#f5f5f5" stroke="none"/>
-                        <path d="M70,78 Q75,90 80,78" fill="#f5f5f5" stroke="none"/>
-                        <ellipse cx="105" cy="230" rx="12" ry="8" fill="#ffd54f" stroke="#d4a843" stroke-width="0.5"/>
+
+                    <!-- 供桌(两人之间) -->
+                    <g transform="translate(125, 220)">
+                        <rect x="0" y="0" width="50" height="30" fill="#8d6e2e" stroke="#b8860b" stroke-width="0.8" rx="2"/>
+                        <rect x="-5" y="-3" width="60" height="5" fill="#a0822e" stroke="#d4a843" stroke-width="0.5" rx="1"/>
+                        <!-- 香炉 -->
+                        <path d="M15,-3 L18,-15 L32,-15 L35,-3Z" fill="#b8860b" stroke="#d4a843" stroke-width="0.5"/>
+                        <ellipse cx="25" cy="-3" rx="10" ry="3" fill="#d4a843" fill-opacity="0.2"/>
+                        <!-- 香 -->
+                        <line x1="23" y1="-15" x2="22" y2="-28" stroke="#ff6b35" stroke-width="1.5"/>
+                        <line x1="25" y1="-15" x2="25" y2="-30" stroke="#ff6b35" stroke-width="1.5"/>
+                        <line x1="27" y1="-15" x2="28" y2="-27" stroke="#ff6b35" stroke-width="1.5"/>
+                        <!-- 烟 -->
+                        <circle cx="22" cy="-30" r="2" fill="rgba(200,200,200,0.2)">
+                            <animate attributeName="cy" values="-30;-45" dur="3s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.3;0" dur="3s" repeatCount="indefinite"/>
+                        </circle>
+                        <!-- 供果 -->
+                        <circle cx="12" cy="-2" r="3" fill="#e53935"/>
+                        <circle cx="38" cy="-2" r="3" fill="#ff9800"/>
                     </g>
-                    <g transform="translate(155, 30)">
-                        <path d="M30,95 L20,250 L110,250 L100,95 Q65,85 30,95Z" fill="url(#tumiu-robe)" stroke="#ef5350" stroke-width="0.5"/>
-                        <text x="65" y="180" font-size="22" fill="#ffd54f" text-anchor="middle" font-weight="900" font-family="'Noto Serif SC',serif">德</text>
-                        <circle cx="65" cy="68" r="28" fill="#f5d5b5" stroke="#ef5350" stroke-width="0.5"/>
-                        <path d="M40,48 Q50,35 65,40 Q80,35 90,48 L85,52 Q65,42 45,52Z" fill="#c62828" stroke="#ffd54f" stroke-width="0.8"/>
-                        <circle cx="65" cy="38" r="4" fill="#ffd54f"/>
-                        <ellipse cx="65" cy="48" rx="25" ry="8" fill="#3e2723"/>
-                        <ellipse cx="54" cy="62" rx="4" ry="3" fill="#3e2723"/>
-                        <ellipse cx="76" cy="62" rx="4" ry="3" fill="#3e2723"/>
-                        <path d="M55,76 Q65,84 75,76" stroke="#5d4037" stroke-width="1.5" fill="none"/>
-                        <path d="M95,160 Q110,140 105,130 Q100,125 95,130 Q100,140 90,150Z" fill="#ffd54f" stroke="#d4a843" stroke-width="0.5"/>
+
+                    <!-- 土地公（左，升级版） -->
+                    <g transform="translate(25, 25)">
+                        <!-- 绿袍 -->
+                        <path d="M28,92 L16,250 L114,250 L102,92 Q65,82 28,92Z" fill="url(#tudi-robe)" stroke="#7cb342" stroke-width="0.8"/>
+                        <!-- 袍上「福」字 -->
+                        <text x="65" y="178" font-size="24" fill="#ffd54f" text-anchor="middle" font-weight="900" font-family="'Noto Serif SC',serif" filter="url(#tudi-glow)">福</text>
+                        <!-- 袍纹 -->
+                        <path d="M35,140 Q45,132 55,140 Q50,145 45,143 Q38,146 35,140Z" fill="#ffd54f" fill-opacity="0.1"/>
+                        <path d="M75,155 Q85,147 95,155 Q90,160 85,158 Q78,161 75,155Z" fill="#ffd54f" fill-opacity="0.1"/>
+                        <!-- 袍褶 -->
+                        <path d="M30,150 L22,200" stroke="#2d5a27" stroke-width="0.5" fill="none" opacity="0.4"/>
+                        <path d="M100,150 L108,200" stroke="#2d5a27" stroke-width="0.5" fill="none" opacity="0.4"/>
+                        <!-- 玉带 -->
+                        <rect x="28" y="128" width="74" height="5" fill="#ffd54f" fill-opacity="0.4" rx="1"/>
+
+                        <!-- 头 -->
+                        <circle cx="65" cy="66" r="30" fill="url(#tudi-face)" stroke="#d4a843" stroke-width="0.5"/>
+                        <!-- 员外帽(升级：加帽翅) -->
+                        <path d="M38,46 Q65,26 92,46 L87,54 Q65,42 43,54Z" fill="#2d5a27" stroke="#7cb342" stroke-width="1"/>
+                        <rect x="48" y="40" width="34" height="5" fill="#4a7c3f" rx="1"/>
+                        <!-- 帽翅(左右) -->
+                        <ellipse cx="30" cy="42" rx="10" ry="4" fill="#2d5a27" stroke="#7cb342" stroke-width="0.5" transform="rotate(-10,30,42)"/>
+                        <ellipse cx="100" cy="42" rx="10" ry="4" fill="#2d5a27" stroke="#7cb342" stroke-width="0.5" transform="rotate(10,100,42)"/>
+                        <!-- 帽上花 -->
+                        <circle cx="65" cy="37" r="3" fill="#ffd54f" stroke="#b8860b" stroke-width="0.5"/>
+
+                        <!-- 眼睛(慈祥微眯) -->
+                        <path d="M50,60 Q54,56 60,60" stroke="#3e2723" stroke-width="1.8" fill="none"/>
+                        <path d="M70,60 Q76,56 80,60" stroke="#3e2723" stroke-width="1.8" fill="none"/>
+                        <!-- 眼角皱纹(年长) -->
+                        <path d="M48,58 Q45,56 44,58" stroke="#c9a66b" stroke-width="0.5" fill="none"/>
+                        <path d="M82,58 Q85,56 86,58" stroke="#c9a66b" stroke-width="0.5" fill="none"/>
+                        <!-- 笑容 -->
+                        <path d="M53,74 Q65,83 77,74" stroke="#5d4037" stroke-width="1.5" fill="none"/>
+                        <!-- 法令纹 -->
+                        <path d="M48,68 Q46,72 48,76" stroke="#c9a66b" stroke-width="0.5" fill="none"/>
+                        <path d="M82,68 Q84,72 82,76" stroke="#c9a66b" stroke-width="0.5" fill="none"/>
+                        <!-- 白须(更丰满) -->
+                        <path d="M48,76 Q52,90 58,76" fill="#f5f5f5"/>
+                        <path d="M58,76 Q62,88 68,76" fill="#f0f0f0"/>
+                        <path d="M68,76 Q72,90 78,76" fill="#f5f5f5"/>
+                        <!-- 须尖 -->
+                        <path d="M52,88 Q50,94 52,98" stroke="#e8e8e8" stroke-width="0.6" fill="none"/>
+                        <path d="M72,88 Q74,94 72,98" stroke="#e8e8e8" stroke-width="0.6" fill="none"/>
+                        <!-- 拐杖(右手) -->
+                        <g transform="translate(100, 120)">
+                            <rect x="2" y="0" width="4" height="100" fill="#8d6e2e" stroke="#b8860b" stroke-width="0.5" rx="2"/>
+                            <path d="M0,0 Q4,-8 8,0" stroke="#8d6e2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        </g>
+                        <!-- 元宝(左手，发光) -->
+                        <ellipse cx="25" cy="220" rx="14" ry="9" fill="#ffd54f" stroke="#d4a843" stroke-width="0.5" filter="url(#tudi-glow)">
+                            <animate attributeName="opacity" values="1;0.8;1" dur="2s" repeatCount="indefinite"/>
+                        </ellipse>
+                    </g>
+
+                    <!-- 土地母（右，升级版） -->
+                    <g transform="translate(158, 25)">
+                        <!-- 红袍 -->
+                        <path d="M28,92 L16,250 L114,250 L102,92 Q65,82 28,92Z" fill="url(#tumiu-robe)" stroke="#ef5350" stroke-width="0.8"/>
+                        <!-- 袍上「德」字 -->
+                        <text x="65" y="178" font-size="24" fill="#ffd54f" text-anchor="middle" font-weight="900" font-family="'Noto Serif SC',serif" filter="url(#tudi-glow)">德</text>
+                        <!-- 袍纹 -->
+                        <path d="M35,140 Q45,132 55,140 Q50,145 45,143 Q38,146 35,140Z" fill="#ffd54f" fill-opacity="0.1"/>
+                        <path d="M75,155 Q85,147 95,155 Q90,160 85,158 Q78,161 75,155Z" fill="#ffd54f" fill-opacity="0.1"/>
+                        <!-- 袍褶 -->
+                        <path d="M30,150 L22,200" stroke="#8e0000" stroke-width="0.5" fill="none" opacity="0.3"/>
+                        <path d="M100,150 L108,200" stroke="#8e0000" stroke-width="0.5" fill="none" opacity="0.3"/>
+                        <!-- 玉带 -->
+                        <rect x="28" y="128" width="74" height="5" fill="#ffd54f" fill-opacity="0.4" rx="1"/>
+
+                        <!-- 头 -->
+                        <circle cx="65" cy="66" r="30" fill="url(#tumiu-face)" stroke="#ef5350" stroke-width="0.5"/>
+                        <!-- 凤冠(升级：更多珠宝) -->
+                        <path d="M38,46 Q50,30 65,36 Q80,30 92,46 L87,52 Q65,40 43,52Z" fill="#c62828" stroke="#ffd54f" stroke-width="0.8"/>
+                        <rect x="48" y="40" width="34" height="5" fill="#d32f2f" rx="1"/>
+                        <!-- 冠上珠宝 -->
+                        <circle cx="65" cy="34" r="4" fill="#ffd54f" stroke="#b8860b" stroke-width="0.5"/>
+                        <circle cx="52" cy="38" r="2.5" fill="#4fc3f7" stroke="#b8860b" stroke-width="0.3"/>
+                        <circle cx="78" cy="38" r="2.5" fill="#4fc3f7" stroke="#b8860b" stroke-width="0.3"/>
+                        <circle cx="58" cy="36" r="1.5" fill="#ef5350"/>
+                        <circle cx="72" cy="36" r="1.5" fill="#ef5350"/>
+                        <!-- 发髻(更饱满) -->
+                        <ellipse cx="65" cy="47" rx="27" ry="10" fill="#3e2723"/>
+                        <ellipse cx="65" cy="43" rx="22" ry="6" fill="#4e342e"/>
+                        <!-- 发簪 -->
+                        <line x1="42" y1="45" x2="88" y2="45" stroke="#ffd54f" stroke-width="1"/>
+                        <circle cx="42" cy="45" r="2" fill="#ffd54f"/>
+                        <circle cx="88" cy="45" r="2" fill="#ffd54f"/>
+                        <!-- 垂珠 -->
+                        <line x1="45" y1="47" x2="44" y2="56" stroke="#ffd54f" stroke-width="0.5"/>
+                        <circle cx="44" cy="57" r="1.5" fill="#ffd54f"/>
+                        <line x1="85" y1="47" x2="86" y2="56" stroke="#ffd54f" stroke-width="0.5"/>
+                        <circle cx="86" cy="57" r="1.5" fill="#ffd54f"/>
+
+                        <!-- 眼睛(温润) -->
+                        <ellipse cx="53" cy="60" rx="4.5" ry="3.5" fill="#3e2723"/>
+                        <ellipse cx="77" cy="60" rx="4.5" ry="3.5" fill="#3e2723"/>
+                        <circle cx="54" cy="59" r="1" fill="#5d4037"/>
+                        <circle cx="78" cy="59" r="1" fill="#5d4037"/>
+                        <!-- 眉毛(细长) -->
+                        <path d="M47,56 Q53,53 60,55" stroke="#4e342e" stroke-width="1" fill="none"/>
+                        <path d="M70,55 Q77,53 83,56" stroke="#4e342e" stroke-width="1" fill="none"/>
+                        <!-- 笑容(温婉) -->
+                        <path d="M55,74 Q65,82 75,74" stroke="#8d6e63" stroke-width="1.3" fill="none"/>
+                        <!-- 腮红 -->
+                        <ellipse cx="48" cy="70" rx="5" ry="3" fill="#ef9a9a" opacity="0.3"/>
+                        <ellipse cx="82" cy="70" rx="5" ry="3" fill="#ef9a9a" opacity="0.3"/>
+
+                        <!-- 手持如意(升级) -->
+                        <g transform="translate(90, 145)">
+                            <rect x="5" y="15" width="3" height="50" fill="#8d6e2e" stroke="#b8860b" stroke-width="0.3" rx="1"/>
+                            <!-- 如意头 -->
+                            <path d="M0,0 Q6,-10 15,-5 Q20,0 15,8 Q10,12 5,10 Q0,8 0,0Z" fill="#ffd54f" stroke="#b8860b" stroke-width="0.5"/>
+                            <circle cx="8" cy="3" r="2.5" fill="#4fc3f7" stroke="#b8860b" stroke-width="0.3"/>
+                            <!-- 如意纹 -->
+                            <path d="M3,2 Q8,-1 13,2" stroke="#b8860b" stroke-width="0.3" fill="none"/>
+                        </g>
                     </g>
                 </svg>
             </div>
@@ -483,52 +730,188 @@
         </div>
         <div class="side-hall-container">
             <div class="hall-shrine">
-                <svg viewBox="0 0 260 300" xmlns="http://www.w3.org/2000/svg" class="deity-svg">
+                <svg viewBox="0 0 260 320" xmlns="http://www.w3.org/2000/svg" class="deity-svg">
                     <defs>
-                        <radialGradient id="mazu-aura" cx="50%" cy="45%" r="50%">
-                            <stop offset="0%" stop-color="#42a5f5" stop-opacity="0.2"/>
+                        <radialGradient id="mazu-aura" cx="50%" cy="42%" r="50%">
+                            <stop offset="0%" stop-color="#42a5f5" stop-opacity="0.25"/>
+                            <stop offset="60%" stop-color="#42a5f5" stop-opacity="0.08"/>
                             <stop offset="100%" stop-color="#42a5f5" stop-opacity="0"/>
                         </radialGradient>
                         <linearGradient id="mazu-robe" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#1565c0"/>
-                            <stop offset="50%" stop-color="#0d47a1"/>
+                            <stop offset="0%" stop-color="#1976d2"/>
+                            <stop offset="30%" stop-color="#1565c0"/>
+                            <stop offset="70%" stop-color="#0d47a1"/>
                             <stop offset="100%" stop-color="#0a3d91"/>
                         </linearGradient>
                         <linearGradient id="mazu-sash" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#ffd54f"/>
+                            <stop offset="0%" stop-color="#ffe082"/>
+                            <stop offset="50%" stop-color="#ffd54f"/>
                             <stop offset="100%" stop-color="#ffb300"/>
                         </linearGradient>
+                        <linearGradient id="mazu-face" x1="0.3" y1="0" x2="0.7" y2="1">
+                            <stop offset="0%" stop-color="#fce4c8"/>
+                            <stop offset="100%" stop-color="#e8c8a0"/>
+                        </linearGradient>
+                        <filter id="mazu-glow">
+                            <feGaussianBlur stdDeviation="1.5" result="blur"/>
+                            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
                     </defs>
-                    <path d="M0,260 Q30,250 60,260 Q90,270 120,260 Q150,250 180,260 Q210,270 260,260 L260,300 L0,300Z" fill="#1565c0" fill-opacity="0.3">
-                        <animate attributeName="d" values="M0,260 Q30,250 60,260 Q90,270 120,260 Q150,250 180,260 Q210,270 260,260 L260,300 L0,300Z;M0,260 Q30,270 60,260 Q90,250 120,260 Q150,270 180,260 Q210,250 260,260 L260,300 L0,300Z;M0,260 Q30,250 60,260 Q90,270 120,260 Q150,250 180,260 Q210,270 260,260 L260,300 L0,300Z" dur="4s" repeatCount="indefinite"/>
+
+                    <!-- 海浪(多层) -->
+                    <path d="M0,275 Q25,265 50,275 Q75,285 100,275 Q125,265 150,275 Q175,285 200,275 Q225,265 260,275 L260,320 L0,320Z" fill="#0d47a1" fill-opacity="0.4">
+                        <animate attributeName="d" values="M0,275 Q25,265 50,275 Q75,285 100,275 Q125,265 150,275 Q175,285 200,275 Q225,265 260,275 L260,320 L0,320Z;M0,275 Q25,285 50,275 Q75,265 100,275 Q125,285 150,275 Q175,265 200,275 Q225,285 260,275 L260,320 L0,320Z;M0,275 Q25,265 50,275 Q75,285 100,275 Q125,265 150,275 Q175,285 200,275 Q225,265 260,275 L260,320 L0,320Z" dur="4s" repeatCount="indefinite"/>
                     </path>
-                    <ellipse cx="130" cy="130" rx="120" ry="140" fill="url(#mazu-aura)">
-                        <animate attributeName="ry" values="140;145;140" dur="5s" repeatCount="indefinite"/>
-                    </ellipse>
-                    <path d="M80,115 L65,260 L195,260 L180,115 Q130,105 80,115Z" fill="url(#mazu-robe)" stroke="#42a5f5" stroke-width="1"/>
-                    <text x="130" y="200" font-size="32" fill="#ffd54f" text-anchor="middle" font-weight="900" font-family="'Noto Serif SC',serif">聖</text>
-                    <rect x="78" y="135" width="104" height="6" fill="url(#mazu-sash)" rx="1"/>
-                    <path d="M95,150 Q105,142 115,152 Q110,157 105,155 Q100,157 95,150Z" fill="#ffd54f" fill-opacity="0.15"/>
-                    <path d="M145,160 Q155,152 165,162 Q160,167 155,165 Q150,167 145,160Z" fill="#ffd54f" fill-opacity="0.15"/>
-                    <ellipse cx="130" cy="75" rx="30" ry="35" fill="#f5d5b5" stroke="#d4a843" stroke-width="0.5"/>
-                    <path d="M95,55 Q110,35 130,40 Q150,35 165,55 L160,60 Q130,48 100,60Z" fill="#ffd54f" stroke="#d4a843" stroke-width="1"/>
-                    <rect x="105" y="50" width="50" height="6" fill="#ffb300" rx="1"/>
-                    <circle cx="130" cy="38" r="5" fill="#ef5350" stroke="#ffd54f" stroke-width="0.8">
-                        <animate attributeName="r" values="5;5.5;5" dur="2s" repeatCount="indefinite"/>
+                    <path d="M0,282 Q30,275 60,282 Q90,290 120,282 Q150,275 180,282 Q210,290 260,282 L260,320 L0,320Z" fill="#1565c0" fill-opacity="0.3">
+                        <animate attributeName="d" values="M0,282 Q30,275 60,282 Q90,290 120,282 Q150,275 180,282 Q210,290 260,282 L260,320 L0,320Z;M0,282 Q30,290 60,282 Q90,275 120,282 Q150,290 180,282 Q210,275 260,282 L260,320 L0,320Z;M0,282 Q30,275 60,282 Q90,290 120,282 Q150,275 180,282 Q210,290 260,282 L260,320 L0,320Z" dur="5s" repeatCount="indefinite"/>
+                    </path>
+                    <!-- 浪花 -->
+                    <circle cx="30" cy="278" r="2" fill="#42a5f5" opacity="0.5">
+                        <animate attributeName="cy" values="278;273;278" dur="3s" repeatCount="indefinite"/>
                     </circle>
-                    <ellipse cx="130" cy="52" rx="28" ry="8" fill="#3e2723"/>
-                    <ellipse cx="118" cy="70" rx="5" ry="3.5" fill="#3e2723"/>
-                    <ellipse cx="142" cy="70" rx="5" ry="3.5" fill="#3e2723"/>
-                    <path d="M120,84 Q130,90 140,84" stroke="#5d4037" stroke-width="1.2" fill="none"/>
-                    <g transform="translate(170, 140)">
-                        <rect x="5" y="0" width="8" height="50" fill="#e8e8e8" stroke="#d4a843" stroke-width="0.5" rx="2"/>
-                        <rect x="3" y="0" width="12" height="8" fill="#ffd54f" stroke="#d4a843" stroke-width="0.5" rx="1"/>
+                    <circle cx="130" cy="275" r="2.5" fill="#42a5f5" opacity="0.4">
+                        <animate attributeName="cy" values="275;270;275" dur="3.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="220" cy="278" r="2" fill="#42a5f5" opacity="0.5">
+                        <animate attributeName="cy" values="278;273;278" dur="2.8s" repeatCount="indefinite"/>
+                    </circle>
+
+                    <!-- 飞鸟剪影 -->
+                    <path d="M20,40 Q25,35 30,38 Q35,35 40,40" stroke="#1a1a2e" stroke-width="1" fill="none" opacity="0.3"/>
+                    <path d="M200,55 Q204,51 208,54 Q212,51 216,55" stroke="#1a1a2e" stroke-width="0.8" fill="none" opacity="0.25"/>
+
+                    <!-- 神光 -->
+                    <ellipse cx="130" cy="125" rx="120" ry="135" fill="url(#mazu-aura)">
+                        <animate attributeName="ry" values="135;142;135" dur="5s" repeatCount="indefinite"/>
+                    </ellipse>
+
+                    <!-- 千里眼(左简化) -->
+                    <g transform="translate(15, 155)">
+                        <rect x="5" y="0" width="25" height="50" fill="#37474f" stroke="#546e7a" stroke-width="0.5" rx="3"/>
+                        <circle cx="17" cy="8" r="7" fill="#5d4037" stroke="#795548" stroke-width="0.5"/>
+                        <!-- 大眼(千里眼特征) -->
+                        <ellipse cx="17" cy="8" rx="4" ry="3.5" fill="#ffd54f"/>
+                        <circle cx="17" cy="8" r="2" fill="#1a1a2e"/>
+                        <!-- 手举望远 -->
+                        <path d="M25,15 Q32,10 35,5" stroke="#5d4037" stroke-width="2" fill="none"/>
+                        <circle cx="36" cy="4" r="3" fill="#795548" stroke="#5d4037" stroke-width="0.5"/>
                     </g>
-                    <g transform="translate(40, 155)">
-                        <path d="M10,0 L15,0 L18,30 L7,30Z" fill="#42a5f5" stroke="#1e88e5" stroke-width="0.5"/>
-                        <ellipse cx="12.5" cy="30" rx="8" ry="3" fill="#1e88e5"/>
-                        <path d="M12,0 Q8,-15 2,-10" stroke="#4caf50" stroke-width="1" fill="none"/>
-                        <path d="M12,0 Q15,-18 22,-12" stroke="#4caf50" stroke-width="1" fill="none"/>
+
+                    <!-- 顺风耳(右简化) -->
+                    <g transform="translate(218, 155)">
+                        <rect x="5" y="0" width="25" height="50" fill="#37474f" stroke="#546e7a" stroke-width="0.5" rx="3"/>
+                        <circle cx="17" cy="8" r="7" fill="#5d4037" stroke="#795548" stroke-width="0.5"/>
+                        <!-- 大耳(顺风耳特征) -->
+                        <ellipse cx="10" cy="8" rx="3" ry="5" fill="#8d6e63"/>
+                        <ellipse cx="17" cy="8" rx="3" ry="2.5" fill="#3e2723"/>
+                        <circle cx="17" cy="8" r="1.5" fill="#1a1a2e"/>
+                        <!-- 手举耳 -->
+                        <path d="M5,15 Q-2,10 -5,5" stroke="#5d4037" stroke-width="2" fill="none"/>
+                    </g>
+
+                    <!-- 袍 -->
+                    <path d="M78,112 L60,260 L200,260 L182,112 Q130,100 78,112Z" fill="url(#mazu-robe)" stroke="#42a5f5" stroke-width="1"/>
+                    <!-- 袍上海浪纹暗花 -->
+                    <path d="M90,160 Q100,155 110,160 Q115,155 125,160" stroke="#42a5f5" stroke-width="0.6" fill="none" opacity="0.2"/>
+                    <path d="M135,165 Q145,160 155,165 Q160,160 170,165" stroke="#42a5f5" stroke-width="0.6" fill="none" opacity="0.2"/>
+                    <path d="M100,200 Q110,195 120,200 Q125,195 135,200" stroke="#42a5f5" stroke-width="0.6" fill="none" opacity="0.2"/>
+                    <path d="M140,210 Q150,205 160,210" stroke="#42a5f5" stroke-width="0.6" fill="none" opacity="0.2"/>
+                    <!-- 袍上「聖」字 -->
+                    <text x="130" y="198" font-size="34" fill="#ffd54f" text-anchor="middle" font-weight="900" font-family="'Noto Serif SC',serif" filter="url(#mazu-glow)">聖</text>
+                    <!-- 腰带 -->
+                    <rect x="75" y="132" width="110" height="6" fill="url(#mazu-sash)" rx="1"/>
+                    <ellipse cx="130" cy="135" rx="6" ry="4" fill="#ffd54f" stroke="#b8860b" stroke-width="0.5"/>
+                    <!-- 云纹 -->
+                    <path d="M92,145 Q102,138 112,148 Q107,153 102,151 Q95,155 92,145Z" fill="#ffd54f" fill-opacity="0.12"/>
+                    <path d="M148,155 Q158,148 168,158 Q163,163 158,161 Q151,165 148,155Z" fill="#ffd54f" fill-opacity="0.12"/>
+                    <!-- 袍褶 -->
+                    <path d="M82,150 L68,220" stroke="#0a3d91" stroke-width="0.5" fill="none" opacity="0.3"/>
+                    <path d="M178,150 L192,220" stroke="#0a3d91" stroke-width="0.5" fill="none" opacity="0.3"/>
+                    <!-- 飘带(袖口) -->
+                    <path d="M78,140 Q55,160 50,180 Q48,175 55,160 Q60,145 75,135" fill="#1e88e5" fill-opacity="0.4" stroke="#42a5f5" stroke-width="0.3"/>
+                    <path d="M182,140 Q205,160 210,180 Q212,175 205,160 Q200,145 185,135" fill="#1e88e5" fill-opacity="0.4" stroke="#42a5f5" stroke-width="0.3"/>
+
+                    <!-- 头 (升级版) -->
+                    <ellipse cx="130" cy="72" rx="32" ry="38" fill="url(#mazu-face)" stroke="#d4a843" stroke-width="0.5"/>
+                    <!-- 白毫相(额头) -->
+                    <circle cx="130" cy="52" r="3" fill="#ffd54f" stroke="#b8860b" stroke-width="0.5" filter="url(#mazu-glow)">
+                        <animate attributeName="r" values="3;3.5;3" dur="3s" repeatCount="indefinite"/>
+                    </circle>
+                    <!-- 冠冕(升级：垂珠+珠宝) -->
+                    <path d="M92,50 Q108,30 130,36 Q152,30 168,50 L163,56 Q130,44 97,56Z" fill="#ffd54f" stroke="#d4a843" stroke-width="1"/>
+                    <rect x="103" y="46" width="54" height="6" fill="#ffb300" rx="1"/>
+                    <!-- 冠上珠宝 -->
+                    <circle cx="130" cy="33" r="5.5" fill="#ef5350" stroke="#ffd54f" stroke-width="0.8" filter="url(#mazu-glow)">
+                        <animate attributeName="r" values="5.5;6.2;5.5" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="129" cy="32" r="1.8" fill="#ff8a80" opacity="0.5"/>
+                    <circle cx="115" cy="38" r="2.5" fill="#4fc3f7" stroke="#b8860b" stroke-width="0.3"/>
+                    <circle cx="145" cy="38" r="2.5" fill="#4fc3f7" stroke="#b8860b" stroke-width="0.3"/>
+                    <!-- 垂珠(左右) -->
+                    <line x1="98" y1="52" x2="96" y2="68" stroke="#ffd54f" stroke-width="0.6"/>
+                    <circle cx="96" cy="70" r="2" fill="#ffd54f"/>
+                    <line x1="96" y1="72" x2="95" y2="80" stroke="#ffd54f" stroke-width="0.4"/>
+                    <circle cx="95" cy="82" r="1.5" fill="#ffd54f"/>
+                    <line x1="162" y1="52" x2="164" y2="68" stroke="#ffd54f" stroke-width="0.6"/>
+                    <circle cx="164" cy="70" r="2" fill="#ffd54f"/>
+                    <line x1="164" y1="72" x2="165" y2="80" stroke="#ffd54f" stroke-width="0.4"/>
+                    <circle cx="165" cy="82" r="1.5" fill="#ffd54f"/>
+                    <!-- 发髻(更饱满) -->
+                    <ellipse cx="130" cy="48" rx="30" ry="10" fill="#3e2723"/>
+                    <ellipse cx="130" cy="44" rx="24" ry="6" fill="#4e342e"/>
+                    <!-- 珠花 -->
+                    <circle cx="108" cy="46" r="2" fill="#ef5350"/>
+                    <circle cx="152" cy="46" r="2" fill="#ef5350"/>
+
+                    <!-- 眼睛(慈悲) -->
+                    <ellipse cx="118" cy="67" rx="5.5" ry="4" fill="#3e2723"/>
+                    <ellipse cx="142" cy="67" rx="5.5" ry="4" fill="#3e2723"/>
+                    <circle cx="119" cy="66" r="2" fill="#5d4037"/>
+                    <circle cx="143" cy="66" r="2" fill="#5d4037"/>
+                    <!-- 眼白高光 -->
+                    <circle cx="117" cy="65" r="1" fill="#8d6e63" opacity="0.5"/>
+                    <circle cx="141" cy="65" r="1" fill="#8d6e63" opacity="0.5"/>
+                    <!-- 眉毛(细长) -->
+                    <path d="M110,61 Q115,58 124,60" stroke="#4e342e" stroke-width="1.2" fill="none"/>
+                    <path d="M136,60 Q145,58 150,61" stroke="#4e342e" stroke-width="1.2" fill="none"/>
+                    <!-- 鼻子 -->
+                    <path d="M127,74 L130,80 L133,74" stroke="#c9a66b" stroke-width="0.8" fill="none"/>
+                    <!-- 慈悲笑容 -->
+                    <path d="M118,85 Q130,92 142,85" stroke="#8d6e63" stroke-width="1.2" fill="none"/>
+                    <!-- 腮红 -->
+                    <ellipse cx="112" cy="78" rx="5" ry="3" fill="#ef9a9a" opacity="0.25"/>
+                    <ellipse cx="148" cy="78" rx="5" ry="3" fill="#ef9a9a" opacity="0.25"/>
+
+                    <!-- 右手持玉圭(升级) -->
+                    <g transform="translate(175, 135)">
+                        <rect x="5" y="5" width="8" height="55" fill="#e8e8e8" stroke="#d4a843" stroke-width="0.5" rx="2"/>
+                        <rect x="3" y="0" width="12" height="8" fill="#ffd54f" stroke="#d4a843" stroke-width="0.5" rx="1"/>
+                        <!-- 圭上纹 -->
+                        <line x1="7" y1="15" x2="11" y2="15" stroke="#d4a843" stroke-width="0.3"/>
+                        <line x1="7" y1="25" x2="11" y2="25" stroke="#d4a843" stroke-width="0.3"/>
+                        <line x1="7" y1="35" x2="11" y2="35" stroke="#d4a843" stroke-width="0.3"/>
+                    </g>
+
+                    <!-- 左手净瓶(升级：莲纹+柳枝) -->
+                    <g transform="translate(35, 148)">
+                        <!-- 瓶身 -->
+                        <path d="M8,0 L14,0 L18,35 L4,35Z" fill="#42a5f5" stroke="#1e88e5" stroke-width="0.8"/>
+                        <ellipse cx="11" cy="35" rx="9" ry="3.5" fill="#1e88e5"/>
+                        <!-- 瓶口 -->
+                        <rect x="6" y="-3" width="10" height="4" fill="#1e88e5" stroke="#1565c0" stroke-width="0.5" rx="1"/>
+                        <!-- 莲纹 -->
+                        <path d="M8,12 Q11,8 14,12" stroke="#ffd54f" stroke-width="0.5" fill="none"/>
+                        <path d="M7,18 Q11,14 15,18" stroke="#ffd54f" stroke-width="0.5" fill="none"/>
+                        <path d="M8,24 Q11,20 14,24" stroke="#ffd54f" stroke-width="0.5" fill="none"/>
+                        <!-- 柳枝(更细腻) -->
+                        <path d="M11,-3 Q6,-20 0,-18" stroke="#4caf50" stroke-width="1" fill="none"/>
+                        <path d="M11,-3 Q14,-22 22,-18" stroke="#4caf50" stroke-width="1" fill="none"/>
+                        <path d="M11,-3 Q8,-25 5,-28" stroke="#66bb6a" stroke-width="0.8" fill="none"/>
+                        <!-- 柳叶 -->
+                        <ellipse cx="-1" cy="-18" rx="3" ry="1.2" fill="#66bb6a" transform="rotate(-30,-1,-18)"/>
+                        <ellipse cx="23" cy="-18" rx="3" ry="1.2" fill="#66bb6a" transform="rotate(25,23,-18)"/>
+                        <ellipse cx="4" cy="-28" rx="2.5" ry="1" fill="#81c784" transform="rotate(-15,4,-28)"/>
+                        <ellipse cx="10" cy="-26" rx="2" ry="0.8" fill="#81c784" transform="rotate(10,10,-26)"/>
                     </g>
                 </svg>
             </div>
