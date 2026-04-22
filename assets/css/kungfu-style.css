@@ -18,12 +18,40 @@
     --bamboo-green: #6b8e5a;
     --mist-gray: rgba(200, 190, 180, 0.3);
     
-    --font-cn: 'Noto Serif SC', 'Ma Shan Zheng', serif;
-    --font-display: 'ZCOOL XiaoWei', 'Ma Shan Zheng', cursive;
+    /* 功夫熊猫字体 */
+    --font-cn: 'Ma Shan Zheng', 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+    --font-display: 'Ma Shan Zheng', 'ZCOOL XiaoWei', cursive;
+    --font-en: 'Cinzel', 'Ma Shan Zheng', serif;
 }
 
-/* 功夫熊猫风格字体 */
-@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap');
+/* 功夫熊猫风格字体 - 全站统一 */
+* {
+    font-family: var(--font-cn) !important;
+}
+
+/* 英文也使用书法风格 */
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.title-main,
+.title-deity,
+.deity-title,
+.temple-motto,
+.btn-hero,
+.nav-links a,
+.brand-text,
+.loading-text,
+.loading-sub,
+.stat-label,
+.section-title,
+.card-title,
+.card-text,
+.modal-title,
+.modal-content p,
+.footer-links a,
+.footer-copy {
+    font-family: var(--font-display) !important;
+    letter-spacing: 0.05em;
+}
 
 /* 全局背景 - 宣纸纹理 */
 body {
@@ -157,18 +185,42 @@ body {
     position: relative;
 }
 
-/* 神像图片样式 */
+/* 神像图片样式 - 卷轴画框 */
 .deity-image-container {
     position: relative;
-    border: 8px solid var(--kungfu-gold);
-    border-radius: 4px;
+    width: 320px;
+    height: 450px;
+    margin: 0 auto 1.5rem;
+    border: 12px solid var(--kungfu-gold);
+    border-radius: 8px;
     box-shadow: 
-        0 0 0 2px var(--kungfu-gold-light),
-        0 10px 40px rgba(0,0,0,0.2),
-        inset 0 0 60px rgba(212, 168, 74, 0.1);
+        0 0 0 3px var(--kungfu-gold-light),
+        0 0 0 6px var(--kungfu-gold-dark),
+        0 15px 50px rgba(0,0,0,0.25),
+        inset 0 0 80px rgba(212, 168, 74, 0.1);
     background: linear-gradient(135deg, #f4e8d0 0%, #e8d4b8 100%);
     overflow: hidden;
 }
+
+/* 卷轴上下轴 */
+.deity-image-container::before,
+.deity-image-container::after {
+    content: '';
+    position: absolute;
+    left: -20px;
+    right: -20px;
+    height: 16px;
+    background: linear-gradient(180deg, 
+        #8b4513 0%, 
+        #a0522d 30%, 
+        #cd853f 50%, 
+        #a0522d 70%, 
+        #8b4513 100%);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.deity-image-container::before { top: -14px; }
+.deity-image-container::after { bottom: -14px; }
 
 .deity-image-container::before {
     content: '';
@@ -191,13 +243,26 @@ body {
     filter: sepia(10%) contrast(1.05);
 }
 
-/* 神像标题 */
+/* 神像标题 - 大气书法风格 */
 .deity-title {
-    font-family: var(--font-display);
+    font-family: var(--font-display) !important;
     color: var(--kungfu-red-dark);
-    font-size: 1.8rem;
-    margin-top: 1.5rem;
-    text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+    font-size: 2.4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 
+        2px 2px 0 rgba(212, 168, 74, 0.3),
+        -1px -1px 0 rgba(255,255,255,0.5);
+    letter-spacing: 0.15em;
+    font-weight: 700;
+}
+
+.deity-subtitle {
+    font-family: var(--font-display) !important;
+    color: var(--ink-gray);
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
 }
 
 /* 按钮 - 功夫风格 */
