@@ -117,6 +117,87 @@
     z-index: 1;
 }
 
+/* 神像主标题 - 功夫熊猫金色立体风格 */
+.deity-main-title {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 15px 30px;
+    background: linear-gradient(180deg, 
+        rgba(139, 0, 0, 0.9) 0%, 
+        rgba(100, 0, 0, 0.95) 50%,
+        rgba(80, 0, 0, 0.9) 100%);
+    border-radius: 10px;
+    border: 3px solid #d4a84a;
+    box-shadow: 
+        0 5px 20px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+    position: relative;
+}
+
+.deity-main-title::before,
+.deity-main-title::after {
+    content: '◆';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #d4a84a;
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+.deity-main-title::before { left: 15px; }
+.deity-main-title::after { right: 15px; }
+
+.deity-name-cn {
+    font-family: var(--font-display) !important;
+    font-size: 4rem;
+    font-weight: 900;
+    color: #f0d890;
+    letter-spacing: 0.3em;
+    margin: 0;
+    text-shadow: 
+        /* 金色立体效果 */
+        0 1px 0 #c9a050,
+        0 2px 0 #b89040,
+        0 3px 0 #a08030,
+        0 4px 0 #907020,
+        0 5px 0 #806010,
+        0 6px 10px rgba(0,0,0,0.4),
+        /* 金色描边 */
+        -2px -2px 0 #b8860b,
+        2px -2px 0 #b8860b,
+        -2px 2px 0 #b8860b,
+        2px 2px 0 #b8860b,
+        /* 外发光 */
+        0 0 30px rgba(240, 216, 144, 0.5);
+    background: linear-gradient(180deg, 
+        #fff8dc 0%, 
+        #f0d890 30%,
+        #d4a84a 50%,
+        #c9a050 70%,
+        #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.deity-name-en {
+    font-family: var(--font-display) !important;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #f0d890;
+    letter-spacing: 0.15em;
+    margin: 10px 0 0 0;
+    text-shadow: 
+        0 1px 0 #c9a050,
+        0 2px 0 #b89040,
+        0 3px 0 #a08030,
+        0 4px 5px rgba(0,0,0,0.3),
+        -1px -1px 0 #b8860b,
+        1px -1px 0 #b8860b,
+        -1px 1px 0 #b8860b,
+        1px 1px 0 #b8860b;
+}
+
 .deity-shrine {
     display: flex;
     flex-direction: column;
@@ -272,4 +353,8 @@
     .deity-title { font-size: 1.5rem; }
     .btn-kungfu { padding: 12px 30px; font-size: 1.1rem; }
     .hero-stats { gap: 20px; }
+    
+    .deity-main-title { padding: 10px 20px; }
+    .deity-name-cn { font-size: 2.8rem; letter-spacing: 0.2em; }
+    .deity-name-en { font-size: 1.2rem; }
 }
