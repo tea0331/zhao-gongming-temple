@@ -7,8 +7,7 @@
     position: fixed;
     inset: 0;
     z-index: -1;
-    background: 
-        url('../img/bg-tiger-wealth.jpg') center center no-repeat;
+    background: url('assets/img/bg-tiger-wealth.jpg') center center no-repeat;
     background-size: cover;
 }
 
