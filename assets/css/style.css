@@ -1745,3 +1745,154 @@ footer {
 
 /* Lemon Squeezy override */
 .lemon-squeezy-button { background: linear-gradient(135deg, #ffd700, #ff8c00) !important; color: #1a1a2e !important; font-weight: 700 !important; border-radius: 8px !important; }
+
+/* ============ 区块分隔线 ============ */
+.section-divider {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 1rem;
+    color: var(--gold-dark);
+    letter-spacing: 0.5em;
+    position: relative;
+}
+.section-divider::before,
+.section-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 25%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 168, 67, 0.3), transparent);
+}
+.section-divider::before { left: 5%; }
+.section-divider::after { right: 5%; }
+
+/* ============ 善款公示区 ============ */
+.charity-section {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(180deg, var(--temple-bg), rgba(212, 168, 67, 0.03), var(--temple-bg));
+}
+
+.charity-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.charity-pledge {
+    background: var(--card-bg);
+    border: 1px solid rgba(212, 168, 67, 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.pledge-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.charity-pledge h3 {
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.15em;
+}
+
+.charity-pledge p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.charity-pledge strong {
+    color: var(--gold);
+    text-shadow: 0 0 8px rgba(212, 168, 67, 0.3);
+}
+
+.pledge-list {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+}
+
+.pledge-list li {
+    padding: 0.4rem 0;
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.charity-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.charity-stat-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(212, 168, 67, 0.15);
+    border-radius: 10px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.charity-stat-card:hover {
+    border-color: var(--gold-dark);
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-3px);
+}
+
+.charity-stat-num {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--gold);
+    text-shadow: 0 0 12px rgba(212, 168, 67, 0.4);
+    margin-bottom: 0.3rem;
+}
+
+.charity-stat-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.charity-records {
+    background: var(--card-bg);
+    border: 1px solid rgba(212, 168, 67, 0.15);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.charity-records h4 {
+    color: var(--gold);
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.charity-empty {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 1rem 0;
+    font-style: italic;
+}
+
+.charity-note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--gold-dark);
+    font-style: italic;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 480px) {
+    .charity-stats { grid-template-columns: 1fr; }
+    .charity-stat-num { font-size: 1.4rem; }
+    .charity-pledge { padding: 1.5rem; }
+}
