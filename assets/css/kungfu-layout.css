@@ -8,37 +8,8 @@
     inset: 0;
     z-index: -1;
     background: 
-        /* 远山层叠 - 水墨渲染 */
-        radial-gradient(ellipse 150% 80% at 50% 100%, 
-            rgba(60, 50, 40, 0.5) 0%, 
-            transparent 60%),
-        radial-gradient(ellipse 120% 60% at 15% 95%, 
-            rgba(80, 70, 60, 0.4) 0%, 
-            transparent 50%),
-        radial-gradient(ellipse 100% 50% at 85% 90%, 
-            rgba(70, 60, 50, 0.45) 0%, 
-            transparent 55%),
-        /* 祥云环绕 */
-        radial-gradient(ellipse 80% 40% at 25% 75%, 
-            rgba(255, 248, 235, 0.7) 0%, 
-            transparent 50%),
-        radial-gradient(ellipse 70% 35% at 75% 70%, 
-            rgba(255, 248, 235, 0.6) 0%, 
-            transparent 50%),
-        radial-gradient(ellipse 60% 30% at 50% 65%, 
-            rgba(255, 250, 240, 0.5) 0%, 
-            transparent 45%),
-        /* 财路金光 */
-        radial-gradient(ellipse 40% 20% at 50% 85%, 
-            rgba(212, 168, 74, 0.2) 0%, 
-            transparent 60%),
-        /* 宣纸底色 */
-        linear-gradient(180deg, 
-            #faf6f0 0%, 
-            #f5efe6 25%,
-            #ebe4d6 50%,
-            #e0d6c8 75%,
-            #d4c8b8 100%);
+        url('../img/bg-tiger-wealth.jpg') center center no-repeat;
+    background-size: cover;
 }
 
 /* 水墨山峰SVG装饰 - 黑虎踏财路 */
@@ -161,7 +132,7 @@
     z-index: 1;
 }
 
-/* 神像庙宇牌匾风格 */
+/* 神像庙宇牌匾风格 - 土地公/妈祖殿风格 */
 .deity-temple-header {
     text-align: center;
     margin-bottom: 30px;
@@ -169,62 +140,69 @@
 
 .temple-plaque {
     display: inline-block;
-    padding: 20px 50px;
+    padding: 25px 60px;
     background: linear-gradient(180deg, 
-        #8B0000 0%, 
-        #6B0000 50%,
-        #4B0000 100%);
-    border: 4px solid #DAA520;
-    border-radius: 8px;
+        #1a1a1a 0%, 
+        #0d0d0d 50%,
+        #000000 100%);
+    border: 3px solid #c9a050;
+    border-radius: 4px;
     box-shadow: 
-        0 0 0 2px #8B0000,
-        0 0 0 4px #DAA520,
-        0 10px 30px rgba(0,0,0,0.4),
-        inset 0 1px 0 rgba(255,255,255,0.1);
+        0 0 0 1px #000,
+        0 0 0 3px #c9a050,
+        0 10px 40px rgba(0,0,0,0.5),
+        inset 0 1px 0 rgba(255,255,255,0.05);
     position: relative;
 }
 
-/* 牌匾装饰角 */
-.temple-plaque::before,
+/* 牌匾顶部装饰 */
+.temple-plaque::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 15px;
+    background: linear-gradient(180deg, #c9a050 0%, #8b6914 100%);
+    border-radius: 3px 3px 0 0;
+}
+
+/* 牌匾两侧装饰 */
 .temple-plaque::after {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 3px solid #DAA520;
-}
-.temple-plaque::before {
-    top: 8px;
-    left: 8px;
-    border-right: none;
-    border-bottom: none;
-}
-.temple-plaque::after {
-    bottom: 8px;
-    right: 8px;
-    border-left: none;
-    border-top: none;
+    top: 50%;
+    left: -12px;
+    right: -12px;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #c9a050 10%, 
+        #c9a050 90%, 
+        transparent 100%);
+    transform: translateY(-50%);
 }
 
 .deity-name-cn {
     font-family: 'Ma Shan Zheng', 'Noto Serif SC', serif !important;
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     font-weight: 700;
-    color: #FFD700;
-    letter-spacing: 0.4em;
+    color: #c9a050;
+    letter-spacing: 0.5em;
     margin: 0;
     text-shadow: 
-        2px 2px 0 #8B4513,
-        4px 4px 8px rgba(0,0,0,0.5);
+        0 0 10px rgba(201, 160, 80, 0.3),
+        2px 2px 4px rgba(0,0,0,0.8);
 }
 
 .deity-name-en {
     font-family: 'Cinzel', serif !important;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
-    color: #F0E68C;
-    letter-spacing: 0.2em;
-    margin: 8px 0 0 0;
+    color: #888;
+    letter-spacing: 0.3em;
+    margin: 10px 0 0 0;
     text-transform: uppercase;
 }
 
