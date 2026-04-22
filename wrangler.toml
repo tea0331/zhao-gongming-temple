@@ -1,0 +1,11 @@
+# Cloudflare Pages 配置
+name = "zhao-gongming-temple"
+compatibility_date = "2026-04-22"
+
+# 静态站点配置
+[site]
+bucket = "."
+
+# 自定义域名（后续配置）
+# [routes]
+# pattern = "zhao-gongming-temple.com/*"

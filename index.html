@@ -339,6 +339,7 @@
                     <button class="btn-secondary" id="deep-interpret-btn" data-i18n="divination.deep">
                         🔮 深度解签 ¥28/$4.99
                     </button>
+                    <a href="https://asuanai.lemonsqueezy.com/checkout/buy/placeholder-deep-reading" class="lemonsqueezy-button btn-secondary btn-payment-intl" style="display:none;">🔮 Deep Reading $4.99</a>
                     <button class="btn-secondary" id="new-stick-btn" data-i18n="divination.redraw">
                         再求一签
                     </button>
@@ -435,7 +436,9 @@
                     <li data-i18n="membership.monthly.f4">✅ 深度解签</li>
                     <li data-i18n="membership.monthly.f5">✅ 财运加持特效</li>
                 </ul>
-                <button class="btn-primary" data-i18n="membership.monthly.btn">开通福信</button>
+                <button class="btn-primary" data-plan="blessed-monthly" data-i18n="membership.monthly.btn">开通福信</button>
+                <!-- Lemon Squeezy 国际支付按钮（海外用户可见） -->
+                <a href="https://asuanai.lemonsqueezy.com/checkout/buy/placeholder-blessed" class="lemonsqueezy-button btn-primary btn-payment-intl" style="display:none;">💳 Pay $4.99/mo</a>
             </div>
             <div class="plan-card plan-vip">
                 <div class="plan-icon">🐉</div>
@@ -449,7 +452,8 @@
                     <li data-i18n="membership.vip.f4">✅ 财运加持特效</li>
                     <li data-i18n="membership.vip.f5">✅ 生日专属祈福</li>
                 </ul>
-                <button class="btn-primary" data-i18n="membership.vip.btn">开通虔信</button>
+                <button class="btn-primary" data-plan="devoted-monthly" data-i18n="membership.vip.btn">开通虔信</button>
+                <a href="https://asuanai.lemonsqueezy.com/checkout/buy/placeholder-devoted" class="lemonsqueezy-button btn-primary btn-payment-intl" style="display:none;">💳 Pay $12.99/mo</a>
             </div>
         </div>
         <div class="annual-plan">
@@ -458,7 +462,8 @@
                 <h3 data-i18n="membership.annual.name">🐉 大功德主（年费）</h3>
                 <p class="annual-price">¥588/年 <span class="annual-usd">$99/year</span></p>
                 <p data-i18n="membership.annual.desc">全部虔信权益 + 生日专属祈福 + 签诗历史回溯 + 专属道长祝祷</p>
-                <button class="btn-primary btn-lg" data-i18n="membership.annual.btn">成为大功德主</button>
+                <button class="btn-primary btn-lg" data-plan="grand-patron" data-i18n="membership.annual.btn">成为大功德主</button>
+                <a href="https://asuanai.lemonsqueezy.com/checkout/buy/placeholder-annual" class="lemonsqueezy-button btn-primary btn-lg btn-payment-intl" style="display:none;">💳 Pay $99/year</a>
             </div>
         </div>
     </section>
@@ -532,6 +537,8 @@
         </div>
     </footer>
 
+    <!-- Lemon Squeezy Checkout -->
+    <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
     <script src="assets/js/i18n.js"></script>
     <script src="assets/js/sticks-data.js"></script>
     <script src="assets/js/iching-data.js"></script>

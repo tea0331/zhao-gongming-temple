@@ -25,6 +25,7 @@
     // ============ 初始化 ============
     function init() {
         loadState();
+        detectRegion();
         initUI();
         initEvents();
         initIncenseDisplay();
@@ -37,6 +38,33 @@
             if (ls) ls.classList.add('fade-out');
             setTimeout(() => ls && ls.remove(), 800);
         }, 1500);
+    }
+
+    // ============ 地区检测 ============
+    function detectRegion() {
+        // 检测用户是否在国内：语言+时区
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        const lang = navigator.language || '';
+        State.isChina = timezone.startsWith('Asia/Shanghai') || lang.startsWith('zh-CN');
+    }
+
+    function showPaymentButtons() {
+        // 根据地区显示对应支付按钮
+        const intlBtns = document.querySelectorAll('.btn-payment-intl');
+        const cnBtns = document.querySelectorAll('[data-plan]');
+        if (State.isChina) {
+            // 国内用户：显示微信/支付宝按钮，隐藏Lemon Squeezy
+            intlBtns.forEach(b => b.style.display = 'none');
+            cnBtns.forEach(b => b.style.display = '');
+        } else {
+            // 海外用户：显示Lemon Squeezy，隐藏国内支付
+            intlBtns.forEach(b => b.style.display = '');
+            cnBtns.forEach(b => b.style.display = 'none');
+        }
+        // 重新初始化Lemon Squeezy（如果已加载）
+        if (window.createLemonSqueezy) {
+            window.createLemonSqueezy();
+        }
     }
 
     function loadState() {
@@ -78,6 +106,7 @@
         setLang(State.lang);
         updateIncenseUI();
         updateMeritUI();
+        showPaymentButtons();
 
         // Cylinder sticks
         const cylinderSticks = document.getElementById('cylinder-sticks');
