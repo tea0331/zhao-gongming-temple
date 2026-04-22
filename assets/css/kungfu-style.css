@@ -18,10 +18,10 @@
     --bamboo-green: #6b8e5a;
     --mist-gray: rgba(200, 190, 180, 0.3);
     
-    /* 功夫熊猫字体 */
-    --font-cn: 'Ma Shan Zheng', 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
-    --font-display: 'Ma Shan Zheng', 'ZCOOL XiaoWei', cursive;
-    --font-en: 'Cinzel', 'Ma Shan Zheng', serif;
+    /* 功夫熊猫海报字体 - 更有力量感 */
+    --font-cn: 'ZCOOL QingKe HuangYou', 'ZCOOL KuaiLe', 'Ma Shan Zheng', serif;
+    --font-display: 'ZCOOL QingKe HuangYou', 'ZCOOL KuaiLe', 'Ma Shan Zheng', cursive;
+    --font-en: 'ZCOOL QingKe HuangYou', 'Cinzel', serif;
 }
 
 /* 功夫熊猫风格字体 - 全站统一 */

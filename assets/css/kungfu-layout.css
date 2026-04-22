@@ -1,0 +1,275 @@
+/* ============================================
+   功夫熊猫风格 - 重新排版
+   ============================================ */
+
+/* 山水背景图层 */
+.landscape-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: 
+        /* 远山层叠 */
+        radial-gradient(ellipse 120% 60% at 50% 100%, 
+            rgba(100, 90, 80, 0.4) 0%, 
+            transparent 50%),
+        radial-gradient(ellipse 100% 50% at 20% 90%, 
+            rgba(120, 110, 100, 0.3) 0%, 
+            transparent 40%),
+        radial-gradient(ellipse 80% 40% at 80% 85%, 
+            rgba(110, 100, 90, 0.35) 0%, 
+            transparent 45%),
+        /* 云雾 */
+        radial-gradient(ellipse 60% 30% at 30% 70%, 
+            rgba(255, 250, 240, 0.6) 0%, 
+            transparent 50%),
+        radial-gradient(ellipse 50% 25% at 70% 60%, 
+            rgba(255, 250, 240, 0.5) 0%, 
+            transparent 50%),
+        /* 宣纸底色 */
+        linear-gradient(180deg, 
+            #f8f0e0 0%, 
+            #f0e6d0 30%,
+            #e8dcc0 60%,
+            #e0d0b0 100%);
+}
+
+/* 水墨山峰SVG装饰 */
+.mountain-layer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40vh;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.25;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400'%3E%3Cpath d='M0,400 L0,300 Q150,150 300,280 Q450,100 600,250 Q750,80 900,220 Q1050,120 1200,280 L1200,400 Z' fill='%236a5a4a'/%3E%3Cpath d='M0,400 L0,350 Q200,250 400,320 Q600,200 800,300 Q1000,220 1200,340 L1200,400 Z' fill='%238a7a6a' opacity='0.7'/%3E%3C/svg%3E") bottom center no-repeat;
+    background-size: cover;
+}
+
+/* 主布局 - 神像居中大气 */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 100px 20px 40px;
+    position: relative;
+}
+
+/* 顶部标题区 */
+.hero-header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* 主标题 - 大气磅礴 */
+.hero-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-main {
+    font-family: var(--font-display) !important;
+    font-size: 2.2rem;
+    color: var(--ink-black);
+    letter-spacing: 0.3em;
+    text-shadow: 
+        3px 3px 0 rgba(212, 168, 74, 0.4),
+        -1px -1px 0 rgba(255,255,255,0.8);
+    font-weight: 700;
+}
+
+.title-deity {
+    font-family: var(--font-display) !important;
+    font-size: 3.5rem;
+    color: var(--kungfu-red-dark);
+    letter-spacing: 0.2em;
+    text-shadow: 
+        4px 4px 0 rgba(212, 168, 74, 0.5),
+        -2px -2px 0 rgba(255,255,255,0.6);
+    font-weight: 900;
+}
+
+/* 庙宇宗旨 */
+.temple-motto {
+    font-family: var(--font-display) !important;
+    font-size: 1.8rem;
+    color: var(--kungfu-gold);
+    letter-spacing: 0.8em;
+    margin: 20px 0;
+    padding: 10px 30px;
+    border-top: 2px solid var(--kungfu-gold);
+    border-bottom: 2px solid var(--kungfu-gold);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 神像区域 - 居中突出 */
+.deity-section {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.deity-shrine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 神像画框 - 卷轴风格 */
+.deity-image-container {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 3/4;
+    position: relative;
+    border: 15px solid var(--kungfu-gold);
+    border-radius: 4px;
+    box-shadow: 
+        0 0 0 4px var(--kungfu-gold-light),
+        0 0 0 8px var(--kungfu-gold-dark),
+        0 20px 60px rgba(0,0,0,0.3),
+        inset 0 0 100px rgba(212, 168, 74, 0.15);
+    background: linear-gradient(135deg, #f8f0e0 0%, #e8dcc0 100%);
+    overflow: hidden;
+}
+
+/* 卷轴轴头 */
+.deity-image-container::before,
+.deity-image-container::after {
+    content: '';
+    position: absolute;
+    left: -25px;
+    right: -25px;
+    height: 20px;
+    background: linear-gradient(180deg, 
+        #6b4423 0%, 
+        #8b5a2b 20%,
+        #a06a35 40%,
+        #cd853f 50%,
+        #a06a35 60%,
+        #8b5a2b 80%, 
+        #6b4423 100%);
+    border-radius: 10px;
+    box-shadow: 
+        0 3px 10px rgba(0,0,0,0.4),
+        inset 0 1px 2px rgba(255,255,255,0.3);
+    z-index: 10;
+}
+.deity-image-container::before { top: -18px; }
+.deity-image-container::after { bottom: -18px; }
+
+.deity-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 神像下方标题 */
+.deity-title-section {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M0,10 Q25,0 50,10 Q75,20 100,10' stroke='%23d4a84a' stroke-width='0.5' fill='none' opacity='0.3'/%3E%3C/svg%3E") center top no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath d='M0,10 Q25,20 50,10 Q75,0 100,10' stroke='%23d4a84a' stroke-width='0.5' fill='none' opacity='0.3'/%3E%3C/svg%3E") center bottom no-repeat;
+}
+
+.deity-title {
+    font-family: var(--font-display) !important;
+    font-size: 2rem;
+    color: var(--kungfu-red-dark);
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+    text-shadow: 
+        2px 2px 0 rgba(212, 168, 74, 0.3),
+        -1px -1px 0 rgba(255,255,255,0.5);
+}
+
+.deity-subtitle {
+    font-family: var(--font-display) !important;
+    font-size: 1rem;
+    color: var(--ink-gray);
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+}
+
+/* 功能按钮区 */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn-kungfu {
+    font-family: var(--font-display) !important;
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    background: linear-gradient(180deg, var(--kungfu-red) 0%, var(--kungfu-red-dark) 100%);
+    color: #fff;
+    border: 3px solid var(--kungfu-gold);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 6px 20px rgba(196, 90, 74, 0.4),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+    letter-spacing: 0.15em;
+}
+
+.btn-kungfu:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 10px 30px rgba(196, 90, 74, 0.5),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* 统计数据 */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-num {
+    font-family: var(--font-display) !important;
+    font-size: 2rem;
+    color: var(--kungfu-gold);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.stat-label {
+    font-family: var(--font-display) !important;
+    font-size: 0.9rem;
+    color: var(--ink-gray);
+    margin-top: 5px;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .title-main { font-size: 1.5rem; letter-spacing: 0.2em; }
+    .title-deity { font-size: 2.2rem; letter-spacing: 0.1em; }
+    .temple-motto { font-size: 1.2rem; letter-spacing: 0.4em; }
+    .deity-image-container { max-width: 300px; }
+    .deity-title { font-size: 1.5rem; }
+    .btn-kungfu { padding: 12px 30px; font-size: 1.1rem; }
+    .hero-stats { gap: 20px; }
+}
