@@ -458,12 +458,14 @@ body {
     position: relative;
 }
 
-/* SVG Deity Portrait */
-#deity-svg {
+/* 赵公明神像图片 */
+.deity-image {
     width: 100%;
     height: 100%;
+    object-fit: contain;
     display: block;
-    filter: drop-shadow(0 0 20px rgba(212, 168, 67, 0.2));
+    filter: drop-shadow(0 0 20px rgba(212, 168, 67, 0.3));
+    border-radius: 8px;
 }
 
 /* Hide old CSS deity elements since SVG replaces them */
