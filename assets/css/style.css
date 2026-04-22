@@ -1479,7 +1479,7 @@ footer {
 }
 
 .mazu-section {
-    background: linear-gradient(180deg, rgba(13, 77, 161, 0.1), var(--temple-bg)) !important;
+    background: rgba(245, 240, 232, 0.88) !important;
 }
 
 .side-hall-container {
