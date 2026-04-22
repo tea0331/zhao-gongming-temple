@@ -1,0 +1,253 @@
+/* ============================================
+   功夫熊猫风格 - 赵公明财神庙
+   ============================================ */
+
+/* CSS Variables - 功夫熊猫配色 */
+:root {
+    /* 功夫熊猫风格：水墨山水 + 暖金朱红 */
+    --parchment: #f4e8d0;
+    --parchment-dark: #e8d4b8;
+    --parchment-light: #faf4e8;
+    --ink-black: #2a2a2a;
+    --ink-gray: #5a5a5a;
+    --ink-light: #8a8a8a;
+    --kungfu-gold: #d4a84a;
+    --kungfu-gold-light: #f0d890;
+    --kungfu-red: #c45a4a;
+    --kungfu-red-dark: #a03020;
+    --bamboo-green: #6b8e5a;
+    --mist-gray: rgba(200, 190, 180, 0.3);
+    
+    --font-cn: 'Noto Serif SC', 'Ma Shan Zheng', serif;
+    --font-display: 'ZCOOL XiaoWei', 'Ma Shan Zheng', cursive;
+}
+
+/* 功夫熊猫风格字体 */
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap');
+
+/* 全局背景 - 宣纸纹理 */
+body {
+    background: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"),
+        linear-gradient(180deg, #f4e8d0 0%, #e8d4b8 50%, #dcc8a8 100%);
+    color: var(--ink-black);
+}
+
+/* 水墨山水背景 */
+.mountain-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.15;
+    background: 
+        /* 远山 */
+        radial-gradient(ellipse 80% 40% at 20% 85%, #8a8a8a 0%, transparent 50%),
+        radial-gradient(ellipse 60% 35% at 80% 80%, #9a9a9a 0%, transparent 45%),
+        radial-gradient(ellipse 100% 50% at 50% 90%, #7a7a7a 0%, transparent 60%),
+        /* 云雾 */
+        radial-gradient(ellipse 40% 20% at 30% 60%, rgba(255,255,255,0.4) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 25% at 70% 50%, rgba(255,255,255,0.3) 0%, transparent 50%);
+}
+
+/* 竹子装饰 */
+.bamboo-decoration {
+    position: fixed;
+    width: 120px;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.2;
+}
+.bamboo-left {
+    left: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 400'%3E%3Cg fill='none' stroke='%236b8e5a' stroke-width='2'%3E%3Cpath d='M20,400 Q25,300 20,200 Q15,100 25,0'/%3E%3Cpath d='M50,400 Q45,300 55,200 Q60,100 50,0'/%3E%3Cpath d='M80,400 Q75,300 85,200 Q80,100 90,0'/%3E%3Cpath d='M20,350 L30,345'/%3E%3Cpath d='M50,280 L40,285'/%3E%3Cpath d='M80,320 L90,315'/%3E%3C/g%3E%3C/svg%3E") repeat-y;
+}
+.bamboo-right {
+    right: 0;
+    transform: scaleX(-1);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 400'%3E%3Cg fill='none' stroke='%236b8e5a' stroke-width='2'%3E%3Cpath d='M20,400 Q25,300 20,200 Q15,100 25,0'/%3E%3Cpath d='M50,400 Q45,300 55,200 Q60,100 50,0'/%3E%3Cpath d='M80,400 Q75,300 85,200 Q80,100 90,0'/%3E%3C/g%3E%3C/svg%3E") repeat-y;
+}
+
+/* 导航栏 - 卷轴风格 */
+#navbar {
+    background: linear-gradient(180deg, 
+        rgba(244, 232, 208, 0.98) 0%,
+        rgba(232, 212, 184, 0.98) 100%);
+    border-bottom: 3px double var(--kungfu-gold);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+#navbar.scrolled {
+    background: linear-gradient(180deg, 
+        rgba(244, 232, 208, 0.99) 0%,
+        rgba(232, 212, 184, 0.99) 100%);
+}
+
+.brand-text {
+    font-family: var(--font-display);
+    color: var(--kungfu-red-dark);
+    text-shadow: 1px 1px 0 rgba(212, 168, 74, 0.3);
+}
+
+/* Hero区域 - 功夫熊猫风格 */
+.hero-section {
+    background: 
+        /* 祥云 */
+        radial-gradient(ellipse 60% 30% at 50% 100%, rgba(212, 168, 74, 0.1) 0%, transparent 50%),
+        /* 暖色光晕 */
+        radial-gradient(ellipse 40% 40% at 50% 40%, rgba(244, 168, 100, 0.15) 0%, transparent 60%),
+        linear-gradient(180deg, #f4e8d0 0%, #e8d4b8 60%, #dcc8a8 100%);
+    position: relative;
+}
+
+/* 卷轴装饰边框 */
+.hero-section::before,
+.hero-section::after {
+    content: '';
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    height: 20px;
+    background: 
+        repeating-linear-gradient(90deg,
+            var(--kungfu-gold) 0px,
+            var(--kungfu-gold) 20px,
+            var(--kungfu-gold-light) 20px,
+            var(--kungfu-gold-light) 40px
+        );
+    opacity: 0.3;
+}
+.hero-section::before { top: 80px; }
+.hero-section::after { bottom: 20px; }
+
+/* 标题 - 书法风格 */
+.hero-title {
+    font-family: var(--font-display);
+}
+
+.title-main {
+    color: var(--ink-black);
+    text-shadow: 
+        2px 2px 0 rgba(212, 168, 74, 0.3),
+        -1px -1px 0 rgba(255,255,255,0.5);
+    letter-spacing: 0.2em;
+}
+
+.title-deity {
+    color: var(--kungfu-red-dark);
+    text-shadow: 
+        3px 3px 0 rgba(212, 168, 74, 0.4),
+        -1px -1px 0 rgba(255,255,255,0.5);
+    font-family: var(--font-display);
+}
+
+/* 庙宇宗旨 */
+.temple-motto {
+    color: var(--kungfu-gold);
+    font-family: var(--font-display);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* 神像区域 - 融入参考图风格 */
+.deity-section {
+    background: 
+        radial-gradient(ellipse at center, rgba(244, 232, 208, 0.8) 0%, transparent 70%),
+        linear-gradient(180deg, #e8d4b8 0%, #dcc8a8 100%);
+    position: relative;
+}
+
+/* 神像图片样式 */
+.deity-image-container {
+    position: relative;
+    border: 8px solid var(--kungfu-gold);
+    border-radius: 4px;
+    box-shadow: 
+        0 0 0 2px var(--kungfu-gold-light),
+        0 10px 40px rgba(0,0,0,0.2),
+        inset 0 0 60px rgba(212, 168, 74, 0.1);
+    background: linear-gradient(135deg, #f4e8d0 0%, #e8d4b8 100%);
+    overflow: hidden;
+}
+
+.deity-image-container::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: 
+        repeating-linear-gradient(45deg,
+            transparent,
+            transparent 10px,
+            rgba(196, 90, 74, 0.03) 10px,
+            rgba(196, 90, 74, 0.03) 20px
+        );
+    pointer-events: none;
+}
+
+.deity-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(10%) contrast(1.05);
+}
+
+/* 神像标题 */
+.deity-title {
+    font-family: var(--font-display);
+    color: var(--kungfu-red-dark);
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+}
+
+/* 按钮 - 功夫风格 */
+.btn-hero {
+    background: linear-gradient(180deg, var(--kungfu-red) 0%, var(--kungfu-red-dark) 100%);
+    color: var(--parchment-light);
+    border: 2px solid var(--kungfu-gold);
+    font-family: var(--font-display);
+    letter-spacing: 0.15em;
+    box-shadow: 
+        0 4px 15px rgba(196, 90, 74, 0.3),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.btn-hero:hover {
+    background: linear-gradient(180deg, var(--kungfu-red-dark) 0%, #802010 100%);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 20px rgba(196, 90, 74, 0.4),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* 卡片 - 宣纸风格 */
+.card {
+    background: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E"),
+        linear-gradient(135deg, rgba(250, 244, 232, 0.95) 0%, rgba(244, 232, 208, 0.95) 100%);
+    border: 1px solid rgba(212, 168, 74, 0.3);
+    box-shadow: 
+        0 4px 20px rgba(0,0,0,0.08),
+        inset 0 0 0 1px rgba(255,255,255,0.5);
+}
+
+/* 印章风格装饰 */
+.seal {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--kungfu-red);
+    color: var(--parchment-light);
+    font-family: var(--font-display);
+    border-radius: 4px;
+    transform: rotate(-3deg);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .bamboo-decoration { display: none; }
+    .deity-image-container {
+        width: 280px;
+        height: 380px;
+    }
+}
