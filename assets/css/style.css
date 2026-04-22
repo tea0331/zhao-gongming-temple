@@ -256,6 +256,7 @@ body {
 }
 
 .mobile-only { display: none; }
+.hidden { display: none !important; }
 
 /* Hero Section */
 .hero-section {
@@ -848,7 +849,7 @@ section {
 
 /* Divination Section */
 .divination-section {
-    background: linear-gradient(180deg, var(--temple-bg), rgba(13, 13, 26, 0.95));
+    background: rgba(245, 240, 232, 0.88);
 }
 
 .divination-panel {
@@ -1046,7 +1047,7 @@ section {
 
 /* I Ching Section */
 .iching-section {
-    background: linear-gradient(180deg, rgba(13, 13, 26, 0.95), var(--temple-bg));
+    background: rgba(245, 240, 232, 0.88);
 }
 
 .iching-panel {
@@ -1158,7 +1159,7 @@ section {
 
 /* Membership Section */
 .membership-section {
-    background: linear-gradient(180deg, var(--temple-bg), var(--black-light), var(--temple-bg));
+    background: rgba(245, 240, 232, 0.88);
     padding-bottom: 4rem;
 }
 
@@ -1569,7 +1570,7 @@ footer {
 /* ============ 开光法会样式 ============ */
 .kaiguang-section {
     padding: 5rem 1.5rem;
-    background: linear-gradient(180deg, var(--temple-bg), rgba(212, 168, 67, 0.05), var(--temple-bg));
+    background: rgba(245, 240, 232, 0.88);
 }
 
 .kaiguang-container {
@@ -1763,7 +1764,7 @@ footer {
 }
 
 /* Share Section */
-.share-section { padding: 3rem 1.5rem; text-align: center; background: linear-gradient(180deg, var(--temple-bg), var(--black-light)); }
+.share-section { padding: 3rem 1.5rem; text-align: center; background: rgba(245, 240, 232, 0.9); }
 .share-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; max-width: 500px; margin: 1.5rem auto 0; }
 .share-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.5rem; border-radius: 8px; border: none; cursor: pointer; font-family: var(--font-cn); font-size: 0.9rem; color: #fff; text-decoration: none; transition: var(--transition); }
 .share-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
@@ -1799,7 +1800,7 @@ footer {
 /* ============ 善款公示区 ============ */
 .charity-section {
     padding: 5rem 1.5rem;
-    background: linear-gradient(180deg, var(--temple-bg), rgba(212, 168, 67, 0.03), var(--temple-bg));
+    background: rgba(245, 240, 232, 0.88);
 }
 
 .charity-container {
