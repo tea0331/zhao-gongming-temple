@@ -1537,10 +1537,167 @@ footer {
     color: var(--text-secondary);
 }
 
+/* ============ 开光法会样式 ============ */
+.kaiguang-section {
+    padding: 5rem 1.5rem;
+    background: linear-gradient(180deg, var(--temple-bg), rgba(212, 168, 67, 0.05), var(--temple-bg));
+}
+
+.kaiguang-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.kaiguang-notice {
+    background: var(--card-bg);
+    border: 2px solid var(--gold-dark);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 40px rgba(212, 168, 67, 0.15);
+}
+
+.notice-seal {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.kaiguang-notice h3 {
+    font-size: 1.3rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.3rem;
+}
+
+.kaiguang-notice h4 {
+    font-size: 1.1rem;
+    color: var(--gold-dark);
+    margin-bottom: 1.5rem;
+}
+
+.notice-body {
+    text-align: left;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.notice-body p {
+    margin-bottom: 0.8rem;
+}
+
+.notice-body ul, .notice-body ol {
+    margin: 0.5rem 0 0.8rem 1.5rem;
+}
+
+.notice-body li {
+    margin-bottom: 0.3rem;
+}
+
+.notice-body strong {
+    color: var(--gold);
+}
+
+.kaiguang-countdown {
+    background: rgba(212, 168, 67, 0.08);
+    border: 1px solid rgba(212, 168, 67, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.kaiguang-countdown h4 {
+    color: var(--gold);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-num {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(212, 168, 67, 0.4);
+    line-height: 1;
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.3rem;
+}
+
+.kaiguang-schedule {
+    margin-bottom: 2rem;
+}
+
+.kaiguang-schedule h4 {
+    color: var(--gold);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.schedule-table th {
+    background: rgba(212, 168, 67, 0.1);
+    color: var(--gold);
+    padding: 0.6rem;
+    border-bottom: 1px solid rgba(212, 168, 67, 0.2);
+    font-weight: 700;
+}
+
+.schedule-table td {
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid rgba(212, 168, 67, 0.1);
+    color: var(--text-light);
+}
+
+.schedule-table tr.selected-date {
+    background: rgba(212, 168, 67, 0.15);
+    border: 1px solid var(--gold-dark);
+}
+
+.schedule-table tr.selected-date td {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.kaiguang-actions {
+    text-align: center;
+}
+
+.kaiguang-note {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: 0.8rem;
+}
+
 @media (max-width: 480px) {
     .hero-stats { flex-direction: column; gap: 0.5rem; }
     .incense-types { grid-template-columns: repeat(2, 1fr); }
     .gate-roof { width: 140px; }
+    .countdown-num { font-size: 1.8rem; }
+    .countdown-timer { gap: 0.8rem; }
+    .kaiguang-notice { padding: 1.5rem; }
 }
 
 @media (max-width: 768px) {

@@ -732,3 +732,65 @@
         init();
     }
 })();
+
+// ============ 开光倒计时（全局作用域） ============
+(function() {
+    const kaiguangDate = new Date('2026-05-17T10:00:00+08:00').getTime();
+    
+    function updateCountdown() {
+        const now = Date.now();
+        const diff = kaiguangDate - now;
+        
+        if (diff <= 0) {
+            const d = document.getElementById('cd-days');
+            const h = document.getElementById('cd-hours');
+            const m = document.getElementById('cd-mins');
+            const s = document.getElementById('cd-secs');
+            if (d) d.textContent = '🎉';
+            if (h) h.textContent = '开';
+            if (m) m.textContent = '光';
+            if (s) s.textContent = '了';
+            return;
+        }
+        
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        const dEl = document.getElementById('cd-days');
+        const hEl = document.getElementById('cd-hours');
+        const mEl = document.getElementById('cd-mins');
+        const sEl = document.getElementById('cd-secs');
+        if (dEl) dEl.textContent = days;
+        if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+        if (mEl) mEl.textContent = String(mins).padStart(2, '0');
+        if (sEl) sEl.textContent = String(secs).padStart(2, '0');
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // 开光报名
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target.id === 'attend-kaiguang') {
+            const name = prompt('请输入您的姓名 / Your name:');
+            if (name && name.trim()) {
+                e.target.textContent = '✅ 已报名 · ' + name.trim();
+                e.target.style.background = 'linear-gradient(135deg, #4caf50, #2e7d32)';
+                e.target.disabled = true;
+                // 保存报名信息
+                localStorage.setItem('kaiguang-signup', name.trim());
+            }
+        }
+    });
+
+    // 恢复报名状态
+    const savedSignup = localStorage.getItem('kaiguang-signup');
+    const attendBtn = document.getElementById('attend-kaiguang');
+    if (savedSignup && attendBtn) {
+        attendBtn.textContent = '✅ 已报名 · ' + savedSignup;
+        attendBtn.style.background = 'linear-gradient(135deg, #4caf50, #2e7d32)';
+        attendBtn.disabled = true;
+    }
+})();
