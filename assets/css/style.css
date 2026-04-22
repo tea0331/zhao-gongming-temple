@@ -326,6 +326,7 @@ body {
     letter-spacing: 0.3em;
     text-shadow: 0 0 30px rgba(212, 168, 67, 0.5);
     font-weight: 900;
+    white-space: nowrap;
 }
 
 .title-deity {
@@ -336,6 +337,27 @@ body {
     text-shadow: 0 0 40px rgba(212, 168, 67, 0.6), 0 0 80px rgba(196, 30, 58, 0.3);
     font-weight: 900;
     margin-top: 0.5rem;
+    white-space: nowrap;
+}
+
+.temple-motto {
+    font-size: 1.6rem;
+    color: var(--gold-light);
+    letter-spacing: 1em;
+    font-weight: 900;
+    margin: 0.8rem 0 0.5rem;
+    text-shadow: 0 0 25px rgba(212, 168, 67, 0.6), 0 0 50px rgba(196, 30, 58, 0.2);
+    position: relative;
+    display: inline-block;
+}
+
+.temple-motto::before,
+.temple-motto::after {
+    content: '◆';
+    font-size: 0.6rem;
+    vertical-align: middle;
+    margin: 0 0.5rem;
+    opacity: 0.6;
 }
 
 .hero-subtitle {
@@ -1423,8 +1445,9 @@ footer {
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .mobile-only { display: block; }
-    .title-main { font-size: 1.3rem; letter-spacing: 0.15em; }
-    .title-deity { font-size: 2.2rem; letter-spacing: 0.2em; }
+    .title-main { font-size: 1.2rem; letter-spacing: 0.15em; }
+    .title-deity { font-size: 1.8rem; letter-spacing: 0.15em; }
+    .temple-motto { font-size: 1.1rem; letter-spacing: 0.6em; }
     .hero-subtitle { font-size: 0.9rem; letter-spacing: 0.2em; }
     .hero-stats { gap: 1.5rem; }
     .stat-num { font-size: 1.3rem; }
