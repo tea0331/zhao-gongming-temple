@@ -1691,6 +1691,21 @@ footer {
     margin-top: 0.8rem;
 }
 
+.nav-hidden {
+    display: none !important;
+}
+
+.pending-tag {
+    display: inline-block;
+    background: rgba(196, 30, 58, 0.2);
+    color: var(--red);
+    font-size: 0.7rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(196, 30, 58, 0.3);
+    margin-left: 0.3rem;
+}
+
 @media (max-width: 480px) {
     .hero-stats { flex-direction: column; gap: 0.5rem; }
     .incense-types { grid-template-columns: repeat(2, 1fr); }

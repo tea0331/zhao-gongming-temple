@@ -43,8 +43,8 @@
                 <a href="#incense" data-i18n="nav.incense">上香</a>
                 <a href="#divination" data-i18n="nav.divination">求签</a>
                 <a href="#iching" data-i18n="nav.iching">算卦</a>
-                <a href="#tudi" data-i18n="nav.tudi">土地殿</a>
-                <a href="#mazu" data-i18n="nav.mazu">天后宫</a>
+                    <a href="#tudi" data-i18n="nav.tudi" class="nav-hidden" data-requires-permission="tudi">土地殿</a>
+                    <a href="#mazu" data-i18n="nav.mazu" class="nav-hidden" data-requires-permission="mazu">天后宫</a>
                 <a href="#membership" data-i18n="nav.membership">功德</a>
             </div>
             <div class="nav-actions">
@@ -523,8 +523,8 @@
         </div>
     </section>
 
-    <!-- 偏殿一：土地公土地母 -->
-    <section id="tudi" class="side-hall-section">
+    <!-- 偏殿一：土地公土地母（🔒 待神明允准后开放） -->
+    <section id="tudi" class="side-hall-section hidden" data-requires-permission="tudi">
         <div class="section-header">
             <h2>🏠 福德正神殿</h2>
             <p>土地公 · 土地母 · 保一方平安 · 佑五谷丰登</p>
@@ -722,8 +722,8 @@
         </div>
     </section>
 
-    <!-- 偏殿二：妈祖 -->
-    <section id="mazu" class="side-hall-section mazu-section">
+    <!-- 偏殿二：妈祖（🔒 待赴湄洲岛请示后开放） -->
+    <section id="mazu" class="side-hall-section mazu-section hidden" data-requires-permission="mazu">
         <div class="section-header">
             <h2>🌊 天后宫</h2>
             <p>天上圣母 · 护海女神 · 保佑平安 · 普度众生</p>
@@ -1009,8 +1009,8 @@
                     <p>届时将恭请：</p>
                     <ul>
                         <li>🏯 <strong>正殿</strong>：正一龙虎玄坛真君财神赵公明</li>
-                        <li>🏠 <strong>偏殿</strong>：福德正神土地公 · 土地母</li>
-                        <li>🌊 <strong>偏殿</strong>：天上圣母妈祖</li>
+                        <li>🏠 <strong>偏殿</strong>：福德正神土地公 · 土地母 <span class="pending-tag">🔒 待请示</span></li>
+                        <li>🌊 <strong>偏殿</strong>：天上圣母妈祖 <span class="pending-tag">🔒 待赴湄洲岛请示</span></li>
                     </ul>
                     <p>开光吉日择定依据老黄历，四月初一宜开光、祈福、祭祀，为大吉之日。</p>
                     <p>法会当日，线上庙宇将举行：</p>
